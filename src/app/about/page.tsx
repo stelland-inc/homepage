@@ -35,7 +35,6 @@ export default function About() {
     gsap.registerPlugin(ScrollTrigger);
     gsap.to(slider.current, {
         scrollTrigger: {
-            trigger: document.documentElement,
             scrub: 0.25,
             start: 0,
             end: window.innerHeight,

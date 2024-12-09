@@ -43,8 +43,6 @@ const nextConfig = {
   // Add this to ensure proper handling of client-side modules
   reactStrictMode: true,
   
-  // Optional: Improve performance and build times
-  swcMinify: true,
 };
 
 module.exports = nextConfig;
