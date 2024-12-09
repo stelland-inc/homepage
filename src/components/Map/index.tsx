@@ -14,7 +14,6 @@ interface MapProps {
   width?: string | number;
   height?: string | number;
   coordinates?: [number, number];
-  // Removed popupContent as it is not used
 }
 
 const Index: React.FC<MapProps> = ({

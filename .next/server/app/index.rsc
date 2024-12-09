@@ -1,0 +1,21 @@
+4:"$Sreact.fragment"
+5:I[4407,["264","static/chunks/264-00717914bafa1234.js","925","static/chunks/925-c7feb8b6ae432bf4.js","177","static/chunks/app/layout-9bd4b900e460d7b0.js"],"LanguageProvider"]
+6:I[3056,["264","static/chunks/264-00717914bafa1234.js","925","static/chunks/925-c7feb8b6ae432bf4.js","177","static/chunks/app/layout-9bd4b900e460d7b0.js"],"default"]
+7:I[5244,[],""]
+8:I[3866,[],""]
+9:I[7033,[],"ClientPageRoot"]
+a:I[3259,["66","static/chunks/dc112a36-71532d1a8690bd02.js","264","static/chunks/264-00717914bafa1234.js","925","static/chunks/925-c7feb8b6ae432bf4.js","223","static/chunks/223-40f87ea74a360916.js","55","static/chunks/55-a131d04dddcfbe22.js","19","static/chunks/19-ffdf0540f7604092.js","974","static/chunks/app/page-1a8ccca6297ca264.js"],"default"]
+d:I[6213,[],"OutletBoundary"]
+f:I[3019,["66","static/chunks/dc112a36-71532d1a8690bd02.js","223","static/chunks/223-40f87ea74a360916.js","19","static/chunks/19-ffdf0540f7604092.js","209","static/chunks/app/loading-5254d583281e6696.js"],"default"]
+10:I[6213,[],"MetadataBoundary"]
+12:I[6213,[],"ViewportBoundary"]
+14:I[4835,[],""]
+1:HL["/_next/static/media/120a5a1920781bd0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+2:HL["/_next/static/css/8a21fe134f9379c2.css","style"]
+3:HL["/_next/static/css/191ea28ffeda84ef.css","style"]
+0:{"P":null,"b":"W99tOD6fS66alfb8EYlaB","p":"","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$4","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/8a21fe134f9379c2.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"className":"__className_c0d5fb antialiased","children":["$","$L5",null,{"children":[["$","$L6",null,{}],["$","$L7",null,{"parallelRouterKey":"children","segmentPath":["children"],"error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L8",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":"404"}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],"notFoundStyles":[]}]]}]}]}]]}],{"children":["__PAGE__",["$","$4","c",{"children":[["$","$L9",null,{"Component":"$a","searchParams":{},"params":{},"promises":["$@b","$@c"]}],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/191ea28ffeda84ef.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$Ld",null,{"children":"$Le"}]]}],{},null]},[["$","$Lf","l",{}],[],[]]],["$","$4","h",{"children":[null,["$","$4","jGDxx-NhAf5erksM0t57r",{"children":[["$","$L10",null,{"children":"$L11"}],["$","$L12",null,{"children":"$L13"}],["$","meta",null,{"name":"next-size-adjust"}]]}]]}]]],"m":"$undefined","G":["$14","$undefined"],"s":false,"S":true}
+b:{}
+c:{}
+13:[["$","meta","0",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+11:[["$","meta","0",{"charSet":"utf-8"}],["$","title","1",{"children":"Stella&Inc Entertainment"}],["$","meta","2",{"name":"description","content":"Stella&Inc Entertainment"}],["$","link","3",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"16x16"}]]
+e:null

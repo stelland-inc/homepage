@@ -1,6 +1,6 @@
 "use client";
-import { useLayoutEffect, useRef, useState } from 'react';
-import LeafletMap from "@/components/Map";
+import { useLayoutEffect, useRef, useState, useEffect } from 'react';
+// import LeafletMap from "@/components/Map";
 import { useLanguage } from '@/contexts/LanguageContext';
 
 import gsap from 'gsap';
@@ -13,7 +13,13 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { useMediaQuery } from '@mui/material';
+import dynamic from 'next/dynamic';
 
+const LeafletMap = dynamic(() => import('@/components/Map'), { 
+  ssr: false,
+  loading: () => <div>Loading map...</div>
+});
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,7 +29,7 @@ interface MapProps {
 
 export default function Contact() {
     const { language } = useLanguage();
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    const [isMobile, setIsMobile] = useState(false);
     const markers = [
         { position: [37.507392579613935, 127.05576783152004], title: "JS Tower" }
     ];
@@ -37,32 +43,43 @@ export default function Contact() {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    useEffect(() => {
+        // Check if window is defined to avoid SSR issues
+        if (typeof window !== 'undefined') {
+            setIsMobile(window.innerWidth <= 768);
+            const handleResize = () => {
+                setIsMobile(window.innerWidth <= 768);
+            };
+            
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
+        }
+    }, []);
 
     useLayoutEffect(() => {
         setIsVisible(true);
         return () => setIsVisible(false);
-      }, []);
+    }, []);
       
-      useGSAP(() => {
+    useGSAP(() => {
         if (contactContainerRef.current) {
-          gsap.fromTo(contactContainerRef.current, 
-            { opacity: 0, y: 50 },
-            {
-              opacity: 1,
-              y: 0,
-              ease: 'power1.inOut',
-              scrollTrigger: {
-                trigger: contactContainerRef.current,
-                start: 'top bottom-=100',
-                end: 'bottom center',
-                scrub: true,
-                markers: false, // Remove this in production
-              },
-            }
-          );
+            gsap.fromTo(contactContainerRef.current, 
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    ease: 'power1.inOut',
+                    scrollTrigger: {
+                        trigger: contactContainerRef.current,
+                        start: 'top bottom-=100',
+                        end: 'bottom center',
+                        scrub: true,
+                        markers: false, // Remove this in production
+                    },
+                }
+            );
         }
-      }, { scope: mainRef });
-  
+    }, { scope: mainRef });
 
     return (
         <main ref={mainRef} className={`${isVisible ? styles.fadeEffect : ''} `}>
@@ -116,7 +133,6 @@ export default function Contact() {
             </h1>
             <div className="flex md:flex-row flex-col items-center justify-center pt-20">
                 <LeafletMap
-                // popupContent={<p>JS Tower</p>}
                 markers={markers.map(marker => ({
                 lat: marker.position[0],
                 lng: marker.position[1],
