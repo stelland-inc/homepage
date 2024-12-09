@@ -1,0 +1,73 @@
+.postContent {
+    /* Basic content styling */
+    // @apply prose prose-invert max-w-none;
+    /* Headers */
+    h1 { 
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 1rem 0;
+    }
+    h2 { 
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0.5rem 0;
+    }
+    h3 { 
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin: 0.25rem 0;
+    }
+    
+    /* Paragraphs and lists */
+    p { 
+        margin: 1rem 0;
+        line-height: 1.5;
+    }
+    ul, ol { 
+        margin: 1rem 0;
+        margin-left: 1.5rem;
+    }
+    li { 
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Links */
+    a {
+        cursor: pointer;
+        color: #4096ff;
+        &:hover {
+            color: #2670e8;
+        }
+        text-decoration: underline;
+    }
+    
+    /* Code blocks */
+    pre { 
+        background-color: #f5f7fa;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin: 1rem 0;
+        overflow-x: auto;
+    }
+    code { 
+        background-color: #f5f7fa;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+    }
+    
+    /* Images */
+    img { 
+        width: 100%;
+        height: auto;
+        margin: 4rem 0;
+       
+    }
+    
+    /* Blockquotes */
+    blockquote {
+        border-left: 4px solid #606266;
+        padding-left: 1rem;
+        margin: 1rem 0;
+        font-style: italic;
+    }
+  }

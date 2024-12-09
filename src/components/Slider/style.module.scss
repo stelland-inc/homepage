@@ -1,0 +1,210 @@
+@mixin white-gradient {
+	background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+}
+
+  
+  .main {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 2rem 2rem 4rem;
+    background: var(--body-bg);
+    color: #212121;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+      "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: normal;
+
+    @include white-gradient;
+
+    p {
+        margin: 0;
+      }
+      
+  }
+
+  @media screen and (min-width: 768px) {
+    .main {
+      font-size: 100%;
+    }
+  }
+  @media screen and (min-width: 1920px) {
+    .main {
+      font-size: 125%;
+    }
+  }
+  @media screen and (min-width: 2560px) {
+    .main {
+      font-size: 150%;
+    }
+  }
+  
+  /* Heading */
+  .heading1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  /* reference */
+  .reference {
+    text-align: center;
+  }
+  
+  /* reference link */
+  .referenceLink {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  /* Carousel and animation css starts */
+  .rcCarousel {
+    @include white-gradient;
+    --box-gap: 1.5rem;
+    --tile-size: 8rem;
+    width: 100%;
+    max-width: calc(
+      (var(--tile-size) + var(--box-gap)) * ((var(--tiles) / 2) - 1)
+    );
+    margin: var(--box-gap) auto;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+  }
+  .rcCarousel::before,
+  .rcCarousel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 5rem;
+    height: 100%;
+    background-image: -webkit-gradient(
+      linear,
+      from(transparent),
+      to(var(--body-bg))
+    );
+    background-image: -o-linear-gradient(
+      var(--direction),
+      transparent,
+      var(--body-bg)
+    );
+    background-image: linear-gradient(
+      to var(--direction),
+      transparent,
+      var(--body-bg)
+    );
+    z-index: inherit;
+  }
+  .rcCarousel::before {
+    left: 0;
+    --direction: left;
+  }
+  
+  .rcCarousel::after {
+    right: 0;
+    --direction: right;
+  }
+  .rcCarouselStrip {
+  
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    -webkit-animation: slideX 20s linear infinite;
+    animation: slideX 20s linear infinite;
+  }
+  .rcCarouselStrip.reverse {
+    /* reverse animation */
+    animation-direction: reverse;
+  }
+
+
+  .reverseOrder {
+    .rcCarouselBox {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+
+
+  .rcCarouselStrip:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+  .rcCarouselBox {
+
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    gap: var(--box-gap);
+  }
+  
+  .rcCarouselItem {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: var(--tile-size);
+    height: var(--tile-size);
+    // box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .rcCarouselItemImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+    -o-object-position: center;
+    object-position: center;
+  }
+  
+  @-webkit-keyframes slideX {
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+    0% {
+      -webkit-transform: translateX(
+        calc(-1 * (var(--tile-size) + var(--box-gap)) * (var(--tiles) / 2))
+      );
+      transform: translateX(
+        calc(-1 * (var(--tile-size) + var(--box-gap)) * (var(--tiles) / 2))
+      );
+    }
+  }
+  
+  @keyframes slideX {
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+    0% {
+      -webkit-transform: translateX(
+        calc(-1 * (var(--tile-size) + var(--box-gap)) * (var(--tiles) / 2))
+      );
+      transform: translateX(
+        calc(-1 * (var(--tile-size) + var(--box-gap)) * (var(--tiles) / 2))
+      );
+    }
+  }
+  
+  /* Animation won't work if you preferes reduced motion */
+  @media (prefers-reduced-motion) {
+    /* styles to apply if a user's device settings are set to reduced motion */
+    .rcCarousel::before,
+    .rcCarousel::after {
+      display: none;
+    }
+    .rcCarouselBox {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .rcCarouselBox [aria-hidden="true"] {
+      display: none;
+    }
+    .rcCarouselStrip {
+      animation: none;
+    }
+  }
+ 

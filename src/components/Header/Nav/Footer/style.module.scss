@@ -1,0 +1,47 @@
+.footer{
+    display: flex;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    flex-wrap: wrap;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-top: 40px;
+
+    ul{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        margin-top: 10px;
+        overflow: hidden;
+        list-style-type: none;
+        margin-left: 30px;
+    }
+
+    li{
+        span{
+            color: #9f9689;
+        }
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .footer{
+        ul {
+            width: auto;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 900px) {
+    .footer {
+        ul {
+            margin-left: 0;
+        }
+    }
+}
