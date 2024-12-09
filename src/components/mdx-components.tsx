@@ -19,11 +19,8 @@ const components = {
 interface MdxProps {
   code: string;
 }
-export default function Mdx({ code }: MdxProps) {
+
+export function Mdx({ code }: MdxProps) {
   const Component = useMDXComponent(code);
-  return (
-    <div>
-      <Component components={components} />
-    </div>
-  );
+  return <Component />;
 }

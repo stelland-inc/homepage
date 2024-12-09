@@ -17,6 +17,10 @@ import Modal from '@mui/material/Modal';
 
 gsap.registerPlugin(ScrollTrigger);
 
+interface MapProps {
+    popupContent?: React.ReactNode;
+}
+
 export default function Contact() {
     const { language } = useLanguage();
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
@@ -110,9 +114,9 @@ export default function Contact() {
             <h1 className="text-4xl font-bold text-center uppercase pt-40 " >
                 Contact
             </h1>
-            <div className=" flex md:flex-row flex-col items-center justify-center pt-20" >
+            <div className="flex md:flex-row flex-col items-center justify-center pt-20">
                 <LeafletMap
-                popupContent={<p>JS Tower</p>}
+                // popupContent={<p>JS Tower</p>}
                 markers={markers.map(marker => ({
                 lat: marker.position[0],
                 lng: marker.position[1],

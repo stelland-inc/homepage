@@ -20,7 +20,6 @@ export async function generateStaticParams() {
   }));
 }
 
-// Update the fetchPost function to return the correct type
 async function fetchPost(slug: string): Promise<Post | undefined> {
   const posts: Post[] = getAllPosts() as Post[];
   return posts.find((post) => post.slug === slug);

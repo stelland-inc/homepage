@@ -3,26 +3,15 @@ import { getAllBlogPosts } from 'lib/posts';
 import { notFound } from 'next/navigation';
 import styles from './page.module.scss';
 
-// Define the Post type to include title, content, slug, and date
+const md = new MarkdownIt();
+
 type Post = {
   title: string;
   content: string;
   slug: string;
-  date: string;
+  date: string; 
+  summary: string;
 };
-
-// Define the PageProps type if it's not already defined
-// You might need to adjust this according to your actual PageProps definition
-type PageProps = {
-  params: {
-    slug: string;
-  };
-};
-
-// Define the props type for the page component
-type PostPageProps = PageProps; // Ensure PostPageProps satisfies PageProps
-
-const md = new MarkdownIt();
 
 export async function generateStaticParams() {
   const posts = getAllBlogPosts();
@@ -32,18 +21,21 @@ export async function generateStaticParams() {
   }));
 }
 
-// Update the fetchPost function to return the correct type
 async function fetchPost(slug: string): Promise<Post | undefined> {
   const posts: Post[] = getAllBlogPosts() as Post[];
   return posts.find((post) => post.slug === slug);
 }
 
-export default async function Post({ params }: PostPageProps) {
-  const { slug } = params; // Removed unnecessary await
-  const post = await fetchPost(slug);
+export default async function Post({ 
+  params 
+}: { 
+  params: Promise<{ slug: string }> 
+}) {
+  const resolvedParams = await params;
+  const post = await fetchPost(resolvedParams.slug);
 
   if (!post) {
-    notFound();
+    return <div>Post not found</div>;
   }
 
   const htmlContent = md.render(post.content);
@@ -53,7 +45,6 @@ export default async function Post({ params }: PostPageProps) {
       <div className="flex flex-col gap-4">
         <h1 className="text-center md:text-4xl text-xl font-bold uppercase">{post.title}</h1>
         <p className="text-center text-md text-gray-300">{post.date}</p>
-        {/* <p className="text-center text-md text-gray-300">{post.summary}</p> */}
       </div>
       <div className="max-w-screen-md mx-auto mt-10 ">
         <div className={`mb-32 ${styles.postContent}`} dangerouslySetInnerHTML={{ __html: htmlContent }} />
