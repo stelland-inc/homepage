@@ -59,9 +59,10 @@ export default function Business() {
 
             <div className="pt-0 text-left text-md text-black pb-10">
             {language === 'en' 
-            ? <p className="text-lg">+24 languages translation and localization experience. <br />
+            ? <p className="text-lg">We relize your global distribution and localization dreams. <br />
                Stella&Inc.’s global partners will help you out the flavor of the original text.</p>
-            : <p className="text-lg">+24 개 언어 번역 및 디자인 현지화 경험은 여러분의 글로벌화 비즈니스에 도움을 드립니다. <br /> 
+            : <p className="text-lg">귀사의 글로벌 도약을 실현하는 콘텐츠 크리에이티브 파트너 스텔라앤과 함께라면, <br/> 
+                콘텐츠가 전 세계로 더 많은 사람들에게 전달됩니다. <br /> 
                 크리에이티브 컨텐츠 회사의 글로벌 파트너가 되어 여러분의 비즈니스의 성장을 돕겠습니다.</p>
             }
             </div>
