@@ -16,7 +16,7 @@ export default function Section() {
     const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
     const paragraph = language == 'en' ? 
                   "Our mission is that to be the realization of your own desires, unlimited growth together, make the dreams come true." 
-                  : "우리는 기쁨을 찾아가는 여정, 평범한 일상을 넘어, 즐거운 순간으로 더 특별한 일상을 선물합니다. 여러분의 꿈을 이루어 보세요."
+                  : "우리는 기쁨을 찾아가는 여정, 평범한 일상을 넘어, 즐거운 순간으로 더 특별한 순간을 선물합니다. 여러분의 꿈을 이루어 보세요."
 
     return (
         <div
