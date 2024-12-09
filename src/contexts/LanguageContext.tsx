@@ -28,14 +28,13 @@ useEffect(() => {
 
 
   useEffect(() => {
-    setLanguage(localStorage.getItem('language') as Language || 'ko');
+    const savedLanguage = localStorage.getItem('language') as Language || 'ko';
+    setLanguage(savedLanguage);
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem('language', language);
-    if (language == 'ar') {
-      setIsRtl("rtl");
-    }
-    else {
-      setIsRtl("ltr")
-    }
+    setIsRtl(language === 'ar' ? "rtl" : "ltr");
   }, [language]);
 
 return (
