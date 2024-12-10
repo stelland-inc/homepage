@@ -13,13 +13,13 @@ export default function Toonyz() {
                 <div className='flex flex-col justify-start items-start gap-4 w-full'>
                     {/* <h2>{language === 'en' ? 'Toonyz' : '투니즈'}</h2> */}
                     <Image src='/toonyzLogo.png' alt='toonyz' width={150} height={100}/>
-                    <p className='text-md font-bold'>Global story platform</p>
-                    <p>
+                    <p className='md:text-2xl text-md font-bold'>Global story platform</p>
+                    <p className='md:text-2xl text-md'>
                   { language === 'en' ? <>
                                         Explore a world of diverse genres and captivating stories with us. <br /> 
                                         Enjoy your favorite story universe, between us, on Toonyz!</>
-                                      : <> 다양한 장르와 환상적인 이야기를 함께 즐겨주세요. <br /> 
-                                        좋아하는 이야기 세계를 즐겨주세요, 우리와 함께 투니즈에서!</>
+                                      : <> 다양한 장르와 환상적인 이야기를 함께 즐기세요. <br /> 
+                                        여러분이 좋아하는 이야기 세계로 떠나보세요.<br /> 우리와 투니즈에서 함께 하세요!</>
                   } <br/>
     
                     </p>

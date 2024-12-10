@@ -14,12 +14,12 @@ export default function About() {
                     About
                 </p>
                 {/* <hr className='w-full bg-black text-black' /> */}
-            <p className='text-md'>
+            <p className='text-lg'>
             <span className='font-bold text-red-400'>[Philosophy]</span>
             {language === 'ko' ? <>{' '}우리는 여러분의 콘텐츠를 글로벌화하는 파트너로서 함께합니다. 현실을 너머서 여러분의 이야기로 세상과 더 특별한 순간을 만들어냅니다.</>
             : <>{' '}Stella & is your global content partner for content globalization. </>}
             </p>
-            <p className='text-md'>
+            <p className='text-lg'>
             <span className='font-bold text-red-400'>[Mission]</span> 
             {language === 'ko' ? <>{' '}현실보다 더 특별한 순간을 선물합니다, 평범한 일상을 넘어, 특별한 순간으로.</>
             : <>{' '}Beyond reality, into your story, our world, more extraordinary than ever</>}

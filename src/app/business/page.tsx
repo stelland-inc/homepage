@@ -170,21 +170,21 @@ export default function Business() {
             <h2 className="md:text-6xl text-4xl font-bold mb-4 uppercase md:mt-0 mt-40">
                 {language === 'en' ? <>SERVICE</> : <>서비스</>}
             </h2>
-                   <ul className="flex md:flex-row flex-col gap-5 justify-center items-center pt-10">
-                    <li className="flex flex-col gap-5 justify-center items-center w-48">
-                    <Image src='/icons/business_01.png' alt='main icon 01' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
+                   <ul className="flex md:flex-row flex-col gap-5 justify-center items-center pt-10 text-xl">
+                    <li className="flex flex-col gap-5 justify-center items-center md:w-60 w-48">
+                    <Image src='/icons/business_01.png' alt='main icon 01' width={120} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
                     <p className="w-full h-10 text-center">{language === 'en' ? 'IP Management' : 'IP 매니지먼트'}</p>
                     </li>
-                    <li className="flex flex-col gap-5 justify-center items-center w-48">
-                    <Image src='/icons/business_04.png' alt='main icon 01' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200"/>
+                    <li className="flex flex-col gap-5 justify-center items-center md:w-60 w-48">
+                    <Image src='/icons/business_04.png' alt='main icon 01' width={120} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200"/>
                     <p className="w-full h-10 text-center">{language === 'en' ? 'Localization' : '현지화 번역'}</p>
                     </li>
-                    <li className="flex flex-col gap-5 justify-center items-center w-48">
-                    <Image src='/icons/business_02.png' alt='main icon 01' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200"/>
+                    <li className="flex flex-col gap-5 justify-center items-center  md:w-60 w-48">
+                    <Image src='/icons/business_02.png' alt='main icon 01' width={120} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200"/>
                     <p className="w-full h-10 text-center">{language === 'en' ? 'Media, Licensing, Adaptations' : '미디어, 라이센싱, 적용'}</p>
                     </li>
-                    <li className="flex flex-col gap-5 justify-center items-center w-48">
-                    <Image src='/icons/business_03.png' alt='main icon 01' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200"/>
+                    <li className="flex flex-col gap-5 justify-center items-center  md:w-60 w-48">
+                    <Image src='/icons/business_03.png' alt='main icon 01' width={120} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200"/>
                     <p className="w-full h-10 text-center">{language === 'en' ? 'Creator incubating' : '크리에이터 인큐베이팅'}</p>
                     </li>
                  </ul>
@@ -230,13 +230,13 @@ export default function Business() {
                 <div className='flex flex-col justify-start items-start gap-4'>
 
                     <Image src='/toonyzLogo.png' alt='toonyz' width={150} height={100}/>
-                    <p className='text-md font-bold'>Global story platform</p>
-                    <p>
+                    <p className='md:text-2xl text-md font-bold'>Global story platform</p>
+                    <p className='md:text-2xl text-md'>
                   { language === 'en' ? <>
                                         Explore a world of diverse genres and captivating stories with us. <br /> 
                                         Enjoy your favorite story universe, between us, on Toonyz!</>
-                                      : <> 다양한 장르와 환상적인 이야기를 함께 즐겨주세요. <br /> 
-                                        좋아하는 이야기 세계를 즐겨주세요, 우리와 함께 투니즈에서!</>
+                                      : <> 다양한 장르와 환상적인 이야기를 함께 즐기세요. <br /> 
+                                        여러분이 좋아하는 이야기 세계로 떠나보세요.<br /> 우리와 투니즈에서 함께 하세요!</>
                   } <br/>
     
                     </p>
