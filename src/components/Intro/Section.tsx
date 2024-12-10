@@ -24,7 +24,7 @@ export default function Section() {
         className='relative flex items-center justify-center h-screen overflow-hidden'
         style={{clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)"}}
         >
-        <div className='relative z-10 p-20 text-white w-full h-full flex flex-col justify-between'>
+        <div className='relative z-10 md:p-20 p-5 text-white w-full h-full flex flex-col justify-between'>
             <div className='!md:text-2xl !text-lg self-end uppercase leading-relaxed'>
                 {/*  mix-blend-difference */}
                 {/* {language === 'en' ?
@@ -34,7 +34,7 @@ export default function Section() {
 
                  <Word paragraph={paragraph} />
             </div>
-            <p className='text-[5vw] uppercase font-bold mb-0'> 
+            <p className='md:text-[5vw] text-[30px] md:leading-relaxed leading-none uppercase font-bold mb-0'> 
                 {language === 'en' ? 'REALIZE YOUR DREAM' : '평범한 일상을 넘어, 특별한 순간으로'}
             </p>
         </div>
