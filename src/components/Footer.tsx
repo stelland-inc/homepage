@@ -26,9 +26,9 @@ export default function Footer(){
             
         
             <div className='flex flex-col text-[12px] self-center gap-4 pt-4'> 
-             <ul className='flex flex-row gap-4 text-gray-500'>
+             <ul className='flex flex-row gap-4 text-gray-500 cursor-pointer'>
                 <li>
-                <Link href='https://www.facebook.com/stelland.co.kr'>Facebook</Link>   
+                <Link href='https://www.linkedin.com/company/stellandio'>LinkedIn</Link>   
                 </li>
                 <li>
                 <Link href='https://stelland.medium.com'>Medium</Link>

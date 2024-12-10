@@ -41,7 +41,7 @@ export default function Intro() {
           <div className='z-50 md:text-xl text-xl mt-5 text-center'>
             {  
             language == 'ko' ? 
-                              <p className='text-center md:text-2xl text-[18px]'>현실보다 더 특별한 순간을 선물합니다<br/>
+                              <p className='text-center md:text-2xl text-[18px]'>현실보다 더 특별한 순간을 선물합니다.<br/>
                               스텔라앤은 여러분의 콘텐츠 글로벌 파트너입니다. </p> 
                             : <p className='text-center md:text-2xl text-[18px]'> Beyond reality, into your story, <br /> 
                               Your world, more extraordinary than ever.</p> 

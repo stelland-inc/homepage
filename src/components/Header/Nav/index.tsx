@@ -14,6 +14,11 @@ const links = [
     src: "home.jpg"
   },
   {
+    title: "About Us",
+    href: "/about",
+    src: "about_us.png"
+  },
+  {
     title: "Business",
     href: "/business",
     src: "business.jpg"
@@ -23,12 +28,6 @@ const links = [
     href: "/news",
     src: "news.jpg"
   },
-  {
-    title: "About Us",
-    href: "/about",
-    src: "about_us.png"
-  },
-
   {
     title: "Contact",
     href: "/contact",

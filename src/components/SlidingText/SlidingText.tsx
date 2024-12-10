@@ -51,9 +51,9 @@ const SlidingText = () => {
                 <div className='flex flex-col justify-start items-start h-full max-w-screen-xl mx-auto'>
                     <div className='text-white text-left text-2xl font-bold mt-[35vh]'>
                         {language === 'en' ? 
-                            <p className='md:pl-0 pl-10'>We are your content globalization partner.</p> 
+                            <p className='md:pl-0 p-10 md:text-left text-center'>We are your content globalization partner.</p> 
                             : 
-                            <p className='md:pl-0 pl-10'>스텔라앤은 여러분의 콘텐츠 글로벌화 여정을 함께 합니다.</p>
+                            <p className='md:pl-0 p-10 md:text-left text-center'>스텔라앤은 여러분의 콘텐츠 글로벌화 여정을 함께 합니다.</p>
                         }
                     </div>
                 </div>

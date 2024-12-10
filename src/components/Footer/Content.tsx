@@ -70,8 +70,9 @@ const Nav = ({ language }: {language: string}) => {
             <div className='flex flex-col gap-2 text-black md:text-base text-[12px]'>
                 <h3 className='mb-2 uppercase text-black font-bold md:text-2xl text-xl'>Let&apos;s Talk</h3>
                 { language == 'en' ? <>
-                <p>6 Teheran-ro 79-gil,</p>
-                <p>Gangnam-gu, Seoul</p>
+                {/* 1111B S Governors Ave #23452 Dover, DE 19904, USA */}
+                <p>1111B S Governors Ave</p>
+                <p>#23452 Dover, DE 19904</p>
                 </> : <>
                 <p>6 테헤란로 79길, 강남구</p>
                 <p>서울 대한민국</p>
