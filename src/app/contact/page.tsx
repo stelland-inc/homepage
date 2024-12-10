@@ -56,30 +56,30 @@ export default function Contact() {
         }
     }, []);
 
-    useLayoutEffect(() => {
-        setIsVisible(true);
-        return () => setIsVisible(false);
-    }, []);
+    // useLayoutEffect(() => {
+    //     setIsVisible(true);
+    //     return () => setIsVisible(false);
+    // }, []);
       
-    useGSAP(() => {
-        if (contactContainerRef.current) {
-            gsap.fromTo(contactContainerRef.current, 
-                { opacity: 0, y: 50 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    ease: 'power1.inOut',
-                    scrollTrigger: {
-                        trigger: contactContainerRef.current,
-                        start: 'top bottom-=100',
-                        end: 'bottom center',
-                        scrub: true,
-                        markers: false, // Remove this in production
-                    },
-                }
-            );
-        }
-    }, { scope: mainRef });
+    // useGSAP(() => {
+    //     if (contactContainerRef.current) {
+    //         gsap.fromTo(contactContainerRef.current, 
+    //             { opacity: 0, y: 50 },
+    //             {
+    //                 opacity: 1,
+    //                 y: 0,
+    //                 ease: 'power1.inOut',
+    //                 scrollTrigger: {
+    //                     trigger: contactContainerRef.current,
+    //                     start: 'top bottom-=100',
+    //                     end: 'bottom center',
+    //                     scrub: true,
+    //                     markers: false, // Remove this in production
+    //                 },
+    //             }
+    //         );
+    //     }
+    // }, { scope: mainRef });
 
     return (
         <main ref={mainRef} className={`${isVisible ? styles.fadeEffect : ''} `}>
@@ -204,7 +204,7 @@ export default function Contact() {
             <Button 
             sx={{ mt: 2, mb: 2, color: '#000' }} 
             onClick={handleClose} 
-            className='bg-black text-white hover:text-black transition-all duration-300'>
+            className='bg-black text-white hover:text-white transition-all duration-300'>
                 Close
             </Button>
             </Box>

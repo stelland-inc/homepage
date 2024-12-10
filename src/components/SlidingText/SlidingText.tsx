@@ -20,38 +20,43 @@ const SlidingText = () => {
       } else if (xPercentRef.current > 0) {
         xPercentRef.current = -100;
       }
-      gsap.set(firstText.current, { xPercent: xPercentRef.current });
-      gsap.set(secondText.current, { xPercent: xPercentRef.current });
+      if (firstText.current && secondText.current) {
+        gsap.set(firstText.current, { xPercent: xPercentRef.current });
+        gsap.set(secondText.current, { xPercent: xPercentRef.current });
+      }
       requestAnimationFrame(animate);
       xPercentRef.current += 0.1 * directionRef.current;
     }, []); // Empty dependency array ensures this function is only created once
   
     useEffect(() => {
       gsap.registerPlugin(ScrollTrigger);
-      gsap.to(slider.current, {
-          scrollTrigger: {
-              trigger: document.documentElement,
-              scrub: 0.25,
-              start: 0,
-              end: window.innerHeight,
-              onUpdate: e => directionRef.current = e.direction * -1
-          },
-          x: "-500px",
-      });
+      if (slider.current) {
+        gsap.to(slider.current, {
+            scrollTrigger: {
+                trigger: document.documentElement,
+                scrub: 0.25,
+                start: 0,
+                end: window.innerHeight,
+                onUpdate: e => directionRef.current = e.direction * -1
+            },
+            x: "-500px",
+        });
+      }
       requestAnimationFrame(animate);
     }, [animate]);
   
     return (
         <main className={styles.main}>
             <div className='bg-red-200 w-full h-full'>
-
                 <div className='flex flex-col justify-start items-start h-full max-w-screen-xl mx-auto'>
-                        <div className='text-white text-left text-2xl font-bold mt-[35vh]'>
-                        {language === 'en' ? <p className='md:pl-0 pl-10'>We are your content globalization partner.</p> 
-                                           : <p className='md:pl-0 pl-10'>스텔라앤은 여러분의 콘텐츠 글로벌화 여정을 함께 합니다.</p>}
-                        </div>
+                    <div className='text-white text-left text-2xl font-bold mt-[35vh]'>
+                        {language === 'en' ? 
+                            <p className='md:pl-0 pl-10'>We are your content globalization partner.</p> 
+                            : 
+                            <p className='md:pl-0 pl-10'>스텔라앤은 여러분의 콘텐츠 글로벌화 여정을 함께 합니다.</p>
+                        }
+                    </div>
                 </div>
-
             </div>
             <div className={styles.sliderContainer}>
                 <div ref={slider} className={styles.slider}>
@@ -59,8 +64,7 @@ const SlidingText = () => {
                     <p ref={secondText}>Your Story, Our Craft</p>
                 </div>
             </div>
-            </main>
-
+        </main>
     )
 }
 

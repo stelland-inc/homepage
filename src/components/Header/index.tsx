@@ -73,10 +73,10 @@ export default function Header() {
                             <Link href="/about" className='hover:opacity-50'>About</Link>
                         </li>
                         <li>
-                            <Link href="/news" className='hover:opacity-50'>News</Link>
+                            <Link href="/business" className='hover:opacity-50'>Business</Link>
                         </li>
                         <li>
-                            <Link href="/business" className='hover:opacity-50'>Business</Link>
+                            <Link href="/news" className='hover:opacity-50'>News</Link>
                         </li>
                         <li>
                             <Link href="/contact" className='hover:opacity-50'>Contact</Link>

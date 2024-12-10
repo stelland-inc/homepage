@@ -3,31 +3,54 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import { LanguageProvider } from '@/contexts/LanguageContext';
+import { headers } from 'next/headers'
 
-export const metadata: Metadata = {
-  icons: {
-    icon: [
-      {
-        url: 'https://stelland.io/favicon.ico',
-        sizes: 'any',
-      },
-      {
-        url: '/apple-touch-icon',
-        type: 'image/png',
-      },
-    ],
-  },
-  title: "Stella&Inc Entertainment",
-  description: "Stella&Inc Entertainment",
-  openGraph: {
-    title: "Stella&Inc Entertainment",
-    description: "Stella&Inc Entertainment",
-    url: "https://stelland.io",
-    siteName: "Stella&Inc Entertainment",
-  },
-};
+const titles = {
+  en: "Stella&Inc.",
+  ko: "스텔라앤"
+}
 
-// const inter = Inter({ subsets: ['latin'] })
+export async function generateMetadata(): Promise<Metadata> {
+  const headersList = await headers()
+  const lang = headersList.get('accept-language')?.includes('en') ? 'en' : 'ko'
+
+  return {
+    title: titles[lang],
+    description: "Stella&Inc.",
+    icons: {
+      icon: [
+        {
+          url: 'https://stelland.io/favicon.ico',
+          sizes: 'any',
+        },
+        {
+          url: '/apple-touch-icon',
+          type: 'image/png',
+        },
+      ],
+    },
+    openGraph: {
+      title: titles[lang],
+      description: "Stella&Inc.",
+      url: "https://stelland.io",
+      siteName: titles[lang],
+      images: [
+        {
+          url: 'https://stelland.io/apple-touch-icon.png',
+          alt: titles[lang]
+        }
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: titles[lang],
+      description: 'Stella&Inc.',
+      images: ['https://stelland.io/apple-touch-icon.png'],
+    },
+  }
+}
+
+
 const roboto = Roboto({ subsets: ['latin'], weight: '400'  })
 
 export default function RootLayout({

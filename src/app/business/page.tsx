@@ -1,11 +1,10 @@
 'use client';
-// import { useLayoutEffect, useRef, useState } from 'react';
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Image from "next/image";
-
 import Link from 'next/link';
+// import { useLayoutEffect, useRef, useState } from 'react';
 // import gsap from 'gsap';
 // import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // import styles from './page.module.scss';
@@ -59,11 +58,17 @@ export default function Business() {
 
             <div className="pt-0 text-left text-md text-black pb-10">
             {language === 'en' 
-            ? <p className="text-lg">We relize your global distribution and localization dreams. <br />
-               Stella&Inc.’s global partners will help you out the flavor of the original text.</p>
-            : <p className="text-lg">귀사의 글로벌 도약을 실현하는 콘텐츠 크리에이티브 파트너 스텔라앤과 함께라면, <br/> 
+            ? <p className="md:text-xl text-md">
+                We realize your global distribution and localization dreams. <br />
+                We are your global partners, bringing your story beyond reality. <br /> 
+                Your world, more extraordinary than ever. <br />
+                We will become your global partners, enhancing the flavor of the original text.</p>
+            : <p className="md:text-xl text-md">
+                우리는 여러분의 콘텐츠를 글로벌화하는 파트너로서 함께합니다. <br />
+                현실을 너머서 여러분의 이야기로 세상과 더 특별한 순간을 만들어냅니다. <br />
+                귀사의 글로벌 도약을 실현하는 스텔라앤 엔터테인먼트와 함께라면, <br/> 
                 콘텐츠가 전 세계로 더 많은 사람들에게 전달됩니다. <br /> 
-                크리에이티브 컨텐츠 회사의 글로벌 파트너가 되어 여러분의 비즈니스의 성장을 돕겠습니다.</p>
+                크리에이티브 컨텐츠 회사의 글로벌 파트너로서 여러분의 비즈니스의 성장을 돕겠습니다.</p>
             }
             </div>
         
@@ -73,22 +78,46 @@ export default function Business() {
 
             </h2>
             <ul className="flex flex-col gap-1 pt-5 pb-20">
-                <li>{language === 'en' ? <p className="text-lg">- Localization, Webnovels & Webtoons Production</p> 
-                                       : <p className="text-lg">- 번역, 웹소설 & 웹툰 제작</p> }
+                <li>{language === 'en' ? <p className="md:text-xl text-md">- Localization, Webnovels & Webtoons Production</p> 
+                                       : <p className="md:text-xl text-md">- 번역, 웹소설 & 웹툰 제작</p> }
                 </li>
-                <li>{language === 'en' ? <p className="text-lg">- Originals Development & Production (IP management, webtoons, novels)</p> 
-                                       : <p className="text-lg">- 오리지널 개발 및 제작 (IP 관리, 웹툰, 소설)</p> }
+                <li>{language === 'en' ? <p className="md:text-xl text-md">- Originals Development & Production (IP management, webtoons, novels)</p> 
+                                       : <p className="md:text-xl text-md">- 오리지널 개발 및 제작 (IP 관리, 웹툰, 소설)</p> }
                 </li>
-                <li>{language === 'en' ? <p className="text-lg">- Media, Licensing, Adaptations</p> 
-                                       : <p className="text-lg">- 미디어, 라이센싱, 적용</p> }
+                <li>{language === 'en' ? <p className="md:text-xl text-md">- Media, Licensing, Adaptations</p> 
+                                       : <p className="md:text-xl text-md">- 미디어, 라이센싱, 적용</p> }
                 </li>
-                <li>{language === 'en' ? <p className="text-lg">- Global Partnerships & Marketing</p> 
-                                       : <p className="text-lg">- 글로벌 파트너십 & 마케팅</p> }
+                <li>{language === 'en' ? <p className="md:text-xl text-md">- Global Partnerships & Marketing</p> 
+                                       : <p className="md:text-xl text-md">- 해외 유통 및 글로벌 파트너십 & 마케팅</p> }
                 </li>
-                <li>{language === 'en' ? <p className="text-lg">- Toonyz Platform Development, Design, Operation, Marketing</p> 
-                                       : <p className="text-lg">- Toonyz 플랫폼 개발, 디자인, 운영, 마케팅</p> }
+                <li>{language === 'en' ? <p className="md:text-xl text-md">- Toonyz Platform Development, Design, Operation, Marketing</p> 
+                                       : <p className="md:text-xl text-md">- Toonyz 플랫폼 개발, 디자인, 운영, 마케팅</p> }
                 </li>
             </ul>
+
+            <h2 className="md:text-6xl text-4xl font-bold mb-4 uppercase md:mt-0 mt-40">
+                {language === 'en' ? <>SERVICE</> : <>서비스</>}
+            </h2>
+                   <ul className="flex md:flex-row flex-col gap-5 justify-center items-center pt-10">
+                    <li className="flex flex-col gap-5 justify-center items-center w-48">
+                    <Image src='/icons/main-img01.png' alt='main icon 01' width={80} height={80} className="p-5 rounded-full border-gray-200 bg-gray-200" />
+                    <p className="w-full h-10 text-center">{language === 'en' ? 'IP Management' : 'IP 매니지먼트'}</p>
+                    </li>
+                    <li className="flex flex-col gap-5 justify-center items-center w-48">
+                    <Image src='/icons/main-img02.png' alt='main icon 01' width={80} height={80} className="p-5 rounded-full border-gray-200 bg-gray-200"/>
+                    <p className="w-full h-10 text-center">{language === 'en' ? 'Localization' : '현지화 번역'}</p>
+                    </li>
+                    <li className="flex flex-col gap-5 justify-center items-center w-48">
+                    <Image src='/icons/main-img03.png' alt='main icon 01' width={80} height={80} className="p-5 rounded-full border-gray-200 bg-gray-200"/>
+                    <p className="w-full h-10 text-center">{language === 'en' ? 'Media, Licensing, Adaptations' : '미디어, 라이센싱, 적용'}</p>
+                    </li>
+                    <li className="flex flex-col gap-5 justify-center items-center w-48">
+                    <Image src='/icons/main-img04.png' alt='main icon 01' width={80} height={80} className="p-5 rounded-full border-gray-200 bg-gray-200"/>
+                    <p className="w-full h-10 text-center">{language === 'en' ? 'Creator incubating' : '크리에이터 인큐베이팅'}</p>
+                    </li>
+                 </ul>
+
+                 <div style={{ height: '10vh' }}></div>
 
             <h2 className="md:text-6xl text-4xl font-bold mb-4 uppercase">
                 {language === 'en' ? <>PERFORMANCE</> : <>성과</>}
@@ -158,140 +187,25 @@ export default function Business() {
             </div>
         </div>
 
-            <div style={{ height: '10vh' }}></div>
-            <h2 className="md:text-6xl text-4xl font-bold mb-4 uppercase md:mt-0 mt-40">
-                {language === 'en' ? <>SERVICE</> : <>서비스</>}
-            </h2>
-                   <ul className="flex md:flex-row flex-col gap-5 justify-center items-center pt-10">
-                    <li className="flex flex-col gap-5 justify-center items-center w-48">
-                    <Image src='/icons/main-img01.png' alt='main icon 01' width={80} height={80} className="p-5 rounded-full border-gray-200 bg-gray-200" />
-                    <p className="w-full h-10 text-center">{language === 'en' ? 'IP Management' : 'IP 매니지먼트'}</p>
-                    </li>
-                    <li className="flex flex-col gap-5 justify-center items-center w-48">
-                    <Image src='/icons/main-img02.png' alt='main icon 01' width={80} height={80} className="p-5 rounded-full border-gray-200 bg-gray-200"/>
-                    <p className="w-full h-10 text-center">{language === 'en' ? 'Localization' : '현지화 번역'}</p>
-                    </li>
-                    <li className="flex flex-col gap-5 justify-center items-center w-48">
-                    <Image src='/icons/main-img03.png' alt='main icon 01' width={80} height={80} className="p-5 rounded-full border-gray-200 bg-gray-200"/>
-                    <p className="w-full h-10 text-center">{language === 'en' ? 'Media, Licensing, Adaptations' : '미디어, 라이센싱, 적용'}</p>
-                    </li>
-                    <li className="flex flex-col gap-5 justify-center items-center w-48">
-                    <Image src='/icons/main-img04.png' alt='main icon 01' width={80} height={80} className="p-5 rounded-full border-gray-200 bg-gray-200"/>
-                    <p className="w-full h-10 text-center">{language === 'en' ? 'Creator incubating' : '크리에이터 인큐베이팅'}</p>
-                    </li>
-                 </ul>
 
-          
-
-                <div style={{ height: '10vh' }}></div>
+                <div className="md:h-[10vh] h-[30vh]"></div>
                 <h2 className="md:text-6xl text-4xl font-bold mb-4 uppercase">
                 {language === 'en' ? <>HOW IT WORKS</> : <>프로세스</>}
                 </h2>
-                    
-                <div className="flex md:flex-row flex-col gap-10 text-lg pt-10">
 
-                    <div className='flex flex-col w-full'>
-                        
-                     <h1 className="pb-10 font-bold uppercase">Localization</h1>
-                     <p className="pb-5">1. Planning & Preparing</p>
-                     <p className="border-b border-black">
-                        {language === 'en' ? <>We translate your webtoon into <br/> 24 languages and localize it.</> 
-                                           : <>우리는 여러분의 웹툰을 <br/> 24개 언어로 번역하고 현지화합니다.</>}
-                     </p>
-                     
-                     <p className="pt-10">2. Translation</p>
-                     <p className="border-b border-black">
-                        {language === 'en' ? 'We proceed with translation together with local native speakers.' : '현지 특화 원어민과 함께 번역을 진행합니다.'}
-                     </p>
-                     
-                     <p className="pt-10">3. Quality inspection </p>
-                     <p className="border-b border-black">
-                        {language === 'en' ? 'We conduct quality inspections together with native speakers.' : '원어민과 함께 품질 검사를 진행합니다.'}
-                     </p>
-                     
-                     <p className="pt-10">4. Typesetting </p>
-                     <p className="border-b border-black">
-                        {language === 'en' ? 'We perform proofreading together with language experts and natives.' : '언어 전문가와 네이티브와 함께 검수를 진행합니다.'}
-                     </p>
-                    
-                     <p className="pt-10">5. Finalization </p>
-                     <p className="border-b border-black">
-                        {language === 'en' ? 'We carry out the final inspection/check customized for each language.' : '언어별 맞춤 전문 최종 검수/검사를 진행합니다.'}
-                     </p>
-
+                    <div className='flex flex-col w-full justify-center items-center'>
+                   {language === 'en' ? 
+                    <Image src='/images/process_en.png' alt='process english 1443×906' width={900} height={300} className="md:w-[900px] md:h-auto w-[400px] h-auto" />
+                   : <Image src='/images/process_ko.png' alt='process korean 1443×906' width={900} height={300} className="md:w-[900px] md:h-auto w-[400px] h-auto" />
+                    }
                     </div>
-
-                    <div className='flex flex-col w-full'>
-
-                    <h1 className="pb-10 font-bold uppercase">Global Distribution</h1>
-                     <p className="pb-5">1. Preparing localization</p>
-                     <p className="border-b border-black">
-                        {language === 'en' ? 'We prepare localization with experts specialized in the target language.' 
-                                           : '현지화 언어에 특화된 전문가들과 함께 현지화 준비를 진행합니다.'}
-                     </p>
-
-                     <p className="pt-10">2. Submission of a work</p>
-                     <p className="border-b border-black">
-                        {language === 'en' ? 'We submit the work to local/international media.' 
-                                           : '작품을 현지 미디어에 투고합니다.'}
-                     </p>
-
-                     <p className="pt-10">3. Entering the global market</p>
-                     <p className="border-b border-black">
-                        {language === 'en' ? 'We provide the optimal platform for entering the global market.' 
-                                           : '글로벌 시장 진출을 위해 최적의 플랫폼을 제공합니다.'}
-                     </p>
-
-                     <p className="pt-10">4. Design & Marketing</p>
-                     <p className="border-b border-black">
-                        {language === 'en' ? 'We market with designs tailored to local characteristics.' 
-                                           : '현지 특색화 된 디자인으로 마케팅합니다.'}
-                     </p>
-
-                     <p className="pt-10">5. Strategic Marketing & Promotion</p>
-                     <p className="border-b border-black">
-                        {language === 'en' ? 'We strategically market and promote your work.' 
-                                          : '여러분의 작품을 전략적으로 마케팅하고 홍보합니다.'}
-                     </p>
-
-                    </div>
-                    <div className='flex flex-col w-full'>
-                        
-                    <h1 className="pb-10 font-bold uppercase">IP Management</h1>
-                     <p className="pb-5">1. Incubate creators</p>
-                     <p className="border-b border-black">
-                        {language === 'en' ? <>We discover new writers through a systematic incubation system.</> 
-                                           : <>체계적 인큐베이팅 시스템으로 신진 작가를 발굴합니다.</>}
-                     </p>
-
-                     <p className="pt-10">2. Plan contents and feedback</p>
-                     <p className="border-b border-black">
-                        {language === 'en' ? 'We provide customized content planning and feedback.' 
-                        : '콘텐츠 기획 및 피드백을 맞춤 제공합니다.'}
-                     </p>
-                     <p className="pt-10">3. Global distribution & promotion</p>
-                     <p className="border-b border-black">
-                        {language === 'en' ? 'We distribute and promote in more than six foreign languages globally.' 
-                                           : '6개 이상의 외국어 글로벌 배포 및 홍보를 진행합니다.'}
-                     </p>
-                     <p className="pt-10">4. Webtoonification </p>
-                     <p className="border-b border-black">
-                        {language === 'en' ? 'We proceed with Webtoonification through a systematic process.' : '체계적인 프로세스로 웹툰화를 진행합니다.'}
-                     </p>
-                     <p className="pt-10">5. Personalized Feedback & Marketing</p>
-                     <p className="border-b border-black">
-                        {language === 'en' ? 'We offer personalized feedback and marketing.' : '맞춤형 피드백 및 마케팅을 제공합니다.'}
-                     </p>
-
-                    </div>
-
-                </div>
-
         </div>
-
         </div>
+        <div className='h-[10vh]'></div>
+        
+        {/* <p className="text-center text-sm"> For media, press, interview requests, please email: hello@stelland.io </p>
 
-        <div className='h-[50vh]'></div>
+        <p className="text-center text-sm pb-20"> For business inquiries, please email: lisa@stelland.io </p> */}
         <Footer />
     </div>
 }
