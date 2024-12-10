@@ -1,51 +1,72 @@
 'use client';
+import { useState } from 'react';
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Image from "next/image";
 import Link from 'next/link';
-// import { useLayoutEffect, useRef, useState } from 'react';
-// import gsap from 'gsap';
-// import { ScrollTrigger } from 'gsap/ScrollTrigger';
-// import styles from './page.module.scss';
-// import { useGSAP } from '@gsap/react';
+import { styled } from '@mui/material/styles';
+import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
+import MuiAccordionSummary, {
+  AccordionSummaryProps,
+  accordionSummaryClasses,
+} from '@mui/material/AccordionSummary';
+import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import { ChevronDown } from "lucide-react";
 
-// gsap.registerPlugin(ScrollTrigger);
 
-export default function Business() {
-    const { language } = useLanguage();
-    // const [isVisible, setIsVisible] = useState(false);
-
-    // const mainRef = useRef(null);
-
-    // useLayoutEffect(() => {
-    //     setIsVisible(true);
-    //     return () => setIsVisible(false);
-    //   }, []);
-      
-    //   useGSAP(() => {
-    //     if (mainRef.current) {
-    //       gsap.fromTo(mainRef.current, 
-    //         { opacity: 0, y: 50 },
-    //         {
-    //           opacity: 1,
-    //           y: 0,
-    //           ease: 'power3.inOut',
-    //           duration: 1,
-    //           scrollTrigger: {
-    //             trigger: mainRef.current,
-    //             start: 'top top+=10',
-    //             end: 'top top+=200',
-    //             scrub: true,
-    //             markers: true, // Remove this in production
-    //           },
-    //         }
-    //       );
-    //     }
-    //   }, { scope: mainRef });
+const Accordion = styled((props: AccordionProps) => (
+    <MuiAccordion disableGutters elevation={0} square {...props} />
+  ))(({ theme }) => ({
+    border: `0px solid ${theme.palette.divider}`,
+    padding: '10px',
+    '&:not(:last-child)': {
+      borderBottom: 1,
+    },
+    '&::before': {
+      display: 'block',
+    },
+  }));
+  
+  const AccordionSummary = styled((props: AccordionSummaryProps) => (
+    <MuiAccordionSummary
+      expandIcon={<ChevronDown size={20} className='text-gray-300' />}
+      {...props}
+    />
+  ))(({ theme }) => ({
+    padding: '10px',
+    // backgroundColor: 'white',
+    // flexDirection: 'row-reverse',
+    // [`& .${accordionSummaryClasses.expandIconWrapper}.${accordionSummaryClasses.expanded}`]:
+    //   {
+    //     transform: 'rotate(90deg)',
+    //   },
+    // [`& .${accordionSummaryClasses.content}`]: {
+    //   marginLeft: theme.spacing(1),
+    // },
+    // ...theme.applyStyles('dark', {
+    //   backgroundColor: 'white',
+    // }),
+  }));
+  
+  const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+    padding: theme.spacing(2),
+    borderTop: '1px solid rgba(0, 0, 0, .125)',
+  }));
   
 
 
+export default function Business() {
+    const { language } = useLanguage();
+
+    const [expanded, setExpanded] = useState<string | false>('panel1');
+
+    const handleChange =
+        (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
+        setExpanded(newExpanded ? panel : false);
+        };
+   
     return <div>
         <Hero />
 
@@ -75,44 +96,102 @@ export default function Business() {
         <div className="flex flex-col gap-5">
             <h2 className="md:text-6xl text-4xl font-bold mb-4 uppercase pt-20">
                 {language === 'en' ? <>What We Do</> : <>비즈니스</>}
-
             </h2>
-            <ul className="flex flex-col gap-1 pt-5 pb-20">
-                <li>{language === 'en' ? <p className="md:text-xl text-md">- Localization, Webnovels & Webtoons Production</p> 
-                                       : <p className="md:text-xl text-md">- 번역, 웹소설 & 웹툰 제작</p> }
-                </li>
-                <li>{language === 'en' ? <p className="md:text-xl text-md">- Originals Development & Production (IP management, webtoons, novels)</p> 
-                                       : <p className="md:text-xl text-md">- 오리지널 개발 및 제작 (IP 관리, 웹툰, 소설)</p> }
-                </li>
-                <li>{language === 'en' ? <p className="md:text-xl text-md">- Media, Licensing, Adaptations</p> 
-                                       : <p className="md:text-xl text-md">- 미디어, 라이센싱, 적용</p> }
-                </li>
-                <li>{language === 'en' ? <p className="md:text-xl text-md">- Global Partnerships & Marketing</p> 
-                                       : <p className="md:text-xl text-md">- 해외 유통 및 글로벌 파트너십 & 마케팅</p> }
-                </li>
-                <li>{language === 'en' ? <p className="md:text-xl text-md">- Toonyz Platform Development, Design, Operation, Marketing</p> 
-                                       : <p className="md:text-xl text-md">- Toonyz 플랫폼 개발, 디자인, 운영, 마케팅</p> }
-                </li>
-            </ul>
+
+            <div>
+            <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+                <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+                <Typography>{language === 'en' ? <p className="md:text-xl text-md">- Localization, Webnovels & Webtoons Production</p> 
+                                       : <p className="md:text-xl text-md">- 번역, 웹소설 & 웹툰 제작</p> }</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                <Typography>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
+                    sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+                    sit amet blandit leo lobortis eget.
+                </Typography>
+                </AccordionDetails>
+            </Accordion>
+            <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+                <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
+                <Typography>{language === 'en' ? <p className="md:text-xl text-md">- Originals Development & Production (IP management, webtoons, novels)</p> 
+                                       : <p className="md:text-xl text-md">- 오리지널 개발 및 제작 (IP 관리, 웹툰, 소설)</p> }</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                <Typography>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
+                    sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+                    sit amet blandit leo lobortis eget.
+                </Typography>
+                </AccordionDetails>
+            </Accordion>
+            <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+                <AccordionSummary  aria-controls="panel3d-content" id="panel3d-header">
+                <Typography>{language === 'en' ? <p className="md:text-xl text-md">- Media, Licensing, Adaptations</p> 
+                                       : <p className="md:text-xl text-md">- 미디어, 라이센싱, 적용</p> }</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                <Typography>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
+                    sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+                    sit amet blandit leo lobortis eget.
+                </Typography>
+                </AccordionDetails>
+            </Accordion>
+            <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+                <AccordionSummary  aria-controls="panel4d-content" id="panel4d-header">
+                <Typography>{language === 'en' ? <p className="md:text-xl text-md">- Toonyz Platform Development, Design, Operation, Marketing</p> 
+                                       : <p className="md:text-xl text-md">- Toonyz 플랫폼 개발, 디자인, 운영, 마케팅</p> }</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                <Typography>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
+                    sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+                    sit amet blandit leo lobortis eget.
+                </Typography>
+                </AccordionDetails>
+            </Accordion>
+            <Accordion expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
+                <AccordionSummary aria-controls="panel5d-content" id="panel5d-header">
+                <Typography>{language === 'en' ? <p className="md:text-xl text-md">- Global Partnerships & Marketing</p> 
+                                       : <p className="md:text-xl text-md">- 해외 유통 및 글로벌 파트너십 & 마케팅</p> }</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                <Typography>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                    malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
+                    sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+                    sit amet blandit leo lobortis eget.
+                </Typography>
+                </AccordionDetails>
+            </Accordion>
+            </div>
+
+
+            <div className="md:h-[10vh] h-0"></div>
 
             <h2 className="md:text-6xl text-4xl font-bold mb-4 uppercase md:mt-0 mt-40">
                 {language === 'en' ? <>SERVICE</> : <>서비스</>}
             </h2>
                    <ul className="flex md:flex-row flex-col gap-5 justify-center items-center pt-10">
                     <li className="flex flex-col gap-5 justify-center items-center w-48">
-                    <Image src='/icons/main-img01.png' alt='main icon 01' width={80} height={80} className="p-5 rounded-full border-gray-200 bg-gray-200" />
+                    <Image src='/icons/business_01.png' alt='main icon 01' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
                     <p className="w-full h-10 text-center">{language === 'en' ? 'IP Management' : 'IP 매니지먼트'}</p>
                     </li>
                     <li className="flex flex-col gap-5 justify-center items-center w-48">
-                    <Image src='/icons/main-img02.png' alt='main icon 01' width={80} height={80} className="p-5 rounded-full border-gray-200 bg-gray-200"/>
+                    <Image src='/icons/business_04.png' alt='main icon 01' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200"/>
                     <p className="w-full h-10 text-center">{language === 'en' ? 'Localization' : '현지화 번역'}</p>
                     </li>
                     <li className="flex flex-col gap-5 justify-center items-center w-48">
-                    <Image src='/icons/main-img03.png' alt='main icon 01' width={80} height={80} className="p-5 rounded-full border-gray-200 bg-gray-200"/>
+                    <Image src='/icons/business_02.png' alt='main icon 01' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200"/>
                     <p className="w-full h-10 text-center">{language === 'en' ? 'Media, Licensing, Adaptations' : '미디어, 라이센싱, 적용'}</p>
                     </li>
                     <li className="flex flex-col gap-5 justify-center items-center w-48">
-                    <Image src='/icons/main-img04.png' alt='main icon 01' width={80} height={80} className="p-5 rounded-full border-gray-200 bg-gray-200"/>
+                    <Image src='/icons/business_03.png' alt='main icon 01' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200"/>
                     <p className="w-full h-10 text-center">{language === 'en' ? 'Creator incubating' : '크리에이터 인큐베이팅'}</p>
                     </li>
                  </ul>
@@ -201,7 +280,7 @@ export default function Business() {
                     </div>
         </div>
         </div>
-        <div className='h-[10vh]'></div>
+        <div className='md:h-[20vh] h-[15vh]'></div>
         
         {/* <p className="text-center text-sm"> For media, press, interview requests, please email: hello@stelland.io </p>
 

@@ -69,11 +69,11 @@ export default function Description() {
                                        {language === 'ko' ? '함께하면 더 많은 것을 이룰 수 있습니다' : 'Together, We Achieve More'}
                                     </h3>
                                     <p className="text-xl font-light leading-relaxed mt-4 mb-4 text-gray-600">
-                                        {language === 'ko' ? '귀사의 글로벌 도약을 실현하는 콘텐츠 크리에이티브 파트너 스텔라앤과 함께라면, 콘텐츠가 전 세계로 더 많은 사람들에게 전달됩니다.' 
+                                        {language === 'ko' ? '귀사의 글로벌 도약을 실현하는 콘텐츠 크리에이티브 파트너 스텔라앤과 함께라면, 여러분의 이야기가 전 세계로 더 많은 사람들에게 전달됩니다.' 
                                         : 'With Stella&Inc, experience translations that bring your content to 24 languages and localized designs, preserving the original feel.'}
                                     </p>
                                     <p className="text-xl font-light leading-relaxed mt-4 mb-4 text-gray-600">
-                                        {language === 'ko' ? '스텔라앤은 콘텐츠 글로벌화를 위한 여러분의 콘텐츠 글로벌 파트너입니다.' : 
+                                        {language === 'ko' ? '스텔라앤은 콘텐츠 글로벌화를 위한 파트너로 함께합니다.' : 
                                         'Stella&Inc is your content globalization partner.'}
                                     </p>
                                     <button className='bg-black text-white px-10 py-2 rounded-full mt-5 hover:bg-white hover:text-black transition-all duration-300 md:hidden block w-full'>

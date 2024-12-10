@@ -6,14 +6,14 @@ export default function Business() {
 
     return (
     <div className='flex md:flex-row flex-col justify-center items-center max-w-screen-xl mx-auto md:h-[600px] h-[900px] md:pb-0 md:pt-0 pt-[500px] pb-[900px]'>
-        <Image src='/images/header/about_us.png' alt='business image' width={300} height={300} className='md:hidden block' />
-
-    <div className='w-[250px] md:w-6/12 lg:w-4/12 px-12 md:px-0 mr-auto ml-auto md:-mt-90 md:block hidden'>
-        <div className="relative flex flex-col min-w-0 break-word w-full md:mb-6 shadow-lg bg-gray-200 rounded-md">
-             <Image alt="business image" src="/images/header/about_us.png" width={300} height={300} className="self-center" />
+        <Image src='/stelland_square.png' alt='business image' width={350} height={350} className='md:hidden block rounded-full md:-mt-0 -mt-72 md:w-1/2 w-1/2 md:mb-0 mb-10' />
+{/* stelland_square */}
+    <div className='w-[250px] md:w-[40%] lg:w-4/12 px-12 md:px-0 mr-auto ml-auto md:-mt-90 md:block hidden'>
+        <div className="relative flex flex-col min-w-0 break-word md:mb-6 shadow-lg bg-white rounded-md">
+             <Image alt="business image" src="/stelland_square.png" width={400} height={400} className=" rounded-md" />
              <div className="relative p-8 mb-4">
                  <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95" className="absolute left-0 w-full block h-[95px] -top-[94px]">
-                <polygon points="-30,95 583,95 583,65" className="text-gray-200 fill-current">
+                <polygon points="-30,95 583,95 583,65" className="text-white fill-current">
                 </polygon>        {/* [#304F72] */}
          
                 </svg>
@@ -29,27 +29,29 @@ export default function Business() {
     </div>
     
     <div className="flex flex-col gap-4 w-full md:w-1/2 md:p-0 p-0">
-        <h1 className='md:text-4xl text-3xl font-bold mb-5'>Services</h1>
+        <h1 className='md:text-4xl text-3xl uppercase font-bold mb-5 text-white'>Services</h1>
     <ul className='grid grid-cols-2 gap-4'>
         <li className='flex flex-col gap-4 md:w-1/2'>
-        <Image src='/icons/main-img01.png' alt='main icon 01' width={80} height={80} className="p-5 rounded-full border-gray-200 bg-gray-200" />
-            <p className='font-bold uppercase'>{language === 'ko' ? 'IP 관리' : 'IP management'}</p>
-            <p>{language === 'ko' ? '체계적인 콘텐츠와 IP 생산 및 제작' : 'Systematic content IP production'}</p>
+        {/* <Image src='/icons/business_01.png' alt='main icon 01' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
+                    <p className="w-full h-10 text-center">{language === 'en' ? 'IP Management' : 'IP 매니지먼트'}</p> */}
+        <Image src='/icons/business_01.png' alt='main icon 01' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
+            <p className='font-bold uppercase text-white'>{language === 'ko' ? 'IP 관리' : 'IP management'}</p>
+            <p className='font-bold uppercase text-white'>{language === 'ko' ? '체계적인 콘텐츠와 IP 생산 및 제작' : 'Systematic content IP production'}</p>
         </li>
         <li className='flex flex-col gap-4 md:w-1/2'>
-        <Image src='/icons/main-img02.png' alt='main icon 02' width={80} height={80} className="p-5 rounded-full border-gray-200 bg-gray-200" />
-            <p className='font-bold uppercase'>{language === 'ko' ? '현지화' : 'Localization'}</p>
-            <p>{language === 'ko' ? '+24 언어 번역 및 디자인 현지화' : '+24 Language Translation and Design Localization'}</p>
+        <Image src='/icons/business_04.png' alt='main icon 02' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
+            <p className='font-bold uppercase text-white'>{language === 'ko' ? '콘텐츠 현지화' : 'Localization'}</p>
+            <p className='font-bold uppercase text-white'>{language === 'ko' ? '+24 언어 번역 및 디자인 현지화' : '+24 Language Translation and Design Localization'}</p>
         </li>
         <li className='flex flex-col gap-4 md:w-1/2'>
-        <Image src='/icons/main-img03.png' alt='main icon 03' width={80} height={80} className="p-5 rounded-full border-gray-200 bg-gray-200" />
-            <p className='font-bold uppercase'>{language === 'ko' ? '웹툰화' : 'Webtoonification'}</p>
-            <p>{language === 'ko' ? '웹툰 제작 및 편집' : 'Webtoon Production and Editing'}</p>
+        <Image src='/icons/business_05.png' alt='main icon 03' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
+            <p className='font-bold uppercase text-white'>{language === 'ko' ? '글로벌 유통' : 'Global Distribution'}</p>
+            <p className='font-bold uppercase text-white'>{language === 'ko' ? '글로벌 유통 및 판매' : 'Global Distribution and Sales'}</p>
         </li>
         <li className='flex flex-col gap-4 md:w-1/2'>
-        <Image src='/icons/main-img04.png' alt='main icon 01' width={80} height={80} className="p-5 rounded-full border-gray-200 bg-gray-200" />
-            <p className='font-bold uppercase'>{language === 'ko' ? '크리에이터 육성' : 'Incubating creators'}</p>
-            <p>{language === 'ko' ? '콘텐츠 제작 및 크리에이터 육성' : 'Content Production and Creator Incubation'}</p>
+        <Image src='/icons/business_03.png' alt='main icon 01' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
+            <p className='font-bold uppercase text-white'>{language === 'ko' ? '크리에이터 육성' : 'Incubating creators'}</p>
+            <p className='font-bold uppercase text-white'>{language === 'ko' ? '콘텐츠 제작 및 크리에이터 육성' : 'Content Production and Creator Incubation'}</p>
         </li>
     </ul>
  </div>

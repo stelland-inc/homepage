@@ -70,7 +70,7 @@ export default function About() {
             <div className="flex flex-col gap-10 md:w-[90%] w-full">
                 <div className='md:text-left text-center text-md pb-10'>
                   { language === 'ko' ? <p className='text-2xl'> 스텔라앤은 콘텐츠 글로벌화를 위한 여러분의 콘텐츠 글로벌 파트너입니다.</p> 
-                                      : <p className='text-2xl'>Stella & is your content global partner for globalizing content.</p> }
+                                      : <p className='text-2xl'> Stella & is your content global partner for globalizing content.</p> }
             
                 </div>
 

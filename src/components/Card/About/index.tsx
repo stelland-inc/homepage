@@ -9,7 +9,8 @@ export default function About() {
         <div className='flex flex-col md:h-[650px] h-[1400px] w-full md:pb-0 pb-[500px] '>
 
             <div className='flex flex-col gap-5 w-full pb-10'>
-                <p className='text-3xl font-bold uppercase text-left md:mt-10 mt-28 md:pt-0 pt-10' >
+                {/* md:text-4xl text-3xl uppercase */}
+                <p className='md:text-4xl text-3xl font-bold uppercase text-left md:mt-10 mt-28 md:pt-0 pt-10' >
                     About
                 </p>
                 {/* <hr className='w-full bg-black text-black' /> */}
@@ -20,8 +21,8 @@ export default function About() {
             </p>
             <p className='text-md'>
             <span className='font-bold text-red-400'>[Mission]</span> 
-            {language === 'ko' ? '현실보다 더 특별한 순간을 선물합니다, 평범한 일상을 넘어, 특별한 순간으로.'
-            : 'Beyond reality, into your story, our world, more extraordinary than ever'}
+            {language === 'ko' ? <>{' '}현실보다 더 특별한 순간을 선물합니다, 평범한 일상을 넘어, 특별한 순간으로.</>
+            : <>{' '}Beyond reality, into your story, our world, more extraordinary than ever</>}
             </p>
 
                 <button className='bg-black text-white px-10 py-2 rounded-full mt-5 hover:bg-white hover:text-black transition-all duration-300 md:hidden block'>

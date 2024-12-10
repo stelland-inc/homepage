@@ -1,7 +1,7 @@
 'use client';
 import styles from '@/components/Hero/style.module.scss'
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import {
     floating1, 
@@ -15,8 +15,10 @@ import {
 } from '@/components/Hero/data'
 import { useLanguage } from '@/contexts/LanguageContext';
 
+
 export default function Hero() {
   const { language } = useLanguage();
+  const [isMobile, setIsMobile] = useState(false);
 
   const plane1 = useRef(null);
   const plane2 = useRef(null);
@@ -57,57 +59,68 @@ export default function Hero() {
       requestAnimationFrameId = null;
     }
   }
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // 768px is a common mobile breakpoint
+    };
+    handleResize(); // Check on initial load
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <main onMouseMove={(e) => {manageMouseMove(e as unknown as MouseEvent)}} className={styles.main}>
       <div ref={plane1} className={styles.plane}>
           <Image 
             src={floating1}
             alt='image'
-            width={500}
+            width={isMobile ? 200 : 500}
           />
            <Image 
             src={floating2}
             alt='image'
-            width={500}
+            width={isMobile ? 250 : 500}
           />
           <Image 
             src={floating7}
             alt='image'
-            width={500}
+            width={isMobile ? 250 : 500}
           />
       </div>
       <div ref={plane2} className={styles.plane}>
           <Image 
             src={floating4}
             alt='image'
-            width={400}
+            width={isMobile ? 250 : 500}
           />
            <Image 
             src={floating6}
             alt='image'
-            width={500}
+            width={isMobile ? 250 : 500}
           />
           <Image 
             src={floating8}
             alt='image'
-            width={500}
+            width={isMobile ? 250 : 500}
           />
       </div>
       <div ref={plane3} className={styles.plane}>
           <Image 
             src={floating3}
             alt='image'
-            width={300}
+            width={isMobile ? 250 : 500}
           />
            <Image 
             src={floating5}
             alt='image'
-            width={500}
+            width={isMobile ? 250 : 500}
           />
       </div>
       <div className={`max-w-screen-xl mx-auto z-[99] absolute top-1/2 md:left-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}>
         {/* ${styles.title}  */}
-        <h1 className='text-white md:text-[100px] text-6xl font-bold leading-relaxed'>
+        <h1 className='text-white md:text-[100px] text-6xl font-bold md:leading-relaxed'>
            Your Ideas, <br/> 
            Our Work, 
         </h1>

@@ -52,7 +52,8 @@ const History = ({className}: ProjectProps) => {
     return (
       <div className={`flex flex-col h-auto md:mb-0 ${className}`}>
         <div className='flex flex-col pb-10 '>
-        <h1 className={`text-2xl font-bold uppercase `}>
+        <h1 className={`md:text-4xl text-3xl font-bold uppercase `}>
+          {/* md:text-4xl text-3xl uppercase */}
             History 
         </h1>
         <Link href='/about'>

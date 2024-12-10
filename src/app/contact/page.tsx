@@ -56,31 +56,7 @@ export default function Contact() {
         }
     }, []);
 
-    // useLayoutEffect(() => {
-    //     setIsVisible(true);
-    //     return () => setIsVisible(false);
-    // }, []);
-      
-    // useGSAP(() => {
-    //     if (contactContainerRef.current) {
-    //         gsap.fromTo(contactContainerRef.current, 
-    //             { opacity: 0, y: 50 },
-    //             {
-    //                 opacity: 1,
-    //                 y: 0,
-    //                 ease: 'power1.inOut',
-    //                 scrollTrigger: {
-    //                     trigger: contactContainerRef.current,
-    //                     start: 'top bottom-=100',
-    //                     end: 'bottom center',
-    //                     scrub: true,
-    //                     markers: false, // Remove this in production
-    //                 },
-    //             }
-    //         );
-    //     }
-    // }, { scope: mainRef });
-
+ 
     return (
         <main ref={mainRef} className={`${isVisible ? styles.fadeEffect : ''} `}>
          <div className='h-screen w-full bg-[#FFF0EC]'>
@@ -91,7 +67,7 @@ export default function Contact() {
                     {/*   margin-top: 35vh; */}
                  <span className=''>Stella&Inc.</span> Entertainment
                 </p>
-               { language === 'en' ? 
+                { language === 'en' ? 
                                 <p className='md:text-xl text-[14px] mt-5'> Looking to discuss a project? <br/>
                                     Please get in touch using the form on this page. <br/>
                                     Generally, We&apos;re able to reply to all inquiries within 48 hours.
@@ -101,7 +77,7 @@ export default function Contact() {
                                     여러분의 다음 프로젝트를 스토리텔링 해드리겠습니다. <br/>
                                     문의에 대해 신속한 답변을 드릴 수 있도록 도와드릴께요.
                                 </p> 
-               }
+                }
                 <Button
                 sx={{
                     color: 'white',
@@ -187,17 +163,20 @@ export default function Contact() {
                  borderRadius: '10px',
                  }}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
-                About General Inquiry,
+                {language === 'en' ? 'About General Inquiry,' : '일반 문의'}
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2, mb: 2 }}>
-                You can email us at <span className='text-red-300'>hello@stelland.io</span>
+                {language === 'en' ? <>You can email us at <span className='text-red-300'>hello@stelland.io</span></> 
+                                   : <><span className='text-red-300'>hello@stelland.io</span> 로 이메일을 보내세요.</>}
             </Typography>
             <Typography id="modal-modal-title" variant="h6" component="h2">
-                IP and Copyright,
+                {language === 'en' ? 'IP and Copyright,' : 'IP 및 저작권 문의'}
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2, mb: 2 }}>
-                Email to <span className='text-red-300'>lisa@stelland.io</span> <br/> for more information. <br/> <br />
-                We are looking for a collaboration with you, thank you.
+                {language === 'en' ? <>Email to <span className='text-red-300'>lisa@stelland.io</span> <br/> for more information. <br/> <br />
+                We are looking for a collaboration with you, thank you.</> 
+                : <> <span className='text-red-300'>lisa@stelland.io</span> 로 이메일을 보내세요. <br/> 더 많은 정보를 알려드리겠습니다. <br/> <br />
+                우리는 당신과 협업을 찾고 있습니다. <br/>감사합니다.</>}
             </Typography>
           
            
