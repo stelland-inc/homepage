@@ -5,8 +5,26 @@ import Header from "@/components/Header";
 import { LanguageProvider } from '@/contexts/LanguageContext';
 
 export const metadata: Metadata = {
+  icons: {
+    icon: [
+      {
+        url: 'https://stelland.io/favicon.ico',
+        sizes: 'any',
+      },
+      {
+        url: '/apple-touch-icon',
+        type: 'image/png',
+      },
+    ],
+  },
   title: "Stella&Inc Entertainment",
   description: "Stella&Inc Entertainment",
+  openGraph: {
+    title: "Stella&Inc Entertainment",
+    description: "Stella&Inc Entertainment",
+    url: "https://stelland.io",
+    siteName: "Stella&Inc Entertainment",
+  },
 };
 
 // const inter = Inter({ subsets: ['latin'] })
