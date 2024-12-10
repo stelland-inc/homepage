@@ -36,7 +36,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: titles[lang],
       images: [
         {
-          url: 'https://stelland.io/apple-touch-icon.png',
+          url: 'https://stelland.io/images/logo/Logo_landscape.png',
           alt: titles[lang]
         }
       ]
