@@ -6,7 +6,7 @@ export default function Business() {
 
     return (
     <div className='flex md:flex-row flex-col justify-center items-center max-w-screen-xl mx-auto md:h-[600px] h-[900px] md:pb-0 md:pt-0 pt-[500px] pb-[900px]'>
-        <Image src='/stelland_square.png' alt='business image' width={350} height={350} className='md:hidden block rounded-full md:-mt-0 -mt-72 md:w-1/2 w-1/2 md:mb-0 mb-10' />
+        <Image src='/stelland_square.png' alt='business image' width={350} height={350} className='md:hidden block rounded-full md:-mt-0 -mt-96 md:w-1/2 w-1/2 md:mb-0 mb-10' />
 {/* stelland_square */}
     <div className='w-[250px] md:w-[40%] lg:w-4/12 px-12 md:px-0 mr-auto ml-auto md:-mt-90 md:block hidden'>
         <div className="relative flex flex-col min-w-0 break-word md:mb-6 shadow-lg bg-white rounded-md">

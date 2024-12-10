@@ -260,7 +260,7 @@ export default function Business() {
         </div>
 
 
-                <div className="md:h-[10vh] h-[30vh]"></div>
+                <div className="md:h-[10vh] h-[50vh]"></div>
                 <h2 className="md:text-6xl text-4xl font-bold mb-4 uppercase">
                 {language === 'en' ? <>HOW IT WORKS</> : <>프로세스</>}
                 </h2>
