@@ -18,7 +18,7 @@ export default function Business() {
          
                 </svg>
                 <h4 className="md:text-xl text-[10px] font-bold text-black">
-                   {language === 'ko' ? '여러분의 글로벌 진출을 도와드려요.' : 'Great for your awesome project'}
+                   {language === 'ko' ? '여러분의 글로벌 진출을 도와드려요.' : 'We help your global expansion'}
                  </h4>
                 <p className="md:text-base text-[10px] font-light mt-2 text-black">
                     {language === 'ko' ? '스텔라앤 AI 번역/현지화 솔루션으로 웹툰 현지화 작업이 더욱 간편하고 효율적으로 여러분의 비즈니스를 도와드립니다.' 

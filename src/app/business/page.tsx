@@ -106,10 +106,11 @@ export default function Business() {
                 </AccordionSummary>
                 <AccordionDetails>
                 <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-                    sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                    sit amet blandit leo lobortis eget.
+                {language === 'en' ? <>We translate your story into 24 languages and localize it.{' '}</> 
+                                   : <>우리는 여러분의 이야기를 24개 언어로 번역하고 현지화합니다.{' '}</>}
+                                   <br/>
+                {language === 'en' ? 'We proceed with translation together with local native speakers.' 
+                                   : '현지 특화 원어민과 함께 번역을 진행합니다.'}
                 </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -120,10 +121,8 @@ export default function Business() {
                 </AccordionSummary>
                 <AccordionDetails>
                 <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-                    sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                    sit amet blandit leo lobortis eget.
+                {language === 'en' ? 'We develop and produce original stories and provide the optimal platform for entering the global market.' 
+                                   : '자체 IP 제작 관리와 글로벌 시장 진출을 위해 최적의 플랫폼을 제공하며, 웹툰 및 소설 제작을 진행합니다.'}
                 </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -134,10 +133,8 @@ export default function Business() {
                 </AccordionSummary>
                 <AccordionDetails>
                 <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-                    sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                    sit amet blandit leo lobortis eget.
+                {language === 'en' ? 'We proceed with media, licensing, and localization through a systematic process.' 
+                                   : '체계적인 프로세스로 미디어, 라이센싱과 현지화 적용을 진행합니다.'}
                 </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -148,10 +145,8 @@ export default function Business() {
                 </AccordionSummary>
                 <AccordionDetails>
                 <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-                    sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                    sit amet blandit leo lobortis eget.
+                {language === 'en' ? 'We provide Toonyz, the optimal platform for entering the global market.' 
+                                  : '글로벌 스토리 플랫폼 투니즈 플랫폼을 통해 여러분의 글로벌 시장 진출을 위한 최적의 플랫폼을 제공합니다.'}
                 </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -162,10 +157,8 @@ export default function Business() {
                 </AccordionSummary>
                 <AccordionDetails>
                 <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                    malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-                    sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                    sit amet blandit leo lobortis eget.
+                {language === 'en' ? 'We expand our business to more than six foreign languages globally.' 
+                                   : '해외 거점별 파이프 라인 보유와 6개 이상의 외국어 글로벌 배포 및 홍보를 진행합니다.'}
                 </Typography>
                 </AccordionDetails>
             </Accordion>
