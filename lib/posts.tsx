@@ -55,18 +55,18 @@ export function getAllBlogPosts() {
       const fullPath = path.join(postsDirectory, fileName);
       
       const fileContents = fs.readFileSync(fullPath, 'utf8');
-      const { data, content } = matter(fileContents);
+      const matterResult = matter(fileContents);
       
       return {
         slug,
-        title: data.title || fileName,
-        date: data.date || '',
-        content: content
+        title: matterResult.data.title || fileName,
+        date: matterResult.data.date || '',
+        content: matterResult.content
       };
     });
 
     // Sort posts by date in ascending order
-    posts.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
     return posts;
   } catch (error) {

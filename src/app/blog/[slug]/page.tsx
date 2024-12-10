@@ -1,6 +1,6 @@
+// import { getAllBlogPosts } from 'lib/posts';
 import MarkdownIt from 'markdown-it';
 import { getAllBlogPosts } from 'lib/posts';
-import { notFound } from 'next/navigation';
 import styles from './page.module.scss';
 
 const md = new MarkdownIt();
@@ -45,6 +45,7 @@ export default async function Post({
       <div className="flex flex-col gap-4">
         <h1 className="text-center md:text-4xl text-xl font-bold uppercase">{post.title}</h1>
         <p className="text-center text-md text-gray-300">{post.date}</p>
+        <p className="text-center text-md text-gray-300">{post.summary}</p>
       </div>
       <div className="max-w-screen-md mx-auto mt-10 ">
         <div className={`mb-32 ${styles.postContent}`} dangerouslySetInnerHTML={{ __html: htmlContent }} />
