@@ -31,9 +31,10 @@ const projectComponents: {
   },
   {
     // bg-pink-300 f9a8d4
+    // #FFF0EC
     // #304F72
     component: Business,
-    color: '#304F72'
+    color: '#FFF0EC'
   },
   {
     component: History,

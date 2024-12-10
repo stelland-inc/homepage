@@ -29,29 +29,27 @@ export default function Business() {
     </div>
     
     <div className="flex flex-col gap-4 w-full md:w-1/2 md:p-0 p-0">
-        <h1 className='md:text-4xl text-3xl uppercase font-bold mb-5 text-white'>Services</h1>
-    <ul className='grid grid-cols-2 gap-4 '>
-        <li className='flex flex-col gap-4 w-1/2'>
-        {/* <Image src='/icons/business_01.png' alt='main icon 01' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
-                    <p className="w-full h-10 text-center">{language === 'en' ? 'IP Management' : 'IP 매니지먼트'}</p> */}
+        <h1 className='md:text-4xl text-3xl uppercase font-bold mb-5 text-black'>Services</h1>
+    <ul className='grid grid-cols-2 gap-2 '>
+        <li className='flex flex-col gap-4 md:w-1/2 w-full'>
         <Image src='/icons/business_01.png' alt='main icon 01' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
-            <p className='font-bold uppercase text-white text-xl'>{language === 'ko' ? 'IP 관리' : 'IP management'}</p>
-            <p className='font-bold uppercase text-white'>{language === 'ko' ? '체계적인 콘텐츠와 IP 생산 및 제작' : 'Systematic content IP production'}</p>
+            <p className='font-bold uppercase text-black md:text-xl text-sm'>{language === 'ko' ? 'IP 관리' : 'IP management'}</p>
+            <p className='font-bold uppercase text-black md:text-sm text-sm'>{language === 'ko' ? '체계적인 콘텐츠와 IP 생산 및 제작' : 'Systematic content IP production'}</p>
         </li>
-        <li className='flex flex-col gap-4 md:w-1/2'>
+        <li className='flex flex-col gap-4 md:w-1/2 w-full'>
         <Image src='/icons/business_04.png' alt='main icon 02' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
-            <p className='font-bold uppercase text-white text-xl'>{language === 'ko' ? '콘텐츠 현지화' : 'Localization'}</p>
-            <p className='font-bold uppercase text-white'>{language === 'ko' ? '+24 언어 번역 및 디자인 현지화' : '+24 Language Translation and Design Localization'}</p>
+            <p className='font-bold uppercase text-black md:text-xl text-sm'>{language === 'ko' ? '콘텐츠 현지화' : 'Localization'}</p>
+            <p className='font-bold uppercase text-black md:text-sm text-sm'>{language === 'ko' ? '+24 언어 번역 및 디자인 현지화' : '+24 Language Translation and Design Localization'}</p>
         </li>
-        <li className='flex flex-col gap-4 md:w-1/2'>
+        <li className='flex flex-col gap-4 md:w-1/2 w-full'>
         <Image src='/icons/business_05.png' alt='main icon 03' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
-            <p className='font-bold uppercase text-white text-xl'>{language === 'ko' ? '글로벌 유통' : 'Global Distribution'}</p>
-            <p className='font-bold uppercase text-white'>{language === 'ko' ? <>글로벌 유통 및 <br/>  판매</> : 'Global Distribution and Sales'}</p>
+            <p className='font-bold uppercase text-black md:text-xl text-sm'>{language === 'ko' ? '글로벌 유통' : 'Global Distribution'}</p>
+            <p className='font-bold uppercase text-black md:text-sm text-sm'>{language === 'ko' ? <>글로벌 유통 및 <br/>  판매</> : 'Global Distribution and Sales'}</p>
         </li>
-        <li className='flex flex-col gap-4 md:w-1/2'>
+        <li className='flex flex-col gap-4 md:w-1/2 w-full'>
         <Image src='/icons/business_03.png' alt='main icon 01' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
-            <p className='font-bold uppercase text-white text-xl'>{language === 'ko' ? '크리에이터 육성' : 'Incubating creators'}</p>
-            <p className='font-bold uppercase text-white'>{language === 'ko' ? <>콘텐츠 제작 및 <br/> 크리에이터 육성</> : 'Content Production and Creator Incubation'}</p>
+            <p className='font-bold uppercase text-black md:text-xl text-sm'>{language === 'ko' ? '크리에이터 육성' : 'Incubating creators'}</p>
+            <p className='font-bold uppercase text-black md:text-sm text-sm'>{language === 'ko' ? <>콘텐츠 제작 및 <br/> 크리에이터 육성</> : 'Content Production and Creator Incubation'}</p>
         </li>
     </ul>
  </div>
