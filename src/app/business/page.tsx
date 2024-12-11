@@ -101,8 +101,8 @@ export default function Business() {
             <div>
             <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                <Typography>{language === 'en' ? <p className="md:text-xl text-md">- Localization, Webnovels & Webtoons Production</p> 
-                                       : <p className="md:text-xl text-md">- 번역, 웹소설 & 웹툰 제작</p> }</Typography>
+                <Typography>{language === 'en' ? <p className="md:text-xl text-md font-semibold ">- Localization, Webnovels & Webtoons Production</p> 
+                                       : <p className="md:text-xl text-md font-semibold ">- 번역, 웹소설 & 웹툰 제작</p> }</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                 <Typography>
@@ -116,8 +116,8 @@ export default function Business() {
             </Accordion>
             <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                 <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-                <Typography>{language === 'en' ? <p className="md:text-xl text-md">- Originals Development & Production (IP management, webtoons, novels)</p> 
-                                       : <p className="md:text-xl text-md">- 오리지널 개발 및 제작 (IP 관리, 웹툰, 소설)</p> }</Typography>
+                <Typography>{language === 'en' ? <p className="md:text-xl text-md font-semibold ">- Originals Development & Production (IP management, webtoons, novels)</p> 
+                                       : <p className="md:text-xl text-md font-semibold ">- 오리지널 개발 및 제작 (IP 관리, 웹툰, 소설)</p> }</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                 <Typography>
@@ -128,8 +128,8 @@ export default function Business() {
             </Accordion>
             <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
                 <AccordionSummary  aria-controls="panel3d-content" id="panel3d-header">
-                <Typography>{language === 'en' ? <p className="md:text-xl text-md">- Media, Licensing, Adaptations</p> 
-                                       : <p className="md:text-xl text-md">- 미디어, 라이센싱, 적용</p> }</Typography>
+                <Typography>{language === 'en' ? <p className="md:text-xl text-md font-semibold ">- Media, Licensing, Adaptations</p> 
+                                       : <p className="md:text-xl text-md font-semibold ">- 미디어, 라이센싱, 적용</p> }</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                 <Typography>
@@ -140,8 +140,8 @@ export default function Business() {
             </Accordion>
             <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
                 <AccordionSummary  aria-controls="panel4d-content" id="panel4d-header">
-                <Typography>{language === 'en' ? <p className="md:text-xl text-md">- Toonyz Platform Development, Design, Operation, Marketing</p> 
-                                       : <p className="md:text-xl text-md">- Toonyz 플랫폼 개발, 디자인, 운영, 마케팅</p> }</Typography>
+                <Typography>{language === 'en' ? <p className="md:text-xl text-md font-semibold ">- Toonyz Platform Development, Design, Operation, Marketing</p> 
+                                       : <p className="md:text-xl text-md font-semibold ">- Toonyz 플랫폼 개발, 디자인, 운영, 마케팅</p> }</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                 <Typography>
@@ -152,8 +152,8 @@ export default function Business() {
             </Accordion>
             <Accordion expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
                 <AccordionSummary aria-controls="panel5d-content" id="panel5d-header">
-                <Typography>{language === 'en' ? <p className="md:text-xl text-md">- Global Partnerships & Marketing</p> 
-                                       : <p className="md:text-xl text-md">- 해외 유통 및 글로벌 파트너십 & 마케팅</p> }</Typography>
+                <Typography>{language === 'en' ? <p className="md:text-xl text-md font-semibold">- Global Partnerships & Marketing</p> 
+                                       : <p className="md:text-xl text-md font-semibold ">- 해외 유통 및 글로벌 파트너십 & 마케팅</p> }</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                 <Typography>
@@ -198,27 +198,26 @@ export default function Business() {
             <ul className="flex flex-col gap-5 pt-10">
                     <li className="text-lg flex md:flex-row flex-col gap-5"> 
                         <span className="text-5xl">+8,000</span>
-                    <p className="text-md self-center">  📊 웹툰 현지화 회차 수
-                    The total count of Webtoon localizations
+                    <p className="text-md md:self-center md:text-left">  
+                        { language === 'ko' ? <>📊 웹툰 현지화 회차 수</> : <>📊 The total count of Webtoon localizations</>}
                     </p>
                     </li>
                     <li className="text-lg flex md:flex-row flex-col gap-5"> 
                         <span className="text-5xl">+6,000</span>
-                        <p className="text-md self-center"> 
-                         📈 웹소설 현지화 회차 수
-                        The total count of Webnovel localizations
+                        <p className="text-md md:self-center md:text-left"> 
+                            { language === 'ko' ? <>📈 웹소설 현지화 회차 수</> : <>📈 The total count of Webnovel localizations</>}
                         </p>
                     </li>
                     <li className="text-lg flex md:flex-row flex-col gap-5"> 
                        <span className="text-5xl">+2,000</span>
-                    <p className="text-md self-center"> 🪄 소속 현지 크리에이터 수
-                    The pool of 2K creative talents
+                    <p className="text-md md:self-center md:text-left">
+                        { language === 'ko' ? <>🪄 소속 현지 크리에이터 수</> : <>🪄 The pool of 2K creative talents</>}
                     </p>
                     </li>
                     <li className="text-lg flex md:flex-row flex-col gap-5"> 
                         <span className="text-5xl">+20</span>
-                    <p className="text-md self-center"> 🌏 국내외 IP 보유
-                    Our talent acquisition in worldwide
+                    <p className="text-md md:self-center md:text-left"> 
+                        { language === 'ko' ? <>🌏 국내외 IP 보유</> : <>🌏 Our talent acquisition in worldwide</>}
                     </p>
                     </li>
                 </ul>
@@ -242,7 +241,7 @@ export default function Business() {
                     </p>
                     <button className='md:w-[250px] w-full bg-black text-white px-10 py-2 rounded-full mt-5 hover:bg-white hover:text-black transition-all duration-300'>
                         <Link href='/business'>
-                         {language === 'en' ? 'Go to Toonyz' : 'Toonyz 바로가기'}
+                         {language === 'en' ? 'Go to Toonyz' : '더 보기'}
                         </Link>
                     </button>
                 </div>
