@@ -107,10 +107,10 @@ export default function Business() {
                 <AccordionDetails>
                 <Typography>
                 {language === 'en' ? <>We translate your story into 24 languages and localize it.{' '}</> 
-                                   : <>우리는 여러분의 이야기를 24개 언어로 번역하고 현지화합니다.{' '}</>}
+                                   : <>우리는 여러분의 이야기를 24개 언어로 자체 솔루션으로 현지화합니다.{' '}</>}
                                    <br/>
                 {language === 'en' ? 'We proceed with translation together with local native speakers.' 
-                                   : '현지 특화 원어민과 함께 번역을 진행합니다.'}
+                                   : '현지 특화 원어민과 함께 모든 프로세스를 진행합니다.'}
                 </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -146,7 +146,7 @@ export default function Business() {
                 <AccordionDetails>
                 <Typography>
                 {language === 'en' ? 'We provide Toonyz, the optimal platform for entering the global market.' 
-                                  : '글로벌 스토리 플랫폼 투니즈 플랫폼을 통해 여러분의 글로벌 시장 진출을 위한 최적의 플랫폼을 제공합니다.'}
+                                  : '글로벌 스토리 플랫폼, 투니즈를 통해 여러분의 글로벌 시장 진출을 위한 최상의 솔루션을 제공합니다.'}
                 </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -158,7 +158,7 @@ export default function Business() {
                 <AccordionDetails>
                 <Typography>
                 {language === 'en' ? 'We expand our business to more than six foreign languages globally.' 
-                                   : '해외 거점별 파이프 라인 보유와 6개 이상의 외국어 글로벌 배포 및 홍보를 진행합니다.'}
+                                   : '해외 거점별 파이프 라인 보유와 6개 이상의 외국어 배포 및 홍보를 진행합니다.'}
                 </Typography>
                 </AccordionDetails>
             </Accordion>
