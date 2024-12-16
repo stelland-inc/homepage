@@ -38,7 +38,8 @@ export default function Section() {
                 {language === 'en' ? 'REALIZE YOUR DREAM' : '평범한 일상을 넘어, 특별한 순간으로'}
             </p>
         </div>
-        <div className='fixed top-[-10vh] left-0 h-[120vh] w-full bg-[#f9a8d4]'>
+        <div className='fixed top-[-10vh] left-0 h-[120vh] w-full bg-red-200'>
+            {/* bg-red-200  bg-[#f9a8d4] */}
             {/* f9a8d4  */}
             <motion.div style={{y}} className='relative w-full h-full'>
             {/* <Image src={Background} fill alt="image" style={{objectFit: "cover"}}/> */}

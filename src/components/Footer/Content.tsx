@@ -9,8 +9,8 @@ export default function Content() {
     const { language } = useLanguage();
  
    return (
-    <div className='bg-[#f9a8d4] py-8 px-12 h-full w-full flex flex-col justify-between '>
-        {/*   FFF0EC*/}
+    <div className='bg-red-200  py-8 px-12 h-full w-full flex flex-col justify-between '>
+        {/*  bg-red-200  bg-[#f9a8d4]  FFF0EC*/  }
             <Section1 language={language} />
         <div className=''>
             <Section2 language={language} />
