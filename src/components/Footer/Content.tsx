@@ -41,7 +41,7 @@ const Section2 = ({ language }: {language: string}) => {
             
             {/* <h1 className='text-[10vw] leading-[0.8] mt-10 text-black '>Stelland</h1> */}
             <div className='flex flex-row text-[12px] self-center'> 
-               <p className='self-center'>  { language == 'en' ? 'ⓒStella&Inc. All Rights Reserved' : 'ⓒ주식회사 스텔라앤 코리아' } </p>
+               <p className='self-center'>  { language == 'en' ? 'ⓒStella&Inc. All Rights Reserved' : 'ⓒStella&Inc. All Rights Reserved' } </p>
             
 {/* 
             <button className='border border-black rounded-sm px-10 py-1 ml-1'>
