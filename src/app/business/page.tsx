@@ -102,12 +102,12 @@ export default function Business() {
             <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
                 <Typography>{language === 'en' ? <p className="md:text-xl text-md font-semibold ">- Localization, Webnovels & Webtoons Production</p> 
-                                       : <p className="md:text-xl text-md font-semibold ">- 번역, 웹소설 & 웹툰 제작</p> }</Typography>
+                                       : <p className="md:text-xl text-md font-semibold ">- 웹툰 & 웹소설 번역 및 편집</p> }</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                 <Typography>
                 {language === 'en' ? <>We translate your story into 24 languages and localize it.{' '}</> 
-                                   : <>우리는 여러분의 이야기를 24개 언어로 자체 솔루션으로 현지화합니다.{' '}</>}
+                                   : <>우리는 여러분의 이야기를 자체 솔루션을 활용하여 24개 언어로 현지화합니다.{' '}</>}
                                    <br/>
                 {language === 'en' ? 'We proceed with translation together with local native speakers.' 
                                    : '현지 특화 원어민과 함께 모든 프로세스를 진행합니다.'}
@@ -117,12 +117,12 @@ export default function Business() {
             <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                 <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
                 <Typography>{language === 'en' ? <p className="md:text-xl text-md font-semibold ">- Originals Development & Production (IP management, webtoons, novels)</p> 
-                                       : <p className="md:text-xl text-md font-semibold ">- 오리지널 개발 및 제작 (IP 관리, 웹툰, 소설)</p> }</Typography>
+                                       : <p className="md:text-xl text-md font-semibold ">- IP 개발 및 관리(웹툰, 웹소설)</p> }</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                 <Typography>
                 {language === 'en' ? 'We develop and produce original stories and provide the optimal platform for entering the global market.' 
-                                   : '자체 IP 제작 관리와 글로벌 시장 진출을 위해 최적의 플랫폼을 제공하며, 웹툰 및 소설 제작을 진행합니다.'}
+                                   : '글로벌 진출에 최적화된 프로세스로 자체 IP 제작 및 관리를 진행합니다.'}
                 </Typography>
                 </AccordionDetails>
             </Accordion>
