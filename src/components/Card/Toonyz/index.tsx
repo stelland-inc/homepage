@@ -24,8 +24,8 @@ export default function Toonyz() {
     
                     </p>
                     <button className='md:w-[250px] w-full bg-black text-white px-10 py-2 rounded-full mt-5 hover:bg-white hover:text-black transition-all duration-300'>
-                        <Link href='/business'>
-                         {language === 'en' ? 'Learn more' : '더 보기'}
+                        <Link href='https://toonyz.com'>
+                         {language === 'en' ? 'Go to Toonyz' : '투니즈 바로가기'}
                         </Link>
                     </button>
                 </div>
