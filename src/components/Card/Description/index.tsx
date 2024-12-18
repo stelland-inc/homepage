@@ -16,7 +16,7 @@ export default function Description() {
                     <div className="bg-red-200 shadow-lg rounded-lg text-center p-8">
                         <Settings size={75} className='shadow-md rounded-lg  mx-auto px-2 bg-white text-red-200' />
                         <p className="md:text-xl text-[14px] text-white mt-4 font-semibold">
-                            {language === 'ko' ? <>체계적 인큐베이팅<br/> 시스템</> : 'Systematic incubation'}
+                            {language === 'ko' ? <>체계적 인큐베이팅<br/> 시스템</> : 'Systematic Incubation'}
                         </p>
                     </div>
 
@@ -46,7 +46,7 @@ export default function Description() {
                            
                                 <Cog size={75} className='shadow-md rounded-lg mx-auto px-3 bg-white text-pink-300' />
                             <p className="md:text-xl text-[14px] text-white mt-4 font-semibold">
-                                {language === 'ko' ? '고품질 현지화 서비스 제공' : 'High-quality localization services'}
+                                {language === 'ko' ? '고품질 현지화 서비스 제공' : 'High-quality Localization Services'}
                             </p>
                             </div>
                         
@@ -54,7 +54,7 @@ export default function Description() {
                              
                                     <FileUser size={75} className='shadow-md rounded-lg mx-auto px-3 bg-white text-pink-500' />
                                 <p className="md:text-lg text-[14px] text-white mt-4 font-semibold">
-                                    {language === 'ko' ? '맞춤형 피드백' : 'Customized feedback'}
+                                    {language === 'ko' ? '맞춤형 피드백' : 'Customized Feedback'}
                                 </p>
                                 </div>
                                 </div>
@@ -70,11 +70,11 @@ export default function Description() {
                                     </h3>
                                     <p className="text-xl font-light leading-relaxed mt-4 mb-4 text-gray-600">
                                         {language === 'ko' ? '귀사의 글로벌 도약을 실현하는 콘텐츠 크리에이티브 파트너 스텔라앤과 함께라면, 여러분의 이야기가 전 세계로 더 많은 사람들에게 전달됩니다.' 
-                                        : 'With Stella&Inc, experience translations that bring your content to 24 languages and localized designs, preserving the original feel.'}
+                                        : 'With Stella&, experience translations that bring your content to 24 languages and localized designs, the ineffable feel of the original intact.'}
                                     </p>
                                     <p className="text-xl font-light leading-relaxed mt-4 mb-4 text-gray-600">
                                         {language === 'ko' ? '스텔라앤은 콘텐츠 글로벌화를 위한 파트너로 함께합니다.' : 
-                                        'Stella&Inc is your content globalization partner.'}
+                                        'Stella& is your content globalization partner.'}
                                     </p>
                                     <button className='bg-black text-white px-10 py-2 rounded-full mt-5 hover:bg-white hover:text-black transition-all duration-300 md:hidden block w-full'>
                                         <Link href='/about'> 

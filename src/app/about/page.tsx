@@ -26,7 +26,7 @@ export default function About() {
     },
     {
       title: '스텔라앤 설립',
-      title_en: 'Stella & Inc. Established',
+      title_en: 'Stella& Inc. Established',
       description: '고렘 팩토리 지정 현지화 업체, 브리드 컴퍼니 지정 현지화 업체, 락킨 코리아 지정 현지화 업체',
       description_en: 'Designated Localization Company for Golem Factory, Designated Localization Company for Breed Company, Designated Localization Company for Rockin Korea',
       date: '2022'
@@ -70,7 +70,7 @@ export default function About() {
             <div className="flex flex-col gap-10 md:w-[90%] w-full">
                 <div className='md:text-left text-center text-md pb-10'>
                   { language === 'ko' ? <p className='text-2xl'> 스텔라앤은 콘텐츠 글로벌화를 위한 여러분의 콘텐츠 글로벌 파트너입니다.</p> 
-                                      : <p className='text-2xl'> Stella & is your content global partner for globalizing content.</p> }
+                                      : <p className='text-2xl'> Stella& is your content globalization partner.</p> }
             
                 </div>
 
@@ -90,7 +90,7 @@ export default function About() {
                         <p className='font-bold'>Mission</p>
                         <div className='md:h-[300px] h-[100px] text-md self-center text-center'>
                     { language === 'ko' ? <p className='text-2xl'>현실보다 더 특별한 순간을 선물합니다. 평범한 일상을 넘어, 특별한 순간으로.</p> 
-                                        : <p className='text-2xl'>Beyond reality, into your story, your world, more extraordinary than ever</p> }
+                                        : <p className='text-2xl'>Beyond reality, into your story. Your world, more extraordinary than ever.</p> }
                         </div>
                     </li>
                 </ul>
@@ -109,8 +109,8 @@ export default function About() {
             <div className="md:text-left text-center text-md self-end md:w-[90%] w-full">
             { language === 'ko' ? <p className='text-2xl'>우리는 여러분의 콘텐츠를 글로벌화하는 파트너로서 함께합니다. <br/>
                                     현실을 너머서 여러분의 이야기로 세상과 더 특별한 순간을 만들어냅니다.</p> 
-                                : <p className='text-2xl'>We are your content global partner<br/> 
-                                   Beyond reality, into your story, your world, more extraordinary than ever</p> }
+                                : <p className='text-2xl'>As your content globalization partner,<br/> 
+                                   we join realities beyond language barriers.</p> }
             </div>
         </div>
 
@@ -129,8 +129,8 @@ export default function About() {
 
 
         <div className='text-center md:text-4xl text-2xl font-bold w-34 pt-20'>
-          {language === 'en' ? <p> We are trusted by our clients</p>
-                             : <p> 우리는 고객에게 신뢰를 받습니다.</p> }
+          {language === 'en' ? <p> Trusted by</p>
+                             : <p> 고객사</p> }
         </div>
                 <Slider/> 
                 <div className='h-[30vh]'></div>

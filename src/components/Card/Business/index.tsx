@@ -22,7 +22,7 @@ export default function Business() {
                  </h4>
                 <p className="md:text-base text-[10px] font-light mt-2 text-black">
                     {language === 'ko' ? '스텔라앤 AI 번역/현지화 솔루션으로 웹툰 현지화 작업이 더욱 간편하고 효율적으로 여러분의 비즈니스를 도와드립니다.' 
-                                       : 'AI content localization solution for webtoon localization work is more convenient and efficient to help your business.'}
+                                       : 'With our AI webtoon localization solution, experience a more convenient and efficient way to grow your business.'}
                 </p>
             </div>
         </div>
@@ -39,7 +39,7 @@ export default function Business() {
         <li className='flex flex-col gap-4 md:w-1/2 w-full'>
         <Image src='/icons/business_04.png' alt='main icon 02' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
             <p className='font-bold uppercase text-black md:text-xl text-sm'>{language === 'ko' ? '콘텐츠 현지화' : 'Localization'}</p>
-            <p className='font-bold uppercase text-black md:text-sm text-sm'>{language === 'ko' ? '+24 언어 번역 및 디자인 현지화' : '+24 Language Translation and Design Localization'}</p>
+            <p className='font-bold uppercase text-black md:text-sm text-sm'>{language === 'ko' ? '24+ 언어 번역 및 디자인 현지화' : 'Translation into 24+ languages and Design Localization'}</p>
         </li>
         <li className='flex flex-col gap-4 md:w-1/2 w-full'>
         <Image src='/icons/business_05.png' alt='main icon 03' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />

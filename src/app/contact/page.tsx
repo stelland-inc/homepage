@@ -65,7 +65,7 @@ export default function Contact() {
             <div className='text-black mt-[35vh] text-center'>
                 <p className='z-50 md:text-6xl font-medium text-4xl uppercase text-center '>
                     {/*   margin-top: 35vh; */}
-                 <span className=''>Stella&Inc.</span> Entertainment
+                 <span className=''>Stella& Inc.</span> Entertainment
                 </p>
                 { language === 'en' ? 
                                 <p className='md:text-xl text-[14px] mt-5'> Looking to discuss a project? <br/>
@@ -73,9 +73,8 @@ export default function Contact() {
                                     Generally, We&apos;re able to reply to all inquiries within 48 hours.
                                  </p> 
                                 : <p className='md:text-xl text-[14px] mt-5'> 
-                                    스텔라앤은 콜라보레이션에 열려 있습니다. <br/>
-                                    여러분의 프로젝트를 위해 성공 스토리텔링을 해드리겠습니다. <br/>
-                                    문의에 대해 신속한 답변을 드릴 수 있도록 도와드릴께요.
+                                    스텔라앤은 콜라보레이션에 항상 열려 있습니다. <br/>
+                                    문의에 대해 48시간 내에 신속한 답변을 드립니다.
                                 </p> 
                 }
                 <Button

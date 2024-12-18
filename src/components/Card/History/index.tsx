@@ -20,7 +20,7 @@ const History = ({className}: ProjectProps) => {
     },
     {
       title: '스텔라앤 설립',
-      title_en: 'Stella & Inc. Established',
+      title_en: 'Stella& Inc. Established',
       description: '고렘 팩토리 지정 현지화 업체, 브리드 컴퍼니 지정 현지화 업체, 락킨 코리아 지정 현지화 업체',
       description_en: 'Designated Localization Company for Golem Factory, Designated Localization Company for Breed Company, Designated Localization Company for Rockin Korea',
       date: '2022'

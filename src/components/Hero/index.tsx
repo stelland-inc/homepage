@@ -122,11 +122,11 @@ export default function Hero() {
         {/* ${styles.title}  */}
         <h1 className='text-white md:text-[100px] text-6xl font-bold md:leading-relaxed'>
            Your Ideas, <br/> 
-           Our Work, 
+           Our Work 
         </h1>
         {/* text-white text-left text-2xl font-bold pt-80 */}
         <p className='text-white md:text-2xl text-md font-bold'> 
-         {language === 'en' ? <>Your Ideas, Our Work, Amplified Value</>
+         {language === 'en' ? <>Your Ideas + Our Work = Amplified Value</>
                             : <>여러분의 아이디어, 우리는 확대된 가치로 작품을 만들어 드립니다.</>}
         </p>
       </div>

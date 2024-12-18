@@ -17,7 +17,7 @@ export default function Toonyz() {
                     <p className='md:text-2xl text-md'>
                   { language === 'en' ? <>
                                         Explore a world of diverse genres and captivating stories with us. <br /> 
-                                        Enjoy your favorite story universe, between us, on Toonyz!</>
+                                        Come find your favorite story universe on Toonyz!</>
                                       : <> 다양한 장르와 환상적인 이야기를 함께 즐기세요. <br /> 
                                         여러분이 좋아하는 이야기 세계로 떠나보세요.<br /> 우리와 투니즈에서 함께 하세요!</>
                   } <br/>
