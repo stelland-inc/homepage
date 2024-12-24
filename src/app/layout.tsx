@@ -20,11 +20,11 @@ export async function generateMetadata(): Promise<Metadata> {
     icons: {
       icon: [
         {
-          url: 'https://stelland.io/favicon.ico',
+          url: '/favicon.ico',
           sizes: 'any',
         },
         {
-          url: '/apple-touch-icon',
+          url: '/apple-touch-icon.png',
           type: 'image/png',
         },
       ],
