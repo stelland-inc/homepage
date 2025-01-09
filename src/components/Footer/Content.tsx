@@ -81,8 +81,8 @@ const Nav = ({ language }: {language: string}) => {
                 <p>Business Registration</p>
                 <p>No. 221-88-02281</p>
                 </> : <>
-                <p>사업자등록번호</p>
-                <p>221-88-02281</p>
+                <p>No. 221-88-02281</p>
+                <p>+82 02-6952-7933</p>
                 </> }
             </div>
         </div>
