@@ -63,19 +63,65 @@ const initialNodes: Node[] = [
   },
 
   // Output categories
-  { id: "IP_Management", data: { label: "IP Management" }, position: { x: 100, y: 450 }, style: nodeStyles.dark },
-  { id: "Global_Distribution", data: { label: "Global Distribution" }, position: { x: 500, y: 450 }, style: nodeStyles.dark },
-  // { id: "Localization", data: { label: "Localization" }, position: { x: 500, y: 550 }, style: nodeStyles.dark },
-  // { id: "Toonyz", data: { label: "Toonyz" }, position: { x: 700, y: 550 }, style: nodeStyles.dark },
-
-  { id: "nextjs", data: { label: "NextJS" }, position: { x: 100, y: 120 }, style: nodeStyles.dark },
-  { id: "Toonyz", data: { label: "Toonyz" }, position: { x: 100, y: 180 }, style: nodeStyles.dark },
-
   {
-    id: "Localization-list",
+    id: "IP_Management", 
+    data: { 
+    label: (
+      <>
+        <p className="text-lg font-bold">IP Management</p>
+        <ol className="list-disc pl-5 space-y-2 text-start">
+          <li>Develop project</li>
+          <li>Manage project</li>
+          <li>Monitor project</li>
+          <li>Perform project</li>
+          <li>Control project</li>
+        </ol>
+      </>
+    )
+  }, 
+  position: { x: 100, y: 450 }, 
+  style: nodeStyles.dark },
+
+{ id: "Global_Distribution", 
+  data: { 
+  label: (
+    <>
+    <p className="text-lg font-bold">Global Distribution</p>
+    <ol className="list-disc pl-5 space-y-2 text-start">
+          <li>Preparing localization</li>
+          <li>Submission of a work</li>
+          <li>Entering local market</li>
+          <li>Design & Marketing</li>
+          <li>Strategic Promotion</li>
+        </ol>
+      </>
+    )
+  }, position: { x: 450, y: 450 }, style: nodeStyles.dark },
+
+{ id: "Toonyz", 
+  data: { 
+  label: (
+    <>
+    <p className="text-lg font-bold">Toonyz</p>
+    <ol className="list-disc pl-5 space-y-2 text-start">
+      <li>Run Toonyz Platform</li>
+      <li>Toonyz Marketing</li>
+      <li>Toonyz Creators</li>
+      <li>Toonyz Studio</li>
+      <li>Toonyz AI</li>
+    </ol>
+    </>
+  )
+  }, 
+  position: { x: 100, y: 20 }, 
+  style: nodeStyles.dark 
+},
+
+ {
+  id: "Localization-list",
     data: {
-      label: (
-        <>
+    label: (
+      <>
         <p className="text-lg font-bold">Localization Process</p>
         <ol className="list-disc pl-5 space-y-2 text-start">
           <li>Planning & Preparing</li>
@@ -84,38 +130,24 @@ const initialNodes: Node[] = [
           <li>Typesetting</li>
           <li>Finalization</li>
         </ol>
-        </>
-      )
-    },
-    position: { x: 300, y: 20 },
-    style: nodeStyles.dark
+      </>
+    )
   },
-  // { id: "Localization", data: { label: "Localization" }, position: { x: 300, y: 180 }, style: nodeStyles.dark },
+  position: { x: 400, y: 20 },
+  style: nodeStyles.dark
+},
 
-  // Auth nodes
-  { id: "auth0", data: { label: "Auth0" }, position: { x: 500, y: 120 }, style: nodeStyles.dark },
-  { id: "google", data: { label: "Google Auth" }, position: { x: 500, y: 180 }, style: nodeStyles.dark },
 ]
 
 // Define edges connecting the nodes
 const initialEdges: Edge[] = [
-  // Connect platforms to Refine
-  { id: "nextjs-refine", source: "nextjs", target: "refine", animated: true, style: { stroke: "#6366f1" } },
-  { id: "refine-Toonyz", source: "Toonyz", target: "refine", animated: true, style: { stroke: "#6366f1" } },
+  { id: "refine-Toonyz", source: "refine", target: "Toonyz", animated: true, style: { stroke: "#ec4899" } },
 
-  // 
-{ id: "Localization-refine", source: "Localization-list", target: "refine", animated: true, style: { stroke: "#3b82f6" } },  
-// { id: "refine-Localization", source: "Localization", target: "refine", animated: true, style: { stroke: "#3b82f6" } },
-
-  // Connect Auth to Refine
-  { id: "auth0-refine", source: "auth0", target: "refine", animated: true, style: { stroke: "#ec4899" } },
-  { id: "google-refine", source: "google", target: "refine", animated: true, style: { stroke: "#ec4899" } },
-
+  { id: "Localization-refine", source: "Localization-list", target: "refine", animated: true, style: { stroke: "#3b82f6" } },
   // Connect Refine to outputs
   { id: "refine-IP_Management", source: "refine", target: "IP_Management", animated: true, style: { stroke: "#ef4444" } },
-  { id: "refine-admin", source: "refine", target: "Global_Distribution", animated: true, style: { stroke: "#3b82f6" } },
-  // { id: "refine-b2b", source: "refine", target: "Localization", animated: true, style: { stroke: "#ec4899" } },
-  // { id: "refine-forms", source: "refine", target: "forms", animated: true, style: { stroke: "#6366f1" } },
+  { id: "refine-Global_Distribution", source: "refine", target: "Global_Distribution", animated: true, style: { stroke: "#3b82f6" } },
+  // { id: "refine-b2b", source: "refine", target: "b2b", animated: true, style: { stroke: "#ec4899" } },
 ]
 
 function Flow() {
