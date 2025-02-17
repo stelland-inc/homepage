@@ -11,7 +11,7 @@ import MuiAccordionSummary, { AccordionSummaryProps } from '@mui/material/Accord
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import { ChevronDown } from "lucide-react";
-import FlowDiagram from '@/components/FlowDiagram';
+import FlowDiagram from '@/components/FlowChart/FlowDiagram';
 
 
 const Accordion = styled((props: AccordionProps) => (
