@@ -30,9 +30,6 @@ const projectComponents: {
     color: '#FFF0EC'
   },
   {
-    // bg-pink-300 f9a8d4
-    // #FFF0EC
-    // #304F72
     component: Business,
     color: '#FFF0EC'
   },
@@ -62,10 +59,10 @@ export default function CardContainer() {
           return <Card 
                   key={`p_${i}`} 
                   i={i} 
-                  {...project} 
+                  // {...project} 
+                  color={project.color}
                   progress={scrollYProgress.get()} 
                   range={[i * .25, 1]} 
-                  color={project.color}
                   >
                     <ProjectComponent 
                       progress={scrollYProgress.get()}

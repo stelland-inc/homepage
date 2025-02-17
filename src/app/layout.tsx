@@ -50,9 +50,6 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-
-const roboto = Roboto({ subsets: ['latin'], weight: '400'  })
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -61,12 +58,18 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+        />
+      </head>
       <body
-        className={`${roboto.className} antialiased`}
+        className="antialiased"
       >
         <LanguageProvider>
           <Header />
-            {children}
+          {children}
         </LanguageProvider>
       </body>
     </html>

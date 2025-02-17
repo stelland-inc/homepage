@@ -7,13 +7,11 @@ import Image from "next/image";
 import Link from 'next/link';
 import { styled } from '@mui/material/styles';
 import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
-import MuiAccordionSummary, {
-    AccordionSummaryProps,
-    accordionSummaryClasses,
-} from '@mui/material/AccordionSummary';
+import MuiAccordionSummary, { AccordionSummaryProps } from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import { ChevronDown } from "lucide-react";
+import FlowDiagram from '@/components/FlowDiagram';
 
 
 const Accordion = styled((props: AccordionProps) => (
@@ -36,26 +34,12 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
     />
 ))(({ theme }) => ({
     padding: '10px',
-    // backgroundColor: 'white',
-    // flexDirection: 'row-reverse',
-    // [`& .${accordionSummaryClasses.expandIconWrapper}.${accordionSummaryClasses.expanded}`]:
-    //   {
-    //     transform: 'rotate(90deg)',
-    //   },
-    // [`& .${accordionSummaryClasses.content}`]: {
-    //   marginLeft: theme.spacing(1),
-    // },
-    // ...theme.applyStyles('dark', {
-    //   backgroundColor: 'white',
-    // }),
 }));
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
     padding: theme.spacing(2),
     borderTop: '1px solid rgba(0, 0, 0, .125)',
 }));
-
-
 
 export default function Business() {
     const { language } = useLanguage();
@@ -69,9 +53,8 @@ export default function Business() {
 
     return <div>
         <Hero />
-
         <div className={`max-w-screen-lg mx-auto md:p-0 p-5  `} >
-            {/*  ref={mainRef} ${isVisible ? styles.fadeEffect : ''} */}
+             {/*  ref={mainRef} ${isVisible ? styles.fadeEffect : ''} */}
 
             <div className="relative -top-16 left-0 p-3 text-center inline-flex items-center justify-center w-32 h-32 mb-6 shadow-lg rounded-full bg-white">
                 <Image src='/images/logo/Logo.png' alt="logo" width={80} height={80} />
@@ -90,82 +73,84 @@ export default function Business() {
                         콘텐츠가 전 세계로 더 많은 사람들에게 전달됩니다. <br />
                         크리에이티브 컨텐츠 회사의 글로벌 파트너로서 여러분의 비즈니스의 성장을 돕겠습니다.</p>
                 }
-            </div>
+              </div>
 
             <div className="flex flex-col gap-5">
                 <h2 className="md:text-6xl text-4xl font-bold mb-4 uppercase pt-20">
                     {language === 'en' ? <>What We Do</> : <>비즈니스</>}
                 </h2>
-
                 <div>
                     <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                            <Typography>{language === 'en' ? <p className="md:text-xl text-md font-semibold ">- Localization, Webnovels & Webtoons Production</p>
-                                : <p className="md:text-xl text-md font-semibold ">- 웹툰 & 웹소설 번역 및 편집</p>}</Typography>
+                            <>{language === 'en' ? <span className="md:text-xl text-md font-semibold ">- Localization, Webnovels & Webtoons Production</span>
+                                                  : <span className="md:text-xl text-md font-semibold ">- 웹툰 & 웹소설 번역 및 편집</span>}
+                            </>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <Typography>
+                            <>
                                 {language === 'en' ? <>We translate and localize your stories into 24 languages.{' '}</>
-                                    : <>우리는 여러분의 이야기를 자체 솔루션을 활용하여 24개 언어로 현지화합니다.{' '}</>}
+                                                   : <>우리는 여러분의 이야기를 자체 솔루션을 활용하여 24개 언어로 현지화합니다.{' '}</>}
                                 <br />
                                 {language === 'en' ? 'We proceed with translation together with local native speakers.'
-                                    : '현지 특화 원어민과 함께 모든 프로세스를 진행합니다.'}
-                            </Typography>
+                                                   : '현지 특화 원어민과 함께 모든 프로세스를 진행합니다.'}
+                            </>
                         </AccordionDetails>
                     </Accordion>
                     <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-                            <Typography>{language === 'en' ? <p className="md:text-xl text-md font-semibold ">- Original IP Development & Production (IP management, webtoons, novels)</p>
-                                : <p className="md:text-xl text-md font-semibold ">- IP 개발 및 관리(웹툰, 웹소설)</p>}</Typography>
+                            <>{language === 'en' ? <span className="md:text-xl text-md font-semibold ">- Original IP Development & Production (IP management, webtoons, novels)</span>
+                                                           : <span className="md:text-xl text-md font-semibold ">- IP 개발 및 관리(웹툰, 웹소설)</span>}
+                            </>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <Typography>
+                            <>
                                 {language === 'en' ? 'We develop and produce original stories and provide the optimal platform for entering the global market.'
-                                    : '글로벌 진출에 최적화된 프로세스로 자체 IP 제작 및 관리를 진행합니다.'}
-                            </Typography>
+                                                   : '글로벌 진출에 최적화된 프로세스로 자체 IP 제작 및 관리를 진행합니다.'}
+                            </>
                         </AccordionDetails>
                     </Accordion>
                     <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
                         <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-                            <Typography>{language === 'en' ? <p className="md:text-xl text-md font-semibold ">- Media, Licensing, Adaptations</p>
-                                : <p className="md:text-xl text-md font-semibold ">- 미디어, 라이센싱, 각색</p>}</Typography>
+                            <>{language === 'en' ? <span className="md:text-xl text-md font-semibold ">- Media, Licensing, Adaptations</span>
+                                                  : <span className="md:text-xl text-md font-semibold ">- 미디어, 라이센싱, 각색</span>}</>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <Typography>
+                            <>
                                 {language === 'en' ? 'We proceed with media, licensing, and localization through a systematic process.'
-                                    : '체계적인 프로세스로 미디어, 라이센싱과 현지화 적용을 진행합니다.'}
-                            </Typography>
+                                                   : '체계적인 프로세스로 미디어, 라이센싱과 현지화 적용을 진행합니다.'}
+                            </>
                         </AccordionDetails>
                     </Accordion>
                     <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
                         <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
-                            <Typography>{language === 'en' ? <p className="md:text-xl text-md font-semibold ">- Toonyz Platform Development, Design, Operation, Marketing</p>
-                                : <p className="md:text-xl text-md font-semibold ">- Toonyz 플랫폼 개발, 디자인, 운영, 마케팅</p>}</Typography>
+                            <>{language === 'en' ? <span className="md:text-xl text-md font-semibold ">- Toonyz Platform Development, Design, Operation, Marketing</span>
+                                                : <span className="md:text-xl text-md font-semibold ">- Toonyz 플랫폼 개발, 운영, 마케팅</span>}
+                            </>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <Typography>
-                                {language === 'en' ? <>We create <Link href="https://toonyz.com" className='text-red-400'>Toonyz</Link>, the best platform for entering the global market.</>
-                                    : <>글로벌 스토리 플랫폼, <Link href="https://toonyz.com" className='text-red-400'>투니즈</Link>를 통해 여러분의 글로벌 시장 진출을 위한 최상의 솔루션을 제공합니다.</>}
-                            </Typography>
+                            <>
+                                {language === 'en' ? <span>We create <Link href="https://toonyz.com" className='text-red-400 underline'>Toonyz</Link>, the best platform for entering the global market.</span>
+                                                   : <span>글로벌 스토리 플랫폼, <Link href="https://toonyz.com" className='text-red-400 underline'>투니즈</Link> 를 통해 여러분의 글로벌 시장 진출을 위한 최상의 솔루션을 제공합니다.</span>}
+                            </>
                         </AccordionDetails>
                     </Accordion>
                     <Accordion expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
                         <AccordionSummary aria-controls="panel5d-content" id="panel5d-header">
-                            <Typography>{language === 'en' ? <p className="md:text-xl text-md font-semibold">- Global Partnerships & Marketing</p>
-                                : <p className="md:text-xl text-md font-semibold ">- 해외 유통 및 글로벌 파트너십 & 마케팅</p>}</Typography>
+                            <>{language === 'en' ? <span className="md:text-xl text-md font-semibold ">- Global Partnerships & Marketing</span>
+                                                 : <span className="md:text-xl text-md font-semibold ">- 해외 유통 및 글로벌 파트너십 & 마케팅</span>}
+                            </>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <Typography>
+                            <>
                                 {language === 'en' ? 'With our international content pipeline, we help distribute your stories into more than six languages.'
-                                    : '해외 거점별 파이프라인을 보유하고 있어 6개 이상의 외국어 배포 및 홍보를 진행합니다.'}
-                            </Typography>
+                                                   : '해외 거점별 파이프라인을 보유하고 있어 6개 이상의 외국어 배포 및 홍보를 진행합니다.'}
+                            </>
                         </AccordionDetails>
                     </Accordion>
                 </div>
 
 
                 <div className="md:h-[10vh] h-0"></div>
-
                 <h2 className="md:text-6xl text-4xl font-bold mb-4 uppercase md:mt-0 mt-40">
                     {language === 'en' ? <>SERVICE</> : <>서비스</>}
                 </h2>
@@ -190,9 +175,9 @@ export default function Business() {
 
                 <div style={{ height: '10vh' }}></div>
 
-                <h2 className="md:text-6xl text-4xl font-bold mb-4 uppercase">
-                    {language === 'en' ? <>BY THE NUMBERS</> : <>성과</>}
-                </h2>
+                <div className="md:text-6xl text-4xl font-bold mb-4 uppercase">
+                    <p>{language === 'en' ? <>BY THE NUMBERS</> : <>성과</>} </p> 
+                </div>
 
                 <div className='grid grid-cols-4 gap-5'>
                         <span className="text-5xl">+8,000</span>
@@ -214,7 +199,6 @@ export default function Business() {
                 </div>
 
                 {/* Toonyz section */}
-
                 <div className='flex flex-col justify-between items-center md:h-[650px] h-[100px] md:mb-0 mb-40 md:p-0 pt-[110px]'>
                     <div className='flex flex-row justify-between items-center w-full pt-[50px]'>
                         <div className='flex flex-col justify-start items-start gap-4'>
@@ -242,32 +226,21 @@ export default function Business() {
                                 alt='toonyz screen'
                                 width={355}
                                 height={650}
-                                objectFit=''
                                 className='md:w-[355px] md:h-[650px] w-[200px] h-[360px] object-contain'
                             />
                         </div>
                     </div>
                 </div>
-
-
                 <div className="md:h-[10vh] h-[50vh]"></div>
-                <h2 className="md:text-6xl text-4xl font-bold mb-4 uppercase">
-                    {language === 'en' ? <>HOW IT WORKS</> : <>프로세스</>}
-                </h2>
-
+                <div className="md:text-6xl text-4xl font-bold mb-4 uppercase">
+                    <p>{language === 'en' ? <>HOW IT WORKS</> : <>프로세스</>}</p>
+                </div>
                 <div className='flex flex-col w-full justify-center items-center'>
-                    {language === 'en' ?
-                        <Image src='/images/process_en.png' alt='process english 1443×906' width={900} height={300} className="md:w-[900px] md:h-auto w-[400px] h-auto" />
-                        : <Image src='/images/process_ko.png' alt='process korean 1443×906' width={900} height={300} className="md:w-[900px] md:h-auto w-[400px] h-auto" />
-                    }
+                    <FlowDiagram />
                 </div>
             </div>
         </div>
         <div className='md:h-[20vh] h-[15vh]'></div>
-
-        {/* <p className="text-center text-sm"> For media, press, interview requests, please email: hello@stelland.io </p>
-
-        <p className="text-center text-sm pb-20"> For business inquiries, please email: lisa@stelland.io </p> */}
         <Footer />
     </div>
 }

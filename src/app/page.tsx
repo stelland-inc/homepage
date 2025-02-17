@@ -32,11 +32,7 @@ export default function Home() {
         <div className="md:mb-0 mb-[40vh]">
         <Character />
         </div>
-        {/* mission paragraph end */}
-        {/* <div className=" h-[30vh]"></div> */}
         <CardContainer />
-   
-        
          <div style={{height: "30vh"}}></div>
         <Section />
         <Footer />
