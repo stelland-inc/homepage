@@ -64,7 +64,7 @@ const initialNodes: Node[] = [
         </div>
       )
     },
-    position: { x: 300, y: 300 },
+    position: { x: 330, y: 300 },
     style: {
       ...nodeStyles.dark,
       background: "#FFF0EC",
@@ -95,7 +95,7 @@ const initialNodes: Node[] = [
         </>
       )
     },
-    position: { x: 300, y: 550 },
+    position: { x: 220, y: -150 },
     style: nodeStyles.dark
   },
 
@@ -115,7 +115,7 @@ const initialNodes: Node[] = [
         </>
       )
     },
-    position: { x: 700, y: 150 },
+    position: { x: 700, y: 10 },
     style: nodeStyles.dark
   },
   {
@@ -174,7 +174,6 @@ const initialEdges: Edge[] = [
     type: 'custom',
   },
   { id: "Toonyz-to-stelland", source: "Toonyz", target: "stelland", animated: true, style: { stroke: "#ec4899" } },
-
   // label for localization
   {
     id: 'Localization-to-stelland-labeled',
@@ -186,6 +185,8 @@ const initialEdges: Edge[] = [
     },
     type: 'custom',
   },
+
+
   { id: "Localization-to-stelland", source: "Localization", target: "stelland", animated: true, style: { stroke: "#3b82f6" } },
 
   // label for IP Management
@@ -196,16 +197,17 @@ const initialEdges: Edge[] = [
     data: {
       label: 'Original Super IP',
       color: 'bg-[#eccb48]',
-
     },
     type: 'custom',
     style: {
         translate: '10px, 10px'
     }
   },
-  { id: "Localization-to-stelland", source: "Localization", target: "stelland", animated: true, style: { stroke: "#3b82f6" } },
 
-  { id: "IP_Management-to-stelland", source: "IP_Management", target: "stelland", animated: true, style: { stroke: "#ef4444" } },
+  { id: "IP_Management-to-stelland", source: "Localization", target: "stelland", animated: true, style: { stroke: "#3b82f6" } },
+
+  // { id: "IP_Management-to-stelland", source: "IP_Management", target: "stelland", animated: true, style: { stroke: "#ef4444" } },
+
   { id: "Global_Distribution-to-stelland", source: "Global_Distribution", target: "stelland", animated: true, style: { stroke: "#3b82f6" } },
   // { id: "refine-b2b", source: "refine", target: "b2b", animated: true, style: { stroke: "#ec4899" } },
 ]
