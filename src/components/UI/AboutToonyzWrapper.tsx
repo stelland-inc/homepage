@@ -1,7 +1,7 @@
 import { Button } from "@mui/material"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
-
+import Link from "next/link"
 
 export default function AboutToonyzWrapper() {
     return (
@@ -54,6 +54,7 @@ export default function AboutToonyzWrapper() {
                                 size="large"
                                 variant="text"
                                 sx={{
+                                    color: '#000',
                                     padding: '8px 20px',
                                     borderRadius: '25px',
                                     border: '1px solid #000',
@@ -64,7 +65,9 @@ export default function AboutToonyzWrapper() {
                                  }}
                                 className="border border-black text-black hover:text-black rounded-full"
                             >
-                                바로가기
+                                <Link href="https://toonyz.com">
+                                    바로가기
+                                </Link>
                             </Button>
                         </div>
 

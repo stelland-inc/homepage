@@ -73,8 +73,8 @@ export default function ServicesComponent() {
                     <div className="grid gap-8 md:grid-cols-4 mt-10">
                         {features.map((feature) => (
                             <div key={feature.title} className="space-y-4 rounded-lg border p-6">
-                                <div className="inline-flex rounded-lg bg-primary/10 p-2 text-primary">
-                                    <feature.icon className="h-5 w-5" />
+                                <div className="inline-flex rounded-full bg-[#FEF0EC] bg-primary/10 p-2 text-primary">
+                                    <feature.icon size={20} className="" />
                                 </div>
                                 <h3 className="text-xl font-bold">
                                     {language === 'en' ? feature.title : feature.title_ko}
@@ -88,10 +88,10 @@ export default function ServicesComponent() {
             <div className="md:h-[50vh] h-[10vh]"></div>
             <div
                 ref={container}
-                className='relative w-full flex items-center justify-center h-screen overflow-hidden'
+                className='relative w-full flex items-center justify-center h-fit overflow-hidden'
                 style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
             >
-                <div className='relative z-10 p-20 text-white mix-blend-difference 
+                <div className='relative z-10 md:p-20 p-10 text-white mix-blend-difference 
                              w-full h-full flex flex-col justify-between'>
                     <div className="max-w-screen-lg mx-auto w-full text-start">
                         <p className='md:text-6xl text-lg font-bold mb-4 uppercase'>
