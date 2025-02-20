@@ -3,8 +3,6 @@ import { useEffect, useState, } from "react";
 import Footer from "@/components/Footer/Footer";
 import Intro from "@/components/Intro";
 import Section from "@/components/Intro/Section"; 
-
-// import Paragraph from "@/components/Mission/Paragraph";
 import Character from "@/components/Mission/Character";
 import CardContainer from '@/components/Card/CardContainer';
 import Loading from "./loading";
