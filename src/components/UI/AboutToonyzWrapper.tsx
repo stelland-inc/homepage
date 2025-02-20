@@ -52,7 +52,16 @@ export default function AboutToonyzWrapper() {
                             </Button>
                             <Button
                                 size="large"
-                                variant="outlined"
+                                variant="text"
+                                sx={{
+                                    padding: '8px 20px',
+                                    borderRadius: '25px',
+                                    borderColor: '#000',
+                                    backgroundColor: 'transparent',
+                                    '&:hover': {
+                                        backgroundColor: '#9ca3af',
+                                    },
+                                 }}
                                 className="border-[#000] text-black hover:bg-primary hover:text-gray-400 rounded-full"
                             >
                                 바로가기
