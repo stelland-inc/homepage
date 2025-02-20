@@ -9,10 +9,8 @@ import { styled } from '@mui/material/styles';
 import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
 import MuiAccordionSummary, { AccordionSummaryProps } from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import { ChevronDown, Shield, Lock, Blocks } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import FlowDiagram from '@/components/FlowChart/FlowDiagram';
-import BusinessAchievementComponent from '@/components/UI/BusinessAchievementComponent';
 import ServicesComponent from '@/components/UI/ServicesComponent';
 import AboutToonyzWrapper from '@/components/UI/AboutToonyzWrapper';
 
@@ -44,35 +42,6 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
     borderTop: '1px solid rgba(0, 0, 0, .125)',
 }));
 
-
-const features = [
-    {
-        icon: Shield,
-        title: "IP management",
-        title_ko: "IP 매니지먼트",
-        description: "24/7 monitoring and instant threat detection for your blockchain network.",
-    },
-    {
-        icon: Lock,
-        title: "Content Platform",
-        title_ko: "컨텐츠 플랫폼",
-        description: "Automated and manual security audits for smart contract vulnerabilities.",
-    },
-    {
-        icon: Blocks,
-        title: "Global Distribution & Localization",
-        title_ko: "글로벌 유통 & 현지화",
-        description: "Deep analysis of network patterns to identify potential security risks.",
-    },
-    {
-        icon: Blocks,
-        title: "Creator Incubation",
-        title_ko: "크리에이터 인큐베이션",
-        description: "Deep analysis of network patterns to identify potential security risks.",
-    },
-]
-
-
 export default function Business() {
     const { language } = useLanguage();
     const [expanded, setExpanded] = useState<string | false>('panel1');
@@ -81,7 +50,8 @@ export default function Business() {
         setExpanded(newExpanded ? panel : false);
     };
 
-    return <div>
+    return (
+      <div>
         <Hero />
         <div className={`max-w-screen-lg mx-auto md:p-0 p-5 `} >
             <div className="relative -top-16 left-0 p-3 text-center inline-flex items-center justify-center w-32 h-32 mb-6 shadow-lg rounded-full bg-white">
@@ -175,49 +145,26 @@ export default function Business() {
                         </>
                     </AccordionDetails>
                 </Accordion>
+           </div>
+         </div>
+            <div className='md:h-[20vh] h-0'></div>
+            {/* Features & achievement Section */}
+            <ServicesComponent />
+            {/* Toonyz section */}
+            <AboutToonyzWrapper />
+            <div className='max-w-screen-lg mx-auto'>
 
-            </div>
-
-            <div className='md:h-[10vh] h-0'></div>
-            <h2 className="md:text-6xl text-4xl font-bold mb-4 uppercase md:mt-0 mt-40">
-                {language === 'en' ? <>SERVICE</> : <>서비스</>}
-            </h2>
-
-            {/* Features Section */}
-            <section className="container">
-                <div className="mx-auto max-w-5xl space-y-16">
-                    <div className="grid gap-8 md:grid-cols-4 mt-10">
-                        {features.map((feature) => (
-                            <div key={feature.title} className="space-y-4 rounded-lg border p-6">
-                                <div className="inline-flex rounded-lg bg-primary/10 p-2 text-primary">
-                                    <feature.icon className="h-5 w-5" />
-                                </div>
-                                <h3 className="text-xl font-bold">
-                                    {language === 'en' ? feature.title : feature.title_ko}
-                                </h3>
-                                <p className="text-muted-foreground">{feature.description}</p>
-                            </div>
-                        ))}
-                    </div>
+                <div className="md:h-[10vh] h-[50vh]"></div>
+                <div className="md:text-6xl text-4xl font-bold mb-4 uppercase">
+                    <p>{language === 'en' ? <>HOW IT WORKS</> : <>프로세스</>}</p>
                 </div>
-            </section>
-        </div>
-
-        <div className="md:h-[50vh] h-0"></div>
-        <ServicesComponent />
-        {/* Toonyz section */}
-        <AboutToonyzWrapper />
-        <div className='max-w-screen-lg mx-auto'>
-
-            <div className="md:h-[10vh] h-[50vh]"></div>
-            <div className="md:text-6xl text-4xl font-bold mb-4 uppercase">
-                <p>{language === 'en' ? <>HOW IT WORKS</> : <>프로세스</>}</p>
+                <div className='flex flex-col w-full justify-center items-center'>
+                    <FlowDiagram />
+                </div>
             </div>
-            <div className='flex flex-col w-full justify-center items-center'>
-                <FlowDiagram />
-            </div>
-        </div>
-        <div className='md:h-[20vh] h-[15vh]'></div>
-        <Footer />
-    </div>
+            <div className='md:h-[20vh] h-[15vh]'></div>
+            <Footer />
+       
+      </div>
+    );
 }
