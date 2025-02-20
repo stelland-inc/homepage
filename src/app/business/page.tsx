@@ -159,13 +159,13 @@ export default function Business() {
                     <Image src='/icons/business_01.png' alt='main icon 01' width={120} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
                     <p className="w-full h-10 text-center">{language === 'en' ? 'IP Management' : 'IP 매니지먼트'}</p>
                 </li>
-                <li className="flex flex-col gap-5 justify-center items-center md:w-60 w-48">
-                    <Image src='/icons/business_04.png' alt='main icon 01' width={120} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
-                    <p className="w-full h-10 text-center">{language === 'en' ? 'Localization' : '현지화 번역'}</p>
-                </li>
                 <li className="flex flex-col gap-5 justify-center items-center  md:w-60 w-48">
                     <Image src='/icons/business_02.png' alt='main icon 01' width={120} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
-                    <p className="w-full h-10 text-center">{language === 'en' ? 'Media, Licensing, Adaptations' : '미디어, 라이센싱, 적용'}</p>
+                    <p className="w-full h-10 text-center">{language === 'en' ? 'Content Platform' : '컨텐츠 플랫폼'}</p>
+                </li>
+                <li className="flex flex-col gap-5 justify-center items-center md:w-60 w-48">
+                    <Image src='/icons/business_04.png' alt='main icon 01' width={120} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
+                    <p className="w-full h-10 text-center">{language === 'en' ? 'Global Distribution & Localization' : '글로벌 유통 & 현지화'}</p>
                 </li>
                 <li className="flex flex-col gap-5 justify-center items-center  md:w-60 w-48">
                     <Image src='/icons/business_03.png' alt='main icon 01' width={120} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />

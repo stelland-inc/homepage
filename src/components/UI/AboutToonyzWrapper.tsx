@@ -56,13 +56,13 @@ export default function AboutToonyzWrapper() {
                                 sx={{
                                     padding: '8px 20px',
                                     borderRadius: '25px',
-                                    borderColor: '#000',
+                                    border: '1px solid #000',
                                     backgroundColor: 'transparent',
                                     '&:hover': {
-                                        backgroundColor: '#9ca3af',
+                                        backgroundColor: '#eee',
                                     },
                                  }}
-                                className="border-[#000] text-black hover:bg-primary hover:text-gray-400 rounded-full"
+                                className="border border-black text-black hover:text-black rounded-full"
                             >
                                 바로가기
                             </Button>
