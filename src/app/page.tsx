@@ -2,13 +2,17 @@
 import { useEffect, useState, } from "react";
 import Footer from "@/components/Footer/Footer";
 import Intro from "@/components/Intro";
-import Section from "@/components/Intro/Section"; 
+import Section from "@/components/Intro/Section";
 import Character from "@/components/Mission/Character";
 import CardContainer from '@/components/Card/CardContainer';
 import Loading from "./loading";
+import { useCursor } from "@/contexts/CursorContext";
+
+
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  const { setCursorVariant } = useCursor()
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -22,18 +26,20 @@ export default function Home() {
     return <Loading />;
   }
 
+
   return (
     <div>
-        <Intro />
-        <div style={{height: "30vh"}}></div>
-        {/* mission paragraph */}
-        <div className="md:mb-0 mb-[40vh]">
+     
+      <Intro />
+      <div style={{ height: "30vh" }}></div>
+      {/* mission paragraph */}
+      <div className="md:mb-0 mb-[40vh]">
         <Character />
-        </div>
-        <CardContainer />
-         <div style={{height: "30vh"}}></div>
-        <Section />
-        <Footer />
+      </div>
+      <CardContainer />
+      <div style={{ height: "30vh" }}></div>
+      <Section />
+      <Footer />
     </div>
   );
 }

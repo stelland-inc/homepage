@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { headers } from 'next/headers'
+import { CursorProvider } from '@/contexts/CursorContext';
 
 const titles = {
   en: "Stella&Inc.",
@@ -68,8 +69,10 @@ export default function RootLayout({
         className="antialiased"
       >
         <LanguageProvider>
-          <Header />
-          {children}
+          <CursorProvider>
+            <Header />
+            {children}
+          </CursorProvider>
         </LanguageProvider>
       </body>
     </html>
