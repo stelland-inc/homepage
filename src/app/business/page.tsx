@@ -10,7 +10,7 @@ import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
 import MuiAccordionSummary, { AccordionSummaryProps } from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Shield, Lock, Blocks } from "lucide-react";
 import FlowDiagram from '@/components/FlowChart/FlowDiagram';
 import BusinessAchievementComponent from '@/components/UI/BusinessAchievementComponent';
 import ServicesComponent from '@/components/UI/ServicesComponent';
@@ -43,6 +43,35 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
     padding: theme.spacing(2),
     borderTop: '1px solid rgba(0, 0, 0, .125)',
 }));
+
+
+const features = [
+    {
+        icon: Shield,
+        title: "IP management",
+        title_ko: "IP 매니지먼트",
+        description: "24/7 monitoring and instant threat detection for your blockchain network.",
+    },
+    {
+        icon: Lock,
+        title: "Content Platform",
+        title_ko: "컨텐츠 플랫폼",
+        description: "Automated and manual security audits for smart contract vulnerabilities.",
+    },
+    {
+        icon: Blocks,
+        title: "Global Distribution & Localization",
+        title_ko: "글로벌 유통 & 현지화",
+        description: "Deep analysis of network patterns to identify potential security risks.",
+    },
+    {
+        icon: Blocks,
+        title: "Creator Incubation",
+        title_ko: "크리에이터 인큐베이션",
+        description: "Deep analysis of network patterns to identify potential security risks.",
+    },
+]
+
 
 export default function Business() {
     const { language } = useLanguage();
@@ -149,70 +178,37 @@ export default function Business() {
 
             </div>
 
-            <div className="md:h-[50vh] h-0"></div>
-
+            <div className='md:h-[10vh] h-0'></div>
             <h2 className="md:text-6xl text-4xl font-bold mb-4 uppercase md:mt-0 mt-40">
                 {language === 'en' ? <>SERVICE</> : <>서비스</>}
             </h2>
-            <ul className="flex md:flex-row flex-col gap-5 justify-center items-center pt-10 text-xl">
-                <li className="flex flex-col gap-5 justify-center items-center md:w-60 w-48">
-                    <Image src='/icons/business_01.png' alt='main icon 01' width={120} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
-                    <p className="w-full h-10 text-center">{language === 'en' ? 'IP Management' : 'IP 매니지먼트'}</p>
-                </li>
-                <li className="flex flex-col gap-5 justify-center items-center  md:w-60 w-48">
-                    <Image src='/icons/business_02.png' alt='main icon 01' width={120} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
-                    <p className="w-full h-10 text-center">{language === 'en' ? 'Content Platform' : '컨텐츠 플랫폼'}</p>
-                </li>
-                <li className="flex flex-col gap-5 justify-center items-center md:w-60 w-48">
-                    <Image src='/icons/business_04.png' alt='main icon 01' width={120} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
-                    <p className="w-full h-10 text-center">{language === 'en' ? 'Global Distribution & Localization' : '글로벌 유통 & 현지화'}</p>
-                </li>
-                <li className="flex flex-col gap-5 justify-center items-center  md:w-60 w-48">
-                    <Image src='/icons/business_03.png' alt='main icon 01' width={120} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
-                    <p className="w-full h-10 text-center">{language === 'en' ? 'Creator Incubation' : '크리에이터 인큐베이션'}</p>
-                </li>
-            </ul>
+
+            {/* Features Section */}
+            <section className="container">
+                <div className="mx-auto max-w-5xl space-y-16">
+                    <div className="grid gap-8 md:grid-cols-4 mt-10">
+                        {features.map((feature) => (
+                            <div key={feature.title} className="space-y-4 rounded-lg border p-6">
+                                <div className="inline-flex rounded-lg bg-primary/10 p-2 text-primary">
+                                    <feature.icon className="h-5 w-5" />
+                                </div>
+                                <h3 className="text-xl font-bold">
+                                    {language === 'en' ? feature.title : feature.title_ko}
+                                </h3>
+                                <p className="text-muted-foreground">{feature.description}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
         </div>
+
         <div className="md:h-[50vh] h-0"></div>
         <ServicesComponent />
+        {/* Toonyz section */}
         <AboutToonyzWrapper />
         <div className='max-w-screen-lg mx-auto'>
 
-            {/* Toonyz section */}
-
-            {/* <div className='flex flex-col justify-between items-center md:h-[650px] h-[100px] md:mb-0 mb-40 md:p-0 pt-[110px]'>
-                <div className='flex flex-row justify-between items-center w-full pt-[50px]'>
-                    <div className='flex flex-col justify-start items-start gap-4'>
-
-                        <Image src='/toonyzLogo.png' alt='toonyz' width={150} height={100} />
-                        <p className='md:text-2xl text-md font-bold'>Global Story Platform</p>
-                        <p className='md:text-xl text-md'>
-                            {language === 'en' ? <>
-                                Explore a world of diverse genres and captivating stories with us.<br />
-                                Come find your favorite story universe on Toonyz!</>
-                                : <> 다양한 장르와 환상적인 이야기를 함께 즐기세요. <br />
-                                    여러분이 좋아하는 이야기 세계로 떠나보세요.<br /> 우리와 투니즈에서 함께 하세요!</>
-                            } <br />
-
-                        </p>
-                        <button className='md:w-[250px] w-full bg-black text-white px-10 py-2 rounded-full mt-5 hover:bg-white hover:text-black transition-all duration-300'>
-                            <Link href='https://toonyz.com'>
-                                {language === 'en' ? 'Go to Toonyz' : '투니즈 바로가기'}
-                            </Link>
-                        </button>
-                    </div>
-                    <div className='md:right-0 right-24 md:top-12 bottom-[0px] md:h-auto h-[300px] md:overflow-visible overflow-hidden'>
-                        <Image
-                            src='/images/toonyz_screen.png'
-                            alt='toonyz screen'
-                            width={355}
-                            height={650}
-                            className='md:w-[355px] md:h-[650px] w-[200px] h-[360px] object-contain'
-                        />
-                    </div>
-                </div>
-            </div>
-             */}
             <div className="md:h-[10vh] h-[50vh]"></div>
             <div className="md:text-6xl text-4xl font-bold mb-4 uppercase">
                 <p>{language === 'en' ? <>HOW IT WORKS</> : <>프로세스</>}</p>
