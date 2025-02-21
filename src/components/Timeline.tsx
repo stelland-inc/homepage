@@ -34,9 +34,9 @@ const timelineEvents = [
         year: 2024,
         title: "해외 파트너사 확대",
         title_en: 'Global Partner Expansion',
-        description: "케나즈 지정 현지화 업체, 카카오 지정 현지화 업체, AI 현지화 솔루션 개발, 웹툰화 사업 개시, IP 개발 사업 개시",
+        description: "아마존 재팬 지정 현지화 업체, 카카오 태국법인 지정 현지화 업체, 메디방, 라쿠텐 일본 사업 채결",
         details:
-            "Designated Localization Company for KENAS, Designated Localization Company for Kakao, AI Localization Solution Development, Webtoon Business Started, IP Development Business Started",
+            "Designated Localization Company for Amazon Japan, Designated Localization Company for Kakao Thailand, MediBang, Rakuten Japan Business Settlement",
     },
     {
         year: 2025,
