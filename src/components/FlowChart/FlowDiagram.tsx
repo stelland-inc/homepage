@@ -68,12 +68,21 @@ function Flow() {
         label: (
           <div className="flex flex-col items-center justify-center gap-y-2">
             <Image
+              src="/apple-touch-icon.png"
+              alt="Stelland"
+              width={130}
+              height={130}
+              className="p-2 rounded-full" />
+              
+            {/* <Image
               src="/stelland_logo.svg"
               alt="Stelland"
               width={100}
-              height={100}
-              className="invert" />
-            <span className="text-[10px] text-gray-800">Your favorite story universe</span>
+              height={20}
+              className="invert" /> */}
+            {/* <span className="text-[10px] text-gray-800">
+              Entertainment
+            </span> */}
           </div>
         )
       },
@@ -83,12 +92,13 @@ function Flow() {
         background: "#FFF0EC",
         fontSize: "20px",
         fontWeight: "bold",
-        width: 240,
-        height: 80,
+        width: 160,
+        height: 160,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         color: "#000",
+        borderRadius: "100%",
       },
     },
     // outer nodes
@@ -117,13 +127,13 @@ function Flow() {
       data: {
         label: (
           <>
-            <p className="text-lg font-bold">Global Distribution</p>
+            <p className="text-lg font-bold">{language === 'en' ? 'Global Distribution' : '글로벌 배포'}</p>
             <ol className="list-decimal pl-5 space-y-2 text-start">
-              <li>Preparing localization</li>
-              <li>Submission of a work</li>
-              <li>Entering local market</li>
-              <li>Design & Marketing</li>
-              <li>Strategic Promotion</li>
+              <li>{language === 'en' ? 'Preparing localization' : '현지화 준비'}</li>
+              <li>{language === 'en' ? 'Submission of a work' : '작품 투고'}</li>
+              <li>{language === 'en' ? 'Entering local market' : '로컬 시장 진출'}</li>
+              <li>{language === 'en' ? 'Design & Marketing' : '디자인 및 마케팅'}</li>
+              <li>{language === 'en' ? 'Strategic Promotion' : '전략적 홍보'}</li>
             </ol>
           </>
         )
@@ -136,13 +146,13 @@ function Flow() {
       data: {
         label: (
           <>
-            <p className="text-lg font-bold">Toonyz</p>
+            <p className="text-lg font-bold">{language === 'en' ? 'Toonyz Platform Operation' : 'Toonyz 플랫폼 운영'}</p>
             <ol className="list-decimal pl-5 space-y-2 text-start">
-              <li>Run Toonyz Platform</li>
-              <li>Toonyz Marketing</li>
-              <li>Toonyz Creators</li>
-              <li>Toonyz Studio</li>
-              <li>Toonyz AI</li>
+              <li>{language === 'en' ? 'Run Toonyz Platform' : '글로벌 콘텐츠 배포'}</li>
+              <li>{language === 'en' ? 'Toonyz Marketing' : 'Toonyz 마케팅'}</li>
+              <li>{language === 'en' ? 'Toonyz Creators' : 'Toonyz 크리에이터'}</li>
+              <li>{language === 'en' ? 'Toonyz Studio' : '수퍼 IP 개발'}</li>
+              <li>{language === 'en' ? 'Toonyz Technology' : 'API, 테크, 번역엔진'}</li>
             </ol>
           </>
         )
@@ -156,13 +166,13 @@ function Flow() {
       data: {
         label: (
           <>
-            <p className="text-lg font-bold">Localization</p>
+            <p className="text-lg font-bold">{language === 'en' ? 'Localization' : '현지화'}</p>
             <ol className="list-decimal pl-5 space-y-2 text-start">
-              <li>Planning & Preparing</li>
-              <li>Translation</li>
-              <li>Quality inspection</li>
-              <li>Typesetting</li>
-              <li>Finalization</li>
+              <li>{language === 'en' ? 'Planning & Preparing' : '계획 및 준비'}</li>
+              <li>{language === 'en' ? 'Translation' : '번역'}</li>
+              <li>{language === 'en' ? 'Quality inspection' : '품질 검사'}</li>
+              <li>{language === 'en' ? 'Typesetting' : '편집'}</li>
+              <li>{language === 'en' ? 'Finalization' : '최종 검수'}</li>
             </ol>
           </>
         )
@@ -187,6 +197,7 @@ function Flow() {
       type: 'custom',
     },
     { id: "Toonyz-to-stelland", source: "Toonyz", target: "stelland", animated: true, style: { stroke: "#ec4899" } },
+
     // label for localization
     {
       id: 'Localization-to-stelland-labeled',
@@ -201,7 +212,6 @@ function Flow() {
 
 
     { id: "Localization-to-stelland", source: "Localization", target: "stelland", animated: true, style: { stroke: "#3b82f6" } },
-
     // label for IP Management
     {
       id: 'IP_Management-to-stelland-labeled',
@@ -210,19 +220,31 @@ function Flow() {
       data: {
         label: 'Original Super IP',
         color: 'bg-[#eccb48]',
+        style: {
+          translate: '-25%, -350%'
+        }
       },
       type: 'custom',
-      style: {
-        translate: '10px, 10px'
-      }
+    
     },
 
     { id: "IP_Management-to-stelland", source: "Localization", target: "stelland", animated: true, style: { stroke: "#3b82f6" } },
-
-    // { id: "IP_Management-to-stelland", source: "IP_Management", target: "stelland", animated: true, style: { stroke: "#ef4444" } },
+    // label for IP Management
+    {
+      id: 'Global_Distribution-to-stelland-labeled',
+      source: 'Global_Distribution',
+      target: 'stelland',
+      data: {
+        label: 'Specialized Distribution',
+        color: 'bg-[#3b82f6]',
+        style: {
+          translate: '30%, -290%'
+        }
+      },
+      type: 'custom',
+    },
 
     { id: "Global_Distribution-to-stelland", source: "Global_Distribution", target: "stelland", animated: true, style: { stroke: "#3b82f6" } },
-    // { id: "refine-b2b", source: "refine", target: "b2b", animated: true, style: { stroke: "#ec4899" } },
   ]
 
   const edgeTypes: EdgeTypes = {

@@ -64,6 +64,10 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
         />
+        <link 
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
+        />
       </head>
       <body
         className="antialiased"

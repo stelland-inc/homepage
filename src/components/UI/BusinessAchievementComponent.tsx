@@ -52,25 +52,25 @@ const BusinessAchievementComponent = () => {
         <div className="flex flex-col items-center justify-center">
             <div ref={container}>
                 <div ref={textRef} className='grid md:grid-cols-4 grid-cols-1 gap-1 gap-y-5'>
-                <span data-number className="effect md:text-9xl text-7xl">+8,000</span>
+                <span data-number className="effect font-orbitron  md:text-9xl text-7xl">+8,000</span>
                 <p className="col-span-3 md:text-5xl text-2xl md:self-center md:text-right">
                     {language === 'ko' ? <span className='font-bold'>웹툰 현지화 회차 수</span>
-                                       : <span className='font-bold'>Total count of our webtoon localizations</span>}
+                                       : <span className='font-bold text-2xl'>Total count of our webtoon localizations</span>}
                 </p>
-                <span data-number className="effect md:text-9xl text-7xl">+6,000</span>
+                <span data-number className="effect font-orbitron  md:text-9xl text-7xl">+6,000</span>
                 <p className="col-span-3 md:text-5xl text-2xl md:self-center md:text-right">
                     {language === 'ko' ? <span className='font-bold'>웹소설 현지화 회차 수</span>
-                                       : <span className='font-bold'>Total count of our webnovel localizations</span>}
+                                       : <span className='font-bold text-2xl'>Total count of our webnovel localizations</span>}
                 </p>
-                <span data-number className="effect md:text-9xl text-7xl">+2,000</span>
+                <span data-number className="effect font-orbitron  md:text-9xl text-7xl">+2,000</span>
                 <p className="col-span-3 md:text-5xl text-2xl md:self-center md:text-right">
                     {language === 'ko' ? <span className='font-bold'>소속 현지 크리에이터 수</span>
-                                       : <span className='font-bold'>Our pool of talented creators</span>}
+                                       : <span className='font-bold text-2xl'>Our pool of talented creators</span>}
                 </p>
-                <span data-number className="effect md:text-9xl text-7xl">+20</span>
+                <span data-number className="effect font-orbitron  md:text-9xl text-7xl">+20</span>
                 <p className="col-span-3 md:text-5xl text-2xl md:self-center md:text-right">
                     {language === 'ko' ? <span className='font-bold'>국내외 IP 보유</span>
-                                       : <span className='font-bold'>Size of our IP portfolio</span>}
+                                       : <span className='font-bold text-2xl'>Size of our IP portfolio</span>}
                 </p>
                 </div>
             </div>

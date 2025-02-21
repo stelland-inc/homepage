@@ -55,6 +55,13 @@ export default function Intro() {
             onMouseLeave={() => setCursorVariant("default")}
           >Contact Us</Link>
         </button>
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-sm text-gray-600">Scroll</span>
+            <div className="w-[1px] h-8 bg-gradient-to-b from-black/50 to-transparent" />
+          </div>
+        </div>
       </motion.div>
     </div>
   )
