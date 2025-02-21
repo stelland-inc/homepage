@@ -8,7 +8,7 @@ import CardContainer from '@/components/Card/CardContainer';
 import Loading from "./loading";
 import { useCursor } from "@/contexts/CursorContext"; 
 import CustomCursor from "@/components/UI/CustomCursor";
-
+import Marquee from "@/components/UI/Marquee";
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const { cursorVariant, setCursorVariant } = useCursor()
@@ -55,7 +55,8 @@ export default function Home() {
         <Character />
       </div>
       <CardContainer />
-      <div style={{ height: "30vh" }}></div>
+      <Marquee /> 
+      {/* <div style={{ height: "30vh" }}></div> */}
       <Section />
       <Footer />
     </div>
