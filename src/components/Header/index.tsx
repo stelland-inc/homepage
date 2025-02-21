@@ -21,8 +21,8 @@ export default function Header() {
     }
 
     return (
-        <div className={styles.header}>
-            <div className={`${styles.bar} max-w-screen-xl mx-auto md:pb-5`}>
+        <div className={`${styles.header} sticky top-0 z-50 w-full bg-[#FFF0EC] backdrop-blur-lg supports-[backdrop-filter]:bg-[#FFF0EC]/80`}>
+            <div className={`${styles.bar} max-w-screen-xl mx-auto md:pb-5 `}>
                 <Link href="/">
                     <Image 
                         src="/stelland_logo_black.svg" 

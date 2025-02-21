@@ -40,7 +40,13 @@ export default function Index({ closeMenu }: { closeMenu: () => void }) {
   const [selectedLink, setSelectedLink] = useState({isActive: false, index: 0});
 
   return (
-    <motion.div variants={height} initial="initial" animate="enter" exit="exit" className={styles.nav}>
+    <motion.div 
+      variants={height} 
+      initial="initial" 
+      animate="enter" 
+      exit="exit" 
+      className={`${styles.nav}`}
+    >
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <Body links={links} selectedLink={selectedLink} setSelectedLink={setSelectedLink} closeMenu={closeMenu}/>
