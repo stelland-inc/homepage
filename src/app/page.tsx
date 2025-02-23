@@ -6,9 +6,12 @@ import Section from "@/components/Intro/Section";
 import Character from "@/components/Mission/Character";
 import CardContainer from '@/components/Card/CardContainer';
 import Loading from "./loading";
-import { useCursor } from "@/contexts/CursorContext"; 
+import { useCursor } from "@/contexts/CursorContext";
 import CustomCursor from "@/components/UI/CustomCursor";
 import Marquee from "@/components/UI/Marquee";
+import ToonyzWrapper from "@/components/Card/Toonyz/Toonyz";
+import { Toonyz } from "@/components/Card/Toonyz/Toonyz";
+import Description from "@/components/Card/Description";
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const { cursorVariant, setCursorVariant } = useCursor()
@@ -50,13 +53,22 @@ export default function Home() {
       <CustomCursor variant={cursorVariant} />
       <Intro />
       <div style={{ height: "30vh" }}></div>
-      {/* mission paragraph */}
       <div className="md:mb-0 mb-[40vh]">
+        {/* mission paragraph */}
         <Character />
       </div>
+      <Description />
       <CardContainer />
-      <Marquee /> 
-      {/* <div style={{ height: "30vh" }}></div> */}
+      <div style={{ height: "5vh" }}></div>
+      <div className="w-full flex items-center justify-center bg-pink-500/30">
+        <div className="relative">
+          <ToonyzWrapper />
+          <div className="absolute top-0 left-0 w-full h-full">
+            <Toonyz />
+          </div>
+        </div>
+      </div>
+      <Marquee />
       <Section />
       <Footer />
     </div>

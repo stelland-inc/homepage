@@ -8,7 +8,6 @@ import Business from '@/components/Card/Business';
 import About from '@/components/Card/About';
 import History from '@/components/Card/History';
 import Description from '@/components/Card/Description';
-import Toonyz from '@/components/Card/Toonyz';
 
 type ProjectComponent = React.FC<{
   progress: number;
@@ -21,10 +20,10 @@ const projectComponents: {
   component: ProjectComponent;
   color: string;
 }[] = [
-  {
-    component: Description,
-    color: 'white'
-  },
+  // {
+  //   component: Description,
+  //   color: 'white'
+  // },
   {
     component: About,
     color: '#FFF0EC'
@@ -37,10 +36,6 @@ const projectComponents: {
     component: History,
     color: 'white'
   },
-  {
-    component: Toonyz,
-    color: '#FFF0EC'
-  }
 ];
 
 
