@@ -20,10 +20,6 @@ const projectComponents: {
   component: ProjectComponent;
   color: string;
 }[] = [
-  // {
-  //   component: Description,
-  //   color: 'white'
-  // },
   {
     component: About,
     color: '#FFF0EC'

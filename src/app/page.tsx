@@ -57,9 +57,12 @@ export default function Home() {
         {/* mission paragraph */}
         <Character />
       </div>
-      <Description />
+      <div className="w-full flex items-center justify-center my-40">
+        <Description />
+      </div>
+      <Marquee />
       <CardContainer />
-      <div style={{ height: "5vh" }}></div>
+      <div className="md:h-[5vh] h-5"></div>
       <div className="w-full flex items-center justify-center bg-pink-500/30 ">
         <div className="relative">
           <ToonyzWrapper />
@@ -68,7 +71,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Marquee />
       <Section />
       <Footer />
     </div>
