@@ -8,11 +8,11 @@ import Ticker from './Ticker';
 
 export default function ToonyzWrapper() {
     return (
-        <div className="grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2 gap-4 opacity-20">
+        <div className="grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2 gap-4 opacity-20 md:h-full min-h-[20vh]">
             <Ticker direction="up" />
             <Ticker direction="down" />
-            <Ticker direction="up" />
-            <Ticker direction="down" />
+            <Ticker direction="up" className="md:inline-grid hidden" />
+            <Ticker direction="down" className="md:inline-grid hidden" />
             <Ticker direction="down" className="md:inline-grid hidden" />
         </div>
     )
@@ -23,8 +23,8 @@ export function Toonyz() {
 
     return (
         <div className='max-w-screen-lg mx-auto flex flex-col justify-between items-center '>
-            <div className='flex flex-row justify-between items-center pt-[50px]'>
-                <div className='flex flex-col justify-start items-start gap-4 w-full'>
+            <div className='flex flex-row justify-between items-center'>
+                <div className='flex flex-col justify-start items-start gap-4 w-full md:p-0 p-3'>
                     {/* <h2>{language === 'en' ? 'Toonyz' : '투니즈'}</h2> */}
                     <Image src='/toonyzLogo.png' alt='toonyz' width={150} height={100} />
                     <p className='md:text-2xl text-md font-bold'>Global story platform</p>

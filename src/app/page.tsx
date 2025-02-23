@@ -60,7 +60,7 @@ export default function Home() {
       <Description />
       <CardContainer />
       <div style={{ height: "5vh" }}></div>
-      <div className="w-full flex items-center justify-center bg-pink-500/30">
+      <div className="w-full flex items-center justify-center bg-pink-500/30 ">
         <div className="relative">
           <ToonyzWrapper />
           <div className="absolute top-0 left-0 w-full h-full">
