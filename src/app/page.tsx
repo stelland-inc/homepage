@@ -11,7 +11,7 @@ import CustomCursor from "@/components/UI/CustomCursor";
 import Marquee from "@/components/UI/Marquee";
 import ToonyzWrapper from "@/components/Card/Toonyz/Toonyz";
 import { Toonyz } from "@/components/Card/Toonyz/Toonyz";
-import Description from "@/components/Card/Description";
+import FeaturesWrapper from "@/components/UI/FeaturesWrapper";
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const { cursorVariant, setCursorVariant } = useCursor()
@@ -25,6 +25,7 @@ export default function Home() {
   }, []);
 
 
+  // cursor effect
   useEffect(() => {
     const handleMouseEnter = () => setCursorVariant("hover")
     const handleMouseLeave = () => setCursorVariant("default")
@@ -54,14 +55,16 @@ export default function Home() {
       <Intro />
       <div style={{ height: "30vh" }}></div>
       <div className="md:mb-0 mb-[40vh]">
-        {/* mission paragraph */}
+        {/* the mission paragraph */}
         <Character />
       </div>
-      <div className="w-full flex items-center justify-center my-40">
-        <Description />
+      <div className="md:h-[30vh] h-5" />
+      <div className="w-full flex items-center justify-center">
+        <FeaturesWrapper />
       </div>
       <Marquee />
-      <CardContainer />
+      {/* <CardContainer /> */}
+       {/* Toonyz part */}
       <div className="md:h-[5vh] h-5"></div>
       <div className="w-full flex items-center justify-center bg-pink-500/30 ">
         <div className="relative">

@@ -34,8 +34,14 @@ export default function Intro() {
 
   return (
     <div className='h-screen overflow-hidden'>
-      <motion.div style={{ y }} className='relative h-full flex flex-col items-center justify-center'>
-        <Image src={Background} fill alt="image" style={{ objectFit: "cover" }} />
+      <motion.div
+        style={{ y }}
+        // className='relative h-full flex flex-col items-center justify-center'
+        className='flex flex-col items-center justify-center 
+                   relative h-full py-12 md:py-24 lg:py-32 xl:py-48 
+                   bg-gradient-to-br from-blue-100 via-white to-purple-100'
+        >
+        {/* <Image src={Background} fill alt="image" style={{ objectFit: "cover" }} /> */}
         <p className='z-50 md:text-6xl font-medium text-4xl uppercase text-center '>
           <span className=''>Stella& Inc.</span> Entertainment
         </p>

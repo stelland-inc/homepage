@@ -177,12 +177,19 @@ export default function Contact() {
                 : <> <span className='text-red-300'>lisa@stelland.io</span> 로 이메일을 보내세요. <br/> 더 많은 정보를 알려드리겠습니다. <br/> <br />
                 우리는 당신과 협업을 찾고 있습니다. <br/>감사합니다.</>}
             </Typography>
-          
-           
             <Button 
-            sx={{ mt: 2, mb: 2, color: '#000' }} 
+            // sx={{ 
+            //     mt: 2, 
+            //     mb: 2, 
+            //     color: '#fff', 
+            //     backGround: 'black', 
+            //     "&:hover": { 
+            //         background: 'white',
+            //         color: '#000'
+            //     } 
+            // }} 
             onClick={handleClose} 
-            className='bg-black text-white hover:text-white transition-all duration-300'>
+            className='bg-black text-white hover:text-black hover:bg-white transition-all duration-300 rounded-full capitalize'>
                 Close
             </Button>
             </Box>

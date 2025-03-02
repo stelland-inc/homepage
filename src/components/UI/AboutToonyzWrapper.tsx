@@ -90,7 +90,7 @@ export default function AboutToonyzWrapper() {
                     <div className="relative">
                         <div className="relative aspect-square max-w-md mx-auto">
                             <Image
-                                src="/images/toonyz_screen.png"
+                                src="/images/toonyz_screen.svg"
                                 alt="Toonyz mobile screenshot"
                                 fill
                                 className="object-contain transform hover:scale-105 transition-transform duration-500"

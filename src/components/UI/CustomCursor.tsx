@@ -22,7 +22,7 @@ const cursorVariants = {
     width: 64,
     height: 64,
     backgroundColor: "rgba(255, 255, 255, 0.4)",
-    border: "1px solid rgba(255, 255, 255, 0.6)",
+    border: "1px solid rgba(255, 255, 255, 0.4)",
     transition: { type: "spring", stiffness: 500, damping: 28 },
   },
 }
@@ -48,7 +48,7 @@ const CustomCursor: React.FC<CustomCursorProps> = ({ variant }) => {
 
   return (
     <motion.div
-      className="pointer-events-none fixed z-[99] rounded-full mix-blend-difference"
+      className="pointer-events-none fixed z-[999] rounded-full mix-blend-difference"
       animate={cursorVariant === "hover" ? "hover" : "default"}
       variants={cursorVariants}
       style={{
