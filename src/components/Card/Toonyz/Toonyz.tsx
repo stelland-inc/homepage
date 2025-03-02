@@ -33,13 +33,21 @@ export function Toonyz() {
                             Come find your favorite story universe on Toonyz!</p>
                             : <p> 다양한 장르와 환상적인 이야기를 함께 즐기세요. <br />
                                 여러분이 좋아하는 이야기 세계로 떠나보세요.<br /> 우리와 투니즈에서 함께 하세요!</p>
-                        } 
+                        }
                     </p>
-                    <button className='md:w-[250px] w-full bg-black text-white px-10 py-2 rounded-full hover:bg-white hover:text-black transition-all duration-300'>
-                        <Link href='https://toonyz.com'>
-                            {language === 'en' ? 'Go to Toonyz' : '투니즈 바로가기'}
-                        </Link>
-                    </button>
+
+                    <div className="flex md:flex-row flex-col gap-1 justify-center items-center w-full">
+                        <button className='flex-1 w-full bg-black text-white px-10 py-2 rounded-full hover:bg-white hover:text-black transition-all duration-300'>
+                            <Link href='/business'>
+                                {language === 'en' ? 'Learn more' : '더 알아보기'}
+                            </Link>
+                        </button>
+                        <button className='w-full md:w-[100px]  bg-white text-black border border-black px-4 py-2 rounded-full hover:bg-transparent hover:text-black transition-all duration-300'>
+                            <Link href='https://toonyz.com'>
+                                {language === 'en' ? 'Go to Toonyz' : '바로가기'}
+                            </Link>
+                        </button>
+                    </div>
                 </div>
 
                 <div className="md:order-2 order-1 relative md:w-[30vw] w-full flex items-center justify-center">

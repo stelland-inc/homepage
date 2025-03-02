@@ -33,7 +33,7 @@ export default function AboutToonyzWrapper() {
                             </span>
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-4">
+                        <div className="flex flex-col md:flex-row gap-4">
                             <Button
                              size="large" 
                              variant="text"
