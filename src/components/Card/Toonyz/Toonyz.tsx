@@ -36,13 +36,13 @@ export function Toonyz() {
                         }
                     </p>
 
-                    <div className="flex md:flex-row flex-col gap-1 justify-center items-center w-full">
-                        <button className='flex-1 w-full bg-black text-white px-10 py-2 rounded-full hover:bg-white hover:text-black transition-all duration-300'>
+                    <div className="flex md:flex-row flex-col gap-4 justify-center items-center w-full">
+                        <button className='flex-1 md:w-[200px] w-full bg-black text-white px-10 py-2 rounded-full hover:bg-white hover:text-black transition-all duration-300'>
                             <Link href='/business'>
                                 {language === 'en' ? 'Learn more' : '더 알아보기'}
                             </Link>
                         </button>
-                        <button className='w-full md:w-[100px]  bg-white text-black border border-black px-4 py-2 rounded-full hover:bg-transparent hover:text-black transition-all duration-300'>
+                        <button className='w-full md:w-fit bg-white text-black border border-black px-4 py-2 rounded-full hover:bg-transparent hover:text-black transition-all duration-300'>
                             <Link href='https://toonyz.com'>
                                 {language === 'en' ? 'Go to Toonyz' : '바로가기'}
                             </Link>
