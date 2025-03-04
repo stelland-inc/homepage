@@ -38,11 +38,11 @@ const BusinessAchievementComponent = () => {
     useEffect(() => {
         const numberElements = document.querySelectorAll('[data-number]');
         numberElements.forEach((element, index) => {
-            initTextAnimation(`[data-number]:nth-of-type(${index + 1})`, 
-                [element.textContent || '', element.textContent || '', element.textContent || '', element.textContent || ''], 
+            initTextAnimation(`[data-number]:nth-of-type(${index + 1})`,
+                [element.textContent || '', element.textContent || '', element.textContent || '', element.textContent || ''],
                 {
                     chars: '!@#$%^',
-                    delay: 5000 + (index * 200), 
+                    delay: 5000 + (index * 200),
                 }
             );
         });
@@ -51,27 +51,30 @@ const BusinessAchievementComponent = () => {
     return (
         <div className="flex flex-col items-center justify-center">
             <div ref={container}>
+                <p className='md:text-6xl text-lg font-bold py-5 uppercase'>
+                    {language === 'en' ? <>BY THE NUMBERS</> : <>성과</>}
+                </p>
                 <div ref={textRef} className='grid md:grid-cols-4 grid-cols-1 gap-1 gap-y-5'>
-                <span data-number className="effect font-orbitron  md:text-9xl text-7xl">+8,000</span>
-                <p className="col-span-3 md:text-5xl text-2xl md:self-center md:text-right">
-                    {language === 'ko' ? <span className='font-bold'>웹툰 현지화 회차 수</span>
-                                       : <span className='font-bold text-2xl'>Total count of our webtoon localizations</span>}
-                </p>
-                <span data-number className="effect font-orbitron  md:text-9xl text-7xl">+6,000</span>
-                <p className="col-span-3 md:text-5xl text-2xl md:self-center md:text-right">
-                    {language === 'ko' ? <span className='font-bold'>웹소설 현지화 회차 수</span>
-                                       : <span className='font-bold text-2xl'>Total count of our webnovel localizations</span>}
-                </p>
-                <span data-number className="effect font-orbitron  md:text-9xl text-7xl">+2,000</span>
-                <p className="col-span-3 md:text-5xl text-2xl md:self-center md:text-right">
-                    {language === 'ko' ? <span className='font-bold'>소속 현지 크리에이터 수</span>
-                                       : <span className='font-bold text-2xl'>Our pool of talented creators</span>}
-                </p>
-                <span data-number className="effect font-orbitron  md:text-9xl text-7xl">+20</span>
-                <p className="col-span-3 md:text-5xl text-2xl md:self-center md:text-right">
-                    {language === 'ko' ? <span className='font-bold'>국내외 IP 보유</span>
-                                       : <span className='font-bold text-2xl'>Size of our IP portfolio</span>}
-                </p>
+                    <span data-number className="effect font-orbitron md:text-7xl text-5xl">+8,000</span>
+                    <p className="col-span-3 md:text-5xl text-2xl md:self-center md:text-right">
+                        {language === 'ko' ? <span className='font-bold'>웹툰 현지화 회차 수</span>
+                            : <span className='font-bold text-2xl'>Total count of our webtoon localizations</span>}
+                    </p>
+                    <span data-number className="effect font-orbitron md:text-7xl text-5xl">+6,000</span>
+                    <p className="col-span-3 md:text-5xl text-2xl md:self-center md:text-right">
+                        {language === 'ko' ? <span className='font-bold'>웹소설 현지화 회차 수</span>
+                            : <span className='font-bold text-2xl'>Total count of our webnovel localizations</span>}
+                    </p>
+                    <span data-number className="effect font-orbitron md:text-7xl text-5xl">+2,000</span>
+                    <p className="col-span-3 md:text-5xl text-2xl md:self-center md:text-right">
+                        {language === 'ko' ? <span className='font-bold'>소속 현지 크리에이터 수</span>
+                            : <span className='font-bold text-2xl'>Our pool of talented creators</span>}
+                    </p>
+                    <span data-number className="effect font-orbitron md:text-7xl text-5xl">+20</span>
+                    <p className="col-span-3 md:text-5xl text-2xl md:self-center md:text-right">
+                        {language === 'ko' ? <span className='font-bold'>국내외 IP 보유</span>
+                            : <span className='font-bold text-2xl'>Size of our IP portfolio</span>}
+                    </p>
                 </div>
             </div>
         </div>

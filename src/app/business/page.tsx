@@ -54,7 +54,7 @@ export default function Business() {
 
     return (
         <div>
-            <CustomCursor variant={cursorVariant}/>
+            <CustomCursor variant={cursorVariant} />
             <Hero />
             <div className={`max-w-screen-lg mx-auto md:p-0 p-5 `} >
                 <div className="relative -top-16 left-0 p-3 text-center inline-flex items-center justify-center w-32 h-32 mb-6 shadow-lg rounded-full bg-white">
@@ -150,24 +150,14 @@ export default function Business() {
                     </Accordion>
                 </div>
             </div>
+            <div className="md:h-[20vh] h-0"></div>
+            {/* Toonyz section */}
+            <AboutToonyzWrapper />
             <div className='md:h-[20vh] h-0'></div>
             {/* Features & achievement Section */}
             <ServicesComponent />
-            {/* Toonyz section */}
-            <AboutToonyzWrapper />
-            <div className='max-w-screen-lg mx-auto'>
-
-                <div className="md:h-[10vh] h-[50vh]"></div>
-                <div className="md:text-6xl text-4xl font-bold mb-4 uppercase">
-                    <p>{language === 'en' ? <>HOW IT WORKS</> : <>프로세스</>}</p>
-                </div>
-                <div className='flex flex-col w-full justify-center items-center'>
-                    <FlowDiagram />
-                </div>
-            </div>
             <div className='md:h-[20vh] h-[15vh]'></div>
             <Footer />
-
         </div>
     );
 }

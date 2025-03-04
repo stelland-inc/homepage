@@ -36,7 +36,7 @@ export function Toonyz() {
                         }
                     </p>
 
-                    <div className="flex md:flex-row flex-col gap-4 justify-center items-center w-full">
+                    <div className="flex md:flex-row flex-col gap-4 justify-center items-center w-full md:mb-0 mb-10">
                         <button className='flex-1 md:w-[200px] w-full bg-black text-white px-10 py-2 rounded-full hover:bg-white hover:text-black transition-all duration-300'>
                             <Link href='/business'>
                                 {language === 'en' ? 'Learn more' : '더 알아보기'}
@@ -59,6 +59,7 @@ export function Toonyz() {
                             height={300}
                             className="object-contain transform hover:scale-110 transition-transform duration-500"
                             priority
+                            quality={100}
                         />
                     </div>
 
