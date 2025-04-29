@@ -65,7 +65,7 @@ export default function Home() {
       <Marquee />
       {/* <CardContainer /> */}
        {/* Toonyz part */}
-      <div className="md:h-[5vh] h-5"></div>
+      {/* <div className="md:h-[5vh] lg:h-[10vh] h-5"></div> */}
       <div className="w-full flex items-center justify-center bg-pink-500/30 ">
         <div className="relative">
           <ToonyzWrapper />

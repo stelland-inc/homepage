@@ -5,7 +5,7 @@ import Link from "next/link"
 
 export default function AboutToonyzWrapper() {
     return (
-        <section className="min-h-screen relative overflow-hidden bg-[#FAF6F3]">
+        <section className="relative overflow-hidden bg-[#FAF6F3]">
             <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 to-transparent" />
 
             <div className="container mx-auto px-4 pt-12 pb-24">
