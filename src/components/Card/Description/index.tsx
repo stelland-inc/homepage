@@ -8,7 +8,7 @@ export default function Description() {
 
     const { language } = useLanguage();
     return (
-        <div className='flex flex-col justify-center items-center max-w-screen-xl mx-auto'>
+        <div className='flex flex-col justify-center items-center max-w-screen-xl mx-auto my-20'>
         <div className="flex flex-wrap items-center md:h-[600px] h-auto">
             <div className="w-full md:w-6/12 px-4 mr-auto ml-auto order-2 hidden md:block ">
             <div className="justify-center flex flex-wrap relative">

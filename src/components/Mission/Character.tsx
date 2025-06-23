@@ -8,7 +8,7 @@ export default function Character() {
 
   const { language } = useLanguage();
   const paragraph = language == 'en' ? 
-                  "Our mission is to realize your desires, to growth together, to make your dreams come true." 
+                  "Our mission is to realize your desires, to grow together, to make your dreams come true." 
                   : "우리는 평범한 일상을 넘어, 즐거운 순간으로 더 특별한 순간을 선물합니다. 여러분의 꿈을 이루어 보세요."
 
   const container = useRef<HTMLParagraphElement>(null);

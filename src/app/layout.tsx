@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { headers } from 'next/headers'
+import { CursorProvider } from '@/contexts/CursorContext';
 
 const titles = {
   en: "Stella&Inc.",
@@ -20,11 +21,11 @@ export async function generateMetadata(): Promise<Metadata> {
     icons: {
       icon: [
         {
-          url: 'https://stelland.io/favicon.ico',
+          url: '/favicon.ico',
           sizes: 'any',
         },
         {
-          url: '/apple-touch-icon',
+          url: '/apple-touch-icon.png',
           type: 'image/png',
         },
       ],
@@ -50,9 +51,6 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-
-const roboto = Roboto({ subsets: ['latin'], weight: '400'  })
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -60,13 +58,25 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+        />
+        <link 
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
+        />
+      </head>
       <body
-        className={`${roboto.className} antialiased`}
+        className="antialiased"
       >
         <LanguageProvider>
-          <Header />
+          <CursorProvider>
+            <Header />
             {children}
+          </CursorProvider>
         </LanguageProvider>
       </body>
     </html>
