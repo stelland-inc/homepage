@@ -30,6 +30,13 @@ export async function generateMetadata(): Promise<Metadata> {
         },
       ],
     },
+    verification: {
+      google: "XWvBW1Kv6FQDKvYSOe-SDmQOtGcCI5PRST0XF1JFpB8"
+    },
+    other: {
+      title: "콘텐츠 테크 스타트업, 스텔라앤",
+      description: "콘텐츠 현지화, 글로벌 유통, 콘텐츠 IP개발, 글로벌 스토리 플랫폼 '투니즈' 개발 및 운영"
+    },
     openGraph: {
       title: titles[lang],
       description: "콘텐츠 테크 스타트업, 스텔라앤. 콘텐츠 현지화, 글로벌 유통, 콘텐츠 IP개발, 글로벌 스토리 플랫폼 투니즈 개발 및 운영",
