@@ -18,30 +18,30 @@ import CustomCursor from '@/components/UI/CustomCursor';
 import { useCursor } from '@/contexts/CursorContext';
 
 const Accordion = styled((props: AccordionProps) => (
-    <MuiAccordion disableGutters elevation={0} square {...props} />
+  <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
-    border: `0px solid ${theme.palette.divider}`,
-    padding: '10px',
-    '&:not(:last-child)': {
-        borderBottom: '1px solid ' + theme.palette.divider,
-    },
-    '&::before': {
-        display: 'block',
-    },
+  border: 'none', // ✅ 아예 기본 border 제거
+  padding: '10px',
+  '&:not(:last-child)': {
+    borderBottom: `1px solid ${theme.palette.divider}`, // ✅ 한 줄만 유지
+  },
+  '&::before': {
+    display: 'none', // ✅ MUI가 자동으로 그리는 얇은 선 제거
+  },
 }));
 
 const AccordionSummary = styled((props: AccordionSummaryProps) => (
-    <MuiAccordionSummary
-        expandIcon={<ChevronDown size={20} className='text-gray-300' />}
-        {...props}
-    />
+  <MuiAccordionSummary
+    expandIcon={<ChevronDown size={20} className="text-gray-300" />}
+    {...props}
+  />
 ))(({ theme }) => ({
-    padding: '10px',
+  padding: '10px',
 }));
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-    padding: theme.spacing(2),
-    // ✅ borderTop 제거해서 선이 한 줄만 보이게
+  padding: theme.spacing(2),
+  // ✅ borderTop 제거 (중복선 방지)
 }));
 
 export default function Business() {
