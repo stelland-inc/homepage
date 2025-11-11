@@ -83,8 +83,9 @@ export default function Business() {
 
                     <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-                            <>{language === 'en' ? <span className="md:text-xl text-md font-semibold ">- Localization, Webnovels & Webtoons Production</span>
-                                : <span className="md:text-xl text-md font-semibold ">- 웹툰 & 웹소설 번역 및 편집</span>}
+                            <>{language === 'en' ? <span className="md:text-xl text-md font-semibold ">- 
+Content Localization (web novels, webtoons, comics, animation)</span>
+                                : <span className="md:text-xl text-md font-semibold ">- 콘텐츠 현지화(웹소설, 웹툰, 만화, 애니메이션)</span>}
                             </>
                         </AccordionSummary>
                         <AccordionDetails>
@@ -99,52 +100,39 @@ export default function Business() {
                     </Accordion>
                     <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
-                            <>{language === 'en' ? <span className="md:text-xl text-md font-semibold ">- Original IP Development & Production (IP management, webtoons, novels)</span>
-                                : <span className="md:text-xl text-md font-semibold ">- IP 개발 및 관리(웹툰, 웹소설)</span>}
+                            <>{language === 'en' ? <span className="md:text-xl text-md font-semibold ">- Global Distribution</span>
+                                : <span className="md:text-xl text-md font-semibold ">- 글로벌 유통</span>}
                             </>
                         </AccordionSummary>
                         <AccordionDetails>
                             <>
-                                {language === 'en' ? 'We develop and produce original stories and provide the optimal platform for entering the global market.'
-                                    : '글로벌 진출에 최적화된 프로세스로 자체 IP 제작 및 관리를 진행합니다.'}
+                                {language === 'en' ? 'We distribute and manage content worldwide through pipelines tailored to each regional hub.'
+                                    : '해외 거점별 파이프라인을 통해 유통 및 관리를 진행합니다.'}
                             </>
                         </AccordionDetails>
                     </Accordion>
                     <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
                         <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-                            <>{language === 'en' ? <span className="md:text-xl text-md font-semibold ">- Media, Licensing, Adaptations</span>
-                                : <span className="md:text-xl text-md font-semibold ">- 미디어, 라이센싱, 각색</span>}</>
+                            <>{language === 'en' ? <span className="md:text-xl text-md font-semibold ">- Operation of Global Story Entertainment Platform "Toonyz" </span>
+                                : <span className="md:text-xl text-md font-semibold ">- 글로벌 스토리 엔터테인먼트 플랫폼 "투니즈" 운영</span>}</>
                         </AccordionSummary>
                         <AccordionDetails>
                             <>
-                                {language === 'en' ? 'We proceed with media, licensing, and localization through a systematic process.'
-                                    : '체계적인 프로세스로 미디어, 라이센싱과 현지화 적용을 진행합니다.'}
+                                {language === 'en' ? 'A <Link href="https://toonyz.com" className='text-red-400 underline'>global story entertainment platform</Link> where users can watch short-form animations that fully capture the emotions of web novels.'
+                                    : '웹소설의 감정을 그대로 담은 숏폼 애니메이션을 감상할 수 있는 <Link href="https://toonyz.com" className='text-red-400 underline'>글로벌 스토리 엔터테인먼트 플랫폼</Link>입니다.'}
                             </>
                         </AccordionDetails>
                     </Accordion>
                     <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
                         <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
-                            <>{language === 'en' ? <span className="md:text-xl text-md font-semibold ">- Toonyz Platform Development, Design, Operation, Marketing</span>
-                                : <span className="md:text-xl text-md font-semibold ">- Toonyz 플랫폼 개발, 운영, 마케팅</span>}
+                            <>{language === 'en' ? <span className="md:text-xl text-md font-semibold ">- Operation of a Short-form Animation Production Studio</span>
+                                : <span className="md:text-xl text-md font-semibold ">- 숏폼 애니메이션 제작 스튜디오 운영</span>}
                             </>
                         </AccordionSummary>
                         <AccordionDetails>
                             <>
-                                {language === 'en' ? <span>We create <Link href="https://toonyz.com" className='text-red-400 underline'>Toonyz</Link>, the best platform for entering the global market.</span>
-                                    : <span>글로벌 스토리 플랫폼, <Link href="https://toonyz.com" className='text-red-400 underline'>투니즈</Link> 를 통해 여러분의 글로벌 시장 진출을 위한 최상의 솔루션을 제공합니다.</span>}
-                            </>
-                        </AccordionDetails>
-                    </Accordion>
-                    <Accordion expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
-                        <AccordionSummary aria-controls="panel5d-content" id="panel5d-header">
-                            <>{language === 'en' ? <span className="md:text-xl text-md font-semibold ">- Global Partnerships & Marketing</span>
-                                : <span className="md:text-xl text-md font-semibold ">- 해외 유통 및 글로벌 파트너십 & 마케팅</span>}
-                            </>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <>
-                                {language === 'en' ? 'With our international content pipeline, we help distribute your stories into more than six languages.'
-                                    : '해외 거점별 파이프라인을 보유하고 있어 6개 이상의 외국어 배포 및 홍보를 진행합니다.'}
+                                {language === 'en' ? <span>We operate an in-house studio that reinterprets and produces web novels and webtoons as short-form animations.</span>
+                                    : <span>웹소설, 웹툰 기반으로 숏폼 애니메이션으로 재해석·제작하는 인하우스 스튜디오를 운영하고 있습니다.</span>}
                             </>
                         </AccordionDetails>
                     </Accordion>
