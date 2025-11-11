@@ -41,7 +41,7 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
     padding: theme.spacing(2),
-    borderTop: '1px solid rgba(0, 0, 0, .125)',
+    // ✅ borderTop 제거해서 선이 한 줄만 보이게
 }));
 
 export default function Business() {
