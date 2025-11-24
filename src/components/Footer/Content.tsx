@@ -33,10 +33,10 @@ const Section2 = ({ language }: {language: string}) => {
             <Image 
                 src="/stelland_logo_black.svg"
                 alt="logo" 
-                width={128} 
-                height={16} 
+                width={160} 
+                height={30} 
                 quality={100}
-                className="w-20 md:w-[100px] md:h-[16px] self-center md:mt-0 mt-1" 
+                className="w-28 md:w-40 h-auto self-center md:mt-0 mt-1" 
             />
             
             {/* <h1 className='text-[10vw] leading-[0.8] mt-10 text-black '>Stelland</h1> */}
