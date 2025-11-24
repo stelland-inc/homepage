@@ -10,7 +10,7 @@ const Loading: React.FC = () => {
         <Lottie
           animationData={loadingAnimation}
           loop
-          renderer={'svg' as any}
+          renderer={'canvas' as any}
           autoplay
         />
       </div>
