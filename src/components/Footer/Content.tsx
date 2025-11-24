@@ -31,7 +31,7 @@ const Section2 = ({ language }: {language: string}) => {
     return (
         <div className='max-w-screen-xl mx-auto flex justify-between md:gap-0 gap-8 items-end text-black'>
             <Image 
-                src="/stelland_logo_star.png" 
+                src="/stelland_logo_black.svg"
                 alt="logo" 
                 width={128} 
                 height={16} 
