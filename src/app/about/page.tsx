@@ -79,7 +79,7 @@ export default function About() {
               <p className='font-bold'>Brand Logo</p>
               <div className='flex flex-col gap-4 md:h-[300px] '>
                 <Image src='/images/logo/Logo.png' alt="logo" width={100} height={100} /> <br />
-                <Image src='/stelland_logo_black.svg' alt="logo" width={100} height={100} className='md:pb-0 pb-5' />
+                <Image src='/stelland_logo_black.svg' alt="logo" width={200} height={200} className='w-[180px] h-auto md:pb-0 pb-5' />
               </div>
             </li>
             <li className='flex flex-col gap-4 mx-auto md:justify-start md:items-start justify-center items-center md:mb-0 mb-10 w-[200px]'>
