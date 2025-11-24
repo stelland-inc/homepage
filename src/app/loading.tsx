@@ -10,6 +10,7 @@ const Loading: React.FC = () => {
         <Lottie
           animationData={loadingAnimation}
           loop
+          renderer="canvas"
           autoplay
         />
       </div>
