@@ -85,8 +85,8 @@ export default function Business() {
                     <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
                             {language === 'en'
-                                ? <span className="md:text-xl text-md font-semibold">- Content Localization (web novels, webtoons, comics, animation)</span>
-                                : <span className="md:text-xl text-md font-semibold">- 콘텐츠 현지화(웹소설, 웹툰, 만화, 애니메이션)</span>}
+                                ? <span className="md:text-xl text-md font-semibold">Content Localization (web novels, webtoons, comics, animation)</span>
+                                : <span className="md:text-xl text-md font-semibold">콘텐츠 현지화(웹소설, 웹툰, 만화, 애니메이션)</span>}
                         </AccordionSummary>
                         <AccordionDetails>
                             {language === 'en'
@@ -98,8 +98,8 @@ export default function Business() {
                     <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
                             {language === 'en'
-                                ? <span className="md:text-xl text-md font-semibold">- Global Distribution</span>
-                                : <span className="md:text-xl text-md font-semibold">- 글로벌 유통</span>}
+                                ? <span className="md:text-xl text-md font-semibold">Global Distribution</span>
+                                : <span className="md:text-xl text-md font-semibold">글로벌 유통</span>}
                         </AccordionSummary>
                         <AccordionDetails>
                             {language === 'en'
@@ -111,8 +111,8 @@ export default function Business() {
                     <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
                         <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
                             {language === 'en'
-                                ? <span className="md:text-xl text-md font-semibold">- Operation of Global Story Entertainment Platform "Toonyz"</span>
-                                : <span className="md:text-xl text-md font-semibold">- 글로벌 스토리 엔터테인먼트 플랫폼 "투니즈" 운영</span>}
+                                ? <span className="md:text-xl text-md font-semibold">Operation of Global Story Entertainment Platform "Toonyz"</span>
+                                : <span className="md:text-xl text-md font-semibold">글로벌 스토리 엔터테인먼트 플랫폼 "투니즈" 운영</span>}
                         </AccordionSummary>
                         <AccordionDetails>
                             {language === 'en' ? (
@@ -138,8 +138,8 @@ export default function Business() {
                     <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
                         <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
                             {language === 'en'
-                                ? <span className="md:text-xl text-md font-semibold">- Operation of a Short-form Animation Production Studio</span>
-                                : <span className="md:text-xl text-md font-semibold">- 숏폼 애니메이션 제작 스튜디오 운영</span>}
+                                ? <span className="md:text-xl text-md font-semibold">Operation of a Short-form Animation Production Studio</span>
+                                : <span className="md:text-xl text-md font-semibold">숏폼 애니메이션 제작 스튜디오 운영</span>}
                         </AccordionSummary>
                         <AccordionDetails>
                             {language === 'en'
