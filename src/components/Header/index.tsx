@@ -28,11 +28,12 @@ export default function Header() {
                     <Image 
                         src="/stelland_logo_black.svg" 
                         alt="logo" 
-                        width={128} 
-                        height={16} 
+                        width={160} 
+                        height={30} 
                         quality={100}
                         priority
-                        className="w-20 h-auto md:w-[100px] md:h-[16px] self-center md:mt-0 mt-1" 
+                        // ▼ 수정됨: 높이 고정(h-[16px]) 제거하고 w-28 / md:w-40으로 확대 + h-auto 적용
+                        className="w-28 md:w-40 h-auto self-center md:mt-0 mt-1" 
                         />
                 </Link>
                   
