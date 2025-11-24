@@ -9,7 +9,7 @@ const Loading: React.FC = () => {
       <div className="w-40 h-40">
         <Lottie
           animationData={loadingAnimation}
-          loop={false}
+          loop={true}
           renderer={'svg' as any}
           autoplay={true}
         />
