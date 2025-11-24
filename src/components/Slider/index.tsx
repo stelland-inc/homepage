@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function Slider() {
 return (
     <div className={styles.main}>
-     <div className={`${styles.rcCarousel} opacity-70`} style={{ '--tiles': 15 } as React.CSSProperties } >
+     <div className={`${styles.rcCarousel} opacity-70`} style={{ '--tiles': 17 } as React.CSSProperties } >
         <div className={styles.rcCarouselStrip}>
             <div className={styles.rcCarouselBox}>
             <div className={`${styles.rcCarouselItem}`}>
@@ -21,15 +21,6 @@ return (
                 className={`${styles.rcCarouselItemImage} rounded-lg`} 
                 src="/images/brand/BOOKMALKER.png" 
                 alt="bookmalker logo" 
-                width={100}
-                height={100}
-                />
-            </div>
-            <div className={styles.rcCarouselItem}>
-                <Image 
-                className={`${styles.rcCarouselItemImage} rounded-lg`} 
-                src="/images/brand/Breathe.png" 
-                alt="breathe logo" 
                 width={100}
                 height={100}
                 />
