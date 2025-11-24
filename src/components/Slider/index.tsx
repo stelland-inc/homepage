@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function Slider() {
 return (
     <div className={styles.main}>
-     <div className={`${styles.rcCarousel} opacity-70`} style={{ '--tiles': 18 } as React.CSSProperties } >
+     <div className={`${styles.rcCarousel} opacity-70`} style={{ '--tiles': 15 } as React.CSSProperties } >
         <div className={styles.rcCarouselStrip}>
             <div className={styles.rcCarouselBox}>
             <div className={`${styles.rcCarouselItem}`}>
@@ -45,6 +45,24 @@ return (
             </div>
             <div className={styles.rcCarouselItem}>
                 <Image 
+                className={`${styles.rcCarouselItemImage} rounded-lg`} 
+                src="/images/brand/Rakuten.png" 
+                alt="Rakuten logo" 
+                width={100}
+                height={100}
+                />
+            </div>
+            <div className={styles.rcCarouselItem}>
+                <Image 
+                className={`${styles.rcCarouselItemImage} rounded-lg`} 
+                src="/images/brand/SonyMusic.png" 
+                alt="SonyMusic logo" 
+                width={100}
+                height={100}
+                />
+            </div>            
+            <div className={styles.rcCarouselItem}>
+                <Image 
                 className={styles.rcCarouselItemImage} 
                 src="/images/brand/GRAPHIC.png" 
                 alt="graphic logo" 
@@ -79,16 +97,6 @@ return (
                 height={100}
                 />
             </div>
-            <div className={styles.rcCarouselItem}>
-                <Image 
-                className={`${styles.rcCarouselItemImage} rounded-lg`} 
-                src="/images/brand/MZFamily.png" 
-                alt="mzfamily logo" 
-                width={100}
-                height={100}
-                />
-            </div>
-
             <div className={styles.rcCarouselItem} aria-hidden="true">
                 <Image 
                 className={`${styles.rcCarouselItemImage} rounded-lg`} 
@@ -121,15 +129,6 @@ return (
                 className={`${styles.rcCarouselItemImage} rounded-lg`} 
                 src="/images/brand/toon.png" 
                 alt="tooniverse logo" 
-                width={100}
-                height={100}
-                />
-            </div>
-            <div className={styles.rcCarouselItem} aria-hidden="true">
-                <Image 
-                className={`${styles.rcCarouselItemImage} rounded-lg`} 
-                src="/images/brand/VbrosTeam.png" 
-                alt="vbros team logo" 
                 width={100}
                 height={100}
                 />
@@ -177,20 +176,10 @@ return (
 
     </div>
 
-    <div className={`${styles.rcCarousel} opacity-70`} style={{ '--tiles': 18 } as React.CSSProperties }>
+    <div className={`${styles.rcCarousel} opacity-70`} style={{ '--tiles': 17 } as React.CSSProperties }>
     <div className={`${styles.rcCarouselStrip} ${styles.reverse}`}>
 
         <div className={styles.rcCarouselBox}>
-
-        <div className={styles.rcCarouselItem}>
-            <Image 
-            className={styles.rcCarouselItemImage} 
-            src="/images/brand/Breathe.png" 
-            alt="breathe logo" 
-            width={100}
-            height={100}
-            />
-        </div>
         <div className={styles.rcCarouselItem}>
             <Image 
             className={styles.rcCarouselItemImage} 
@@ -200,6 +189,24 @@ return (
             height={100}
             />
         </div>
+        <div className={styles.rcCarouselItem}>
+            <Image 
+            className={styles.rcCarouselItemImage} 
+            src="/images/brand/SonyMusic.png" 
+            alt="SonyMusic logo" 
+            width={100}
+            height={100}
+            />
+        </div>        
+        <div className={styles.rcCarouselItem}>
+            <Image 
+            className={styles.rcCarouselItemImage} 
+            src="/images/brand/Rakuten.png" 
+            alt="Rakuten logo" 
+            width={100}
+            height={100}
+            />
+        </div>             
         <div className={styles.rcCarouselItem}>
             <Image 
             className={styles.rcCarouselItemImage} 
@@ -232,15 +239,6 @@ return (
             className={styles.rcCarouselItemImage} 
             src="/images/brand/Lezhin.png" 
             alt="lezhin logo" 
-            width={100}
-            height={100}
-            />
-        </div>
-        <div className={styles.rcCarouselItem}>
-            <Image 
-            className={styles.rcCarouselItemImage} 
-            src="/images/brand/MZFamily.png" 
-            alt="mzfamily logo" 
             width={100}
             height={100}
             />
@@ -285,15 +283,6 @@ return (
         <div className={styles.rcCarouselItem} aria-hidden="true">
             <Image 
             className={styles.rcCarouselItemImage} 
-            src="/images/brand/VbrosTeam.png" 
-            alt="vbros team logo" 
-            width={100}
-            height={100}
-            />
-        </div>
-        <div className={styles.rcCarouselItem} aria-hidden="true">
-            <Image 
-            className={styles.rcCarouselItemImage} 
             src="/images/brand/WUXIAWORLD.png" 
             alt="wuxiaworld logo" 
             width={100}
@@ -327,15 +316,7 @@ return (
             height={100}
             />
         </div>
-        <div className={styles.rcCarouselItem} aria-hidden="true">
-            <Image 
-            className={styles.rcCarouselItemImage} 
-            src="/images/brand/Breathe.png" 
-            alt="ebay logo" 
-            width={100}
-            height={100}
-            />
-        </div>
+
         <div className={styles.rcCarouselItem} aria-hidden="true">
             <Image 
             className={styles.rcCarouselItemImage} 
