@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import Lottie from 'lottie-react';
-import loadingAnimation from '@/assets/stelli_loader.json';
+import loadingAnimation from '@/assets/new_loader.json';
 
 const Loading: React.FC = () => {
   return (
