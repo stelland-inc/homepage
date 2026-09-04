@@ -26,17 +26,24 @@ export default function Section() {
         >
         <div className='relative z-10 md:p-20 p-5 text-white w-full h-full flex flex-col justify-between'>
             <div className='!md:text-2xl !text-lg self-end uppercase leading-relaxed'>
+                {/*  mix-blend-difference */}
+                {/* {language === 'en' ?
+                         <>Creative and quality need the right time to be conceived and 
+                         realised even in a world that is in too much of a hurry.</> 
+                        : <>콘텐츠 크리에이티브와 품질은 적절한 시간에 구상되고 실현되어야 합니다. 당신의 세상에서도 마찬가지입니다.</>} */}
+
                  <Word paragraph={paragraph} />
             </div>
-            <p className='md:text-[5vw] text-[30px] md:leading-relaxed leading-none uppercase font-bold mb-0 tracking-tight text-balance'>
+            <p className='md:text-[5vw] text-[30px] md:leading-relaxed leading-none uppercase font-bold mb-0'> 
                 {language === 'en' ? 'Beyond reality, into your story' : '평범한 일상을 넘어, 특별한 순간으로'}
             </p>
         </div>
-        <div className='fixed top-[-10vh] left-0 h-[120vh] w-full bg-[#f9a8d4]'>
-            <motion.div
-              style={{ y }}
-              className='relative w-full h-full bg-[radial-gradient(ellipse_65%_55%_at_80%_10%,rgba(255,240,236,0.55),transparent_60%)]'
-            />
+        <div className='fixed top-[-10vh] left-0 h-[120vh] w-full bg-red-200'>
+            {/* bg-red-200  bg-[#f9a8d4] */}
+            {/* f9a8d4  */}
+            <motion.div style={{y}} className='relative w-full h-full'>
+            {/* <Image src={Background} fill alt="image" style={{objectFit: "cover"}}/> */}
+            </motion.div>
         </div>
         </div>
     )

@@ -60,7 +60,7 @@ const FeaturesWrapper = () => {
                 transition={{ duration: 0.5 }}
                 className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center"
             >
-                <h2 className="text-3xl font-bold leading-[1.1] tracking-tight text-balance sm:text-3xl md:text-5xl">
+                <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">
                     {language === 'ko' ? '함께하면 더 많은 것을 이룰 수 있습니다'
                                        : 'Together, We Achieve More'}
                 </h2>
@@ -82,12 +82,12 @@ const FeaturesWrapper = () => {
                             rotateY: index % 3 === 0 ? 5 : -5,
                             transition: { duration: 0.3 },
                         }}
-                        className="group relative overflow-hidden rounded-2xl bg-[#FFF7F3] p-2 transition-shadow duration-300 hover:shadow-[0_16px_40px_-12px_rgba(244,114,182,0.35)]"
+                        className="relative overflow-hidden rounded-lg border bg-background p-2"
                     >
-                        <div className="flex h-[180px] flex-col justify-between rounded-xl p-6">
-                            <feature.icon className="h-10 w-10 text-pink-500 transition-transform duration-300 group-hover:-translate-y-0.5" />
-                            <div className="mt-2 space-y-2">
-                                <h3 className="font-semibold">{ language === 'ko' ? feature.title_ko : feature.title}</h3>
+                        <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
+                            <feature.icon className="h-12 w-12 text-pink-500" />
+                            <div className="space-y-2 mt-2">
+                                <h3 className="font-bold">{ language === 'ko' ? feature.title_ko : feature.title}</h3>
                                 <p className="text-sm text-muted-foreground">{language === 'ko' ? feature.description_ko : feature.description}</p>
                             </div>
                         </div>
