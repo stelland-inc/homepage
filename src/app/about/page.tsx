@@ -46,6 +46,14 @@ export default function About() {
       description_en: 'Designated Localization Company for Amazon Japan, Designated Localization Company for Kakao Thailand, MediBang, Rakuten Japan Business Settlement',
       date: '2024'
     },
+    {
+      title: '글로벌 스토리 플랫폼 투니즈 런칭',
+      title_en: 'Global Story Platform Tonnyz Launch',
+      description: '웹툰 현지화 사업 확대',
+      description_en: 'Webtoon Localization Business Expansion',
+      date: '2025'
+    },
+
   ];
 
   return <>

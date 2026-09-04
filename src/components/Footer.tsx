@@ -45,6 +45,9 @@ export default function Footer() {
             <li>
               <Link href='https://blog.naver.com/stelland_official'>Naver Blog</Link>
             </li>
+            <li>
+              <Link href='https://toonyz.com'>Toonyz</Link>
+            </li>
           </ul>
           <p>
             {language == 'en' ? 'ⓒStella&Inc. All Rights Reserved' : 'ⓒ주식회사 스텔라앤 코리아'}

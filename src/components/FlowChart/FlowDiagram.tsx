@@ -142,6 +142,26 @@ function Flow() {
       style: nodeStyles.dark
     },
     {
+      id: "Toonyz",
+      data: {
+        label: (
+          <>
+            <p className="text-lg font-bold">{language === 'en' ? 'Toonyz Platform Operation' : 'Toonyz 플랫폼 운영'}</p>
+            <ol className="list-decimal pl-5 space-y-2 text-start">
+              <li>{language === 'en' ? 'Run Toonyz Platform' : '글로벌 콘텐츠 배포'}</li>
+              <li>{language === 'en' ? 'Toonyz Marketing' : 'Toonyz 마케팅'}</li>
+              <li>{language === 'en' ? 'Toonyz Creators' : 'Toonyz 크리에이터'}</li>
+              <li>{language === 'en' ? 'Toonyz Studio' : '수퍼 IP 개발'}</li>
+              <li>{language === 'en' ? 'Toonyz Technology' : 'API, 테크, 번역엔진'}</li>
+            </ol>
+          </>
+        )
+      },
+      position: { x: 10, y: 20 },
+      style: nodeStyles.dark
+    },
+
+    {
       id: "Localization",
       data: {
         label: (
@@ -165,6 +185,19 @@ function Flow() {
 
   // Define edges connecting the nodes
   const initialEdges: Edge[] = [
+    // label for Toonyz
+    {
+      id: 'Toonyz-to-stelland-labeled',
+      source: 'Toonyz',
+      target: 'stelland',
+      data: {
+        label: 'Global Story Platform',
+        color: 'bg-[#ff0000]'
+      },
+      type: 'custom',
+    },
+    { id: "Toonyz-to-stelland", source: "Toonyz", target: "stelland", animated: true, style: { stroke: "#ec4899" } },
+
     // label for localization
     {
       id: 'Localization-to-stelland-labeled',

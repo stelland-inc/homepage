@@ -35,8 +35,8 @@ const features = [
     {
         title: "Platform Business",
         title_ko: "플랫폼 비즈니스",
-        description: "A global story platform that allows you to create and manage your own story.",
-        description_ko: "여러분이 자신의 스토리를 만들고 세계로 배포할 수 있는 글로벌 스토리 플랫폼입니다.",
+        description: "Global story platform, Toonyz is a platform that allows you to create and manage your own story.",
+        description_ko: "글로벌 스토리 플랫폼, 투니즈는 여러분이 자신의 스토리를 만들고 세계로 배포할 수 있는 플랫폼입니다.",
         icon: Shield,
     },
     {

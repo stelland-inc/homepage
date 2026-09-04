@@ -13,6 +13,7 @@ import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import { ChevronDown } from "lucide-react";
 import FlowDiagram from '@/components/FlowChart/FlowDiagram';
 import ServicesComponent from '@/components/UI/ServicesComponent';
+import AboutToonyzWrapper from '@/components/UI/AboutToonyzWrapper';
 import CustomCursor from '@/components/UI/CustomCursor';
 import { useCursor } from '@/contexts/CursorContext';
 
@@ -107,6 +108,33 @@ export default function Business() {
                         </AccordionDetails>
                     </Accordion>
 
+                    <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+                        <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
+                            {language === 'en'
+                                ? <span className="md:text-xl text-md font-semibold">Operation of Global Story Entertainment Platform "Toonyz"</span>
+                                : <span className="md:text-xl text-md font-semibold">글로벌 스토리 엔터테인먼트 플랫폼 "투니즈" 운영</span>}
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            {language === 'en' ? (
+                                <>
+                                    A{' '}
+                                    <Link href="https://toonyz.com" className="text-red-400 underline">
+                                        global story entertainment platform
+                                    </Link>{' '}
+                                    where users can watch short-form animations that fully capture the emotions of web novels.
+                                </>
+                            ) : (
+                                <>
+                                    웹소설의 감정을 그대로 담은 숏폼 애니메이션을 감상할 수 있는{' '}
+                                    <Link href="https://toonyz.com" className="text-red-400 underline">
+                                        글로벌 스토리 엔터테인먼트 플랫폼
+                                    </Link>
+                                    입니다.
+                                </>
+                            )}
+                        </AccordionDetails>
+                    </Accordion>
+
                     <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
                         <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
                             {language === 'en'
@@ -123,6 +151,8 @@ export default function Business() {
             </div>
 
             <div className="md:h-[20vh] h-0"></div>
+            <AboutToonyzWrapper />
+            <div className='md:h-[20vh] h-0'></div>
             <ServicesComponent />
             <div className='md:h-[20vh] h-[15vh]'></div>
             <Footer />
