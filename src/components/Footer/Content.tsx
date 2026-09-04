@@ -3,14 +3,12 @@ import React from 'react'
 import Image from 'next/image'
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
-// import { ChevronDown } from 'lucide-react';
 
 export default function Content() {
     const { language } = useLanguage();
- 
+
    return (
-    <div className='bg-red-200  py-8 px-12 h-full w-full flex flex-col justify-between '>
-        {/*  bg-red-200  bg-[#f9a8d4]  FFF0EC*/  }
+    <div className='bg-[#f9a8d4] py-8 px-12 h-full w-full flex flex-col justify-between '>
             <Section1 language={language} />
         <div className=''>
             <Section2 language={language} />
@@ -39,19 +37,9 @@ const Section2 = ({ language }: {language: string}) => {
                 className="w-28 md:w-40 h-auto self-center md:mt-0 mt-1" 
             />
             
-            {/* <h1 className='text-[10vw] leading-[0.8] mt-10 text-black '>Stelland</h1> */}
-            <div className='flex flex-row text-[12px] self-center'> 
-               <p className='self-center'>  { language == 'en' ? 'ⓒStella&Inc. All Rights Reserved' : 'ⓒStella&Inc. All Rights Reserved' } </p>
-            
-{/* 
-            <button className='border border-black rounded-sm px-10 py-1 ml-1'>
-                <Link href='' onClick={(e) => {e.preventDefault()}} className='flex flex-row justify-between items-start gap-1'>   
-                    <p>{language == 'en' ? 'Site map' : '사이트맵'}</p> <ChevronDown size={12} className='self-center' />
-                </Link>
-            </button> */}
-
+            <div className='flex flex-row text-[12px] self-center'>
+               <p className='self-center'>{ language == 'en' ? 'ⓒStella&Inc. All Rights Reserved' : 'ⓒStella&Inc. All Rights Reserved' }</p>
             </div>
-            
         </div>
     )
 }
@@ -62,10 +50,10 @@ const Nav = ({ language }: {language: string}) => {
         <div className='max-w-screen-xl mx-auto flex justify-start items-start gap-20'>
             <div className='flex flex-col gap-2 text-black md:text-base text-[12px] '>
                 <h3 className='mb-2 uppercase text-black font-bold md:text-2xl text-xl'>About</h3>
-                <Link href='/'>Home</Link>
-                <Link href='/about'>About</Link>
-                <Link href='/business'>Business</Link>
-                <Link href='/contact'>Contact Us</Link>
+                <Link href='/' className='w-fit transition-opacity hover:opacity-60'>Home</Link>
+                <Link href='/about' className='w-fit transition-opacity hover:opacity-60'>About</Link>
+                <Link href='/business' className='w-fit transition-opacity hover:opacity-60'>Business</Link>
+                <Link href='/contact' className='w-fit transition-opacity hover:opacity-60'>Contact Us</Link>
             </div>
             <div className='flex flex-col gap-2 text-black md:text-base text-[12px]'>
                 <h3 className='mb-2 uppercase text-black font-bold md:text-2xl text-xl'>Let&apos;s Talk</h3>
