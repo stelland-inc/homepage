@@ -132,34 +132,7 @@ export default function Footer() {
                     </Link>
                 </motion.li>
             </ul>
-            <ul>
-                <motion.li
-                    custom={[0.3, 0]} 
-                    variants={translate} initial="initial" 
-                    animate="enter" 
-                    exit="exit">
-                    <Link href="https://toonyz.com" className='flex flex-row items-center text-gray-600 cursor-pointer transition-all duration-150'>
-                    <Image
-                        src="/images/logo/N_Logo.png"
-                        alt="Toonyz Logo"
-                        width={0}
-                        height={0}
-                        sizes="100vh"
-                        style={{
-                            height: '20px',
-                            width: '20px',
-                            justifyContent: 'center',
-                            alignSelf: 'center',
-                            borderRadius: '25%',
-                            border: '1px solid #eee',
-                            marginRight: '5px'
-                        }}
-                        />
-                    Toonyz
-                    </Link>
-                </motion.li>
-            </ul>
-            
+
         </div>
     )
 }

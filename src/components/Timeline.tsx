@@ -39,14 +39,6 @@ const timelineEvents = [
             "Designated Localization Company for Amazon Japan, Designated Localization Company for Kakao Thailand, MediBang, Rakuten Japan Business Settlement",
     },
     {
-        year: 2025,
-        title: "글로벌 스토리 플랫폼 투니즈 런칭",
-        title_en: 'Global Story Platform Tonnyz Launch',
-        description: "K-웹소설, K-웹툰 숏폼 컨텐츠 글로벌 사업 확대",
-        details:
-            "K-Web Novel, K-Webtoon Short Form Content Global Business Expansion",
-    },
-    {
         year: 2026,
         title: "문화 콘텐츠 현지화 사업 확대",
         title_en: 'Cultural Content Localization Business Expansion',
