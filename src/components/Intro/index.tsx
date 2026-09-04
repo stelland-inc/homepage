@@ -42,6 +42,42 @@ export default function Intro() {
                    bg-gradient-to-br from-blue-100 via-white to-purple-100'
         >
         {/* <Image src={Background} fill alt="image" style={{ objectFit: "cover" }} /> */}
+
+        {/* Brand star mark, abstracted large as the hero's ambient visual anchor */}
+        <motion.svg
+          viewBox="0 0 100 100"
+          className="pointer-events-none absolute -right-[8%] top-[8%] z-0 h-[55vw] w-[55vw] max-h-[620px] max-w-[620px] opacity-70 blur-[2px] md:opacity-90"
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 90, ease: "linear" }}
+        >
+          <path
+            d="M50 0 C53 32 68 47 100 50 C68 53 53 68 50 100 C47 68 32 53 0 50 C32 47 47 32 50 0 Z"
+            fill="#FFCFA4"
+            transform="rotate(20 50 50)"
+          />
+          <path
+            d="M50 0 C53 32 68 47 100 50 C68 53 53 68 50 100 C47 68 32 53 0 50 C32 47 47 32 50 0 Z"
+            fill="#FF8197"
+          />
+        </motion.svg>
+        <motion.svg
+          viewBox="0 0 100 100"
+          className="pointer-events-none absolute left-[10%] bottom-[18%] z-0 h-16 w-16 opacity-60 md:h-24 md:w-24"
+          animate={{ rotate: -360 }}
+          transition={{ repeat: Infinity, duration: 50, ease: "linear" }}
+        >
+          <path
+            d="M50 0 C53 32 68 47 100 50 C68 53 53 68 50 100 C47 68 32 53 0 50 C32 47 47 32 50 0 Z"
+            fill="#FF8197"
+          />
+        </motion.svg>
+        <svg viewBox="0 0 100 100" className="pointer-events-none absolute right-[22%] bottom-[10%] z-0 h-9 w-9 opacity-50 md:h-12 md:w-12">
+          <path
+            d="M50 0 C53 32 68 47 100 50 C68 53 53 68 50 100 C47 68 32 53 0 50 C32 47 47 32 50 0 Z"
+            fill="#FFCFA4"
+          />
+        </svg>
+
         <p className='z-50 md:text-6xl font-medium text-4xl uppercase text-center '>
           <span className=''>Stella& Inc.</span> Entertainment
         </p>
