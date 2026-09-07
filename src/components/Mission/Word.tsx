@@ -15,7 +15,7 @@ export default function Paragraph({paragraph}: {paragraph: string}) {
   return (
     <p 
       ref={container}         
-      className={`md:text-xl !text-md !text-white  ${styles.paragraph}`}
+      className={`md:text-xl !text-md ${styles.paragraph}`}
     >
     {
       words.map( (word, i) => {

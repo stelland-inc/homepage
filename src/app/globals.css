@@ -31,7 +31,10 @@ body {
   margin: 0px;
   box-sizing: border-box;
   color: var(--foreground);
-  background: var(--background);
+  /* Matches the Hero's own pale base tone so the transparent sticky header
+     blends into it seamlessly instead of showing a visibly different color
+     in the strip above the Hero's own background. */
+  background: #FFF8F3;
   font-family: "Pretendard", "Roboto", "Inter", Arial, Helvetica, sans-serif;
 
 }

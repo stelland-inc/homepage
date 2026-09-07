@@ -71,9 +71,13 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
         />
-        <link 
+        <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap"
         />
       </head>
       <body

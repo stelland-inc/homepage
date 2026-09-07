@@ -37,6 +37,12 @@
       "skillPath": "skills/react-best-practices/SKILL.md",
       "computedHash": "3219a1944e404ffc14d1d9d6aef6dd2e3855b81387ee0a044ccbfe14d34c2357"
     },
+    "web-accessibility": {
+      "source": "hoodini/ai-agents-skills",
+      "sourceType": "github",
+      "skillPath": "skills/web-accessibility/SKILL.md",
+      "computedHash": "0b5f9a9c98a7d1e3f6494b4d95f9fba30957e1b14810c53870aeb506dc0cefc2"
+    },
     "web-design-guidelines": {
       "source": "vercel-labs/agent-skills",
       "sourceType": "github",

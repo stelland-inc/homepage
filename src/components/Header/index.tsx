@@ -47,19 +47,19 @@ export default function Header() {
 
                 <motion.div variants={opacity} animate={!isActive ? "open" : "closed"} className={styles.languageContainer}>
                     {/* <div className='flex flex-row items-center gap-2 uppercase text-red'> */}
-                        <Link 
-                        href='/' 
-                        onClick={handleLanguageChange} 
-                        className='flex flex-row items-center gap-2'>
-                          <Image 
-                            src='/globe.svg' 
-                            height={20} 
-                            width={20} 
-                            alt='globe icon' 
+                        <Link
+                        href='/'
+                        onClick={handleLanguageChange}
+                        className='flex flex-row items-center gap-2 rounded-full bg-white/40 px-8 py-3 shadow-[0_8px_30px_rgba(55,75,115,0.18)] backdrop-blur-md'>
+                          <Image
+                            src='/globe.svg'
+                            height={20}
+                            width={20}
+                            alt='globe icon'
                             className='w-4 h-4 md:w-5 md:h-5'
                             />
-                           <p> {language === "en" ? "ENG" : "KOR"} </p>
-                        </Link> 
+                           <p> {language === "en" ? "ENG" : "KR"} </p>
+                        </Link>
                     {/* </div> */}
                 </motion.div>
              
@@ -69,19 +69,19 @@ export default function Header() {
                 {isActive && <Nav closeMenu={() => setIsActive(false)}/>}
             </AnimatePresence>
 
-        <div className='max-w-screen-xl mx-auto md:block hidden absolute top-4 left-1/2 transform -translate-x-1/2'>
-            <ul className={`flex flex-row items-center gap-10 uppercase  `}>
+        <div className='max-w-screen-xl mx-auto md:block hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+            <ul className={`flex flex-row items-center gap-10 uppercase rounded-full bg-white/40 px-10 py-3 shadow-[0_8px_30px_rgba(55,75,115,0.18)] backdrop-blur-md`}>
                         <li>
-                            <Link href="/about" className='hover:opacity-50'>About</Link>
+                            <Link href="/about" className='transition-colors hover:text-[#FF8197]'>About</Link>
                         </li>
                         <li>
-                            <Link href="/business" className='hover:opacity-50'>Business</Link>
+                            <Link href="/business" className='transition-colors hover:text-[#FF8197]'>Business</Link>
                         </li>
                         <li>
-                            <Link href="/news" className='hover:opacity-50'>News</Link>
+                            <Link href="/news" className='transition-colors hover:text-[#FF8197]'>News</Link>
                         </li>
                         <li>
-                            <Link href="/contact" className='hover:opacity-50'>Contact</Link>
+                            <Link href="/contact" className='transition-colors hover:text-[#FF8197]'>Contact</Link>
                         </li>
                 </ul>
             </div>

@@ -43,7 +43,12 @@
             // align-items: center;
             gap: 0px;
             position: absolute;
-            right: 50px;
+            right: 90px;
+            top: 50%;
+            // margin-top (not transform: translateY) — this is a motion.div,
+            // and framer-motion owns the `transform` property on it, so a
+            // CSS transform here gets silently overridden.
+            margin-top: -24px;
 
             .language{
                 // margin-left: 50px;
@@ -113,6 +118,17 @@
     }
 }
 
+
+// liquid-glass-react's own `.glass` div hardcodes a heavy black box-shadow
+// (0 16px 70px rgba(0,0,0,.75) on light backgrounds) — over our low-contrast
+// pastel gradient there's nothing for the displacement effect to visibly
+// bend, so that shadow alone was reading as a solid black pill. Softened to
+// match the site's other glass pills instead.
+.navGlass {
+    :global(.glass) {
+        box-shadow: 0 8px 30px rgba(55, 75, 115, 0.18) !important;
+    }
+}
 
 @media only screen and (min-width: 600px) {
     .header{

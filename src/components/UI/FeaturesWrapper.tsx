@@ -48,6 +48,8 @@ const features = [
     },
 ] as const
 
+const BADGE_COLORS = ['#FFD0A5', '#FF8197', '#374b73'] as const
+
 const FeaturesWrapper = () => {
     const { dictionary, language } = useLanguage()
 
@@ -60,39 +62,48 @@ const FeaturesWrapper = () => {
                 transition={{ duration: 0.5 }}
                 className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center"
             >
-                <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">
+                <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl" style={{ color: '#374b73' }}>
                     {language === 'ko' ? '함께하면 더 많은 것을 이룰 수 있습니다'
                                        : 'Together, We Achieve More'}
                 </h2>
-                <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+                <p className="max-w-[85%] leading-normal sm:text-lg sm:leading-7" style={{ color: '#374b73', opacity: 0.65 }}>
                     {language === 'ko' ? '귀사의 글로벌 도약을 실현하는 콘텐츠 크리에이티브 파트너 스텔라앤과 함께라면, 여러분의 이야기가 전 세계로 더 많은 사람들에게 전달됩니다.'
                                        : 'With Stella&, experience translations that bring your content to 24 languages and localized designs, the ineffable feel of the original intact.'}
                 </p>
             </motion.div>
             <div className="mx-auto grid gap-8 sm:max-w-3xl sm:grid-cols-2 lg:max-w-5xl lg:grid-cols-3">
-                {features.map((feature, index) => (
-                    <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
-                        whileHover={{
-                            rotateX: index % 2 === 0 ? 5 : -5,
-                            rotateY: index % 3 === 0 ? 5 : -5,
-                            transition: { duration: 0.3 },
-                        }}
-                        className="relative overflow-hidden rounded-lg border bg-background p-2"
-                    >
-                        <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
-                            <feature.icon className="h-12 w-12 text-pink-500" />
-                            <div className="space-y-2 mt-2">
-                                <h3 className="font-bold">{ language === 'ko' ? feature.title_ko : feature.title}</h3>
-                                <p className="text-sm text-muted-foreground">{language === 'ko' ? feature.description_ko : feature.description}</p>
+                {features.map((feature, index) => {
+                    const badgeColor = BADGE_COLORS[index % BADGE_COLORS.length]
+                    const isDarkBadge = badgeColor === '#374b73'
+                    return (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            whileHover={{
+                                y: -6,
+                                transition: { duration: 0.3 },
+                            }}
+                            className="relative overflow-hidden rounded-2xl border p-2 transition-shadow duration-300 hover:shadow-[0_12px_32px_-8px_rgba(255,129,151,0.35)]"
+                            style={{ borderColor: 'rgba(55,75,115,0.1)', backgroundColor: '#FDFCFB' }}
+                        >
+                            <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
+                                <span
+                                    className="flex h-14 w-14 items-center justify-center rounded-2xl"
+                                    style={{ backgroundColor: isDarkBadge ? badgeColor : `${badgeColor}` }}
+                                >
+                                    <feature.icon className="h-7 w-7" style={{ color: isDarkBadge ? '#FDFCFB' : '#374b73' }} />
+                                </span>
+                                <div className="space-y-2 mt-2">
+                                    <h3 className="font-bold" style={{ color: '#374b73' }}>{ language === 'ko' ? feature.title_ko : feature.title}</h3>
+                                    <p className="text-sm" style={{ color: '#374b73', opacity: 0.6 }}>{language === 'ko' ? feature.description_ko : feature.description}</p>
+                                </div>
                             </div>
-                        </div>
-                    </motion.div>
-                ))}
+                        </motion.div>
+                    )
+                })}
             </div>
             <style jsx global>{`
                  .lucide {

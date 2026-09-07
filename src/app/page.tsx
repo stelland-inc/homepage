@@ -7,14 +7,11 @@ import Character from "@/components/Mission/Character";
 import CardContainer from '@/components/Card/CardContainer';
 import Loading from "./loading";
 import { useCursor } from "@/contexts/CursorContext";
-import CustomCursor from "@/components/UI/CustomCursor";
 import Marquee from "@/components/UI/Marquee";
-import ToonyzWrapper from "@/components/Card/Toonyz/Toonyz";
-import { Toonyz } from "@/components/Card/Toonyz/Toonyz";
 import FeaturesWrapper from "@/components/UI/FeaturesWrapper";
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
-  const { cursorVariant, setCursorVariant } = useCursor()
+  const { setCursorVariant } = useCursor()
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -50,10 +47,12 @@ export default function Home() {
 
 
   return (
-    <div>
-      <CustomCursor variant={cursorVariant} />
+    <div className="bg-[#FDFCFB]">
       <Intro />
-      <div style={{ height: "30vh" }}></div>
+      {/* Bridges the hero's pink into the white below — picks up its exact
+          bottom tone and eases out, so scrolling past the hero reads as one
+          continuous color shift instead of a hard cut. */}
+      <div style={{ height: "30vh", background: "linear-gradient(180deg, #FFDCE2 0%, #FDFCFB 100%)" }}></div>
       <div className="md:mb-0 mb-[40vh]">
         {/* the mission paragraph */}
         <Character />
@@ -64,16 +63,6 @@ export default function Home() {
       </div>
       <Marquee />
       {/* <CardContainer /> */}
-       {/* Toonyz part */}
-      {/* <div className="md:h-[5vh] lg:h-[10vh] h-5"></div> */}
-      <div className="w-full flex items-center justify-center bg-pink-500/30 ">
-        <div className="relative">
-          <ToonyzWrapper />
-          <div className="absolute top-0 left-0 w-full h-full">
-            <Toonyz />
-          </div>
-        </div>
-      </div>
       <Section />
       <Footer />
     </div>

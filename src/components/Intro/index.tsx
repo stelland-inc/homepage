@@ -2,12 +2,21 @@
 import React from 'react'
 import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
-import Image from 'next/image';
-import Background from '/public/images/hero/img1.png';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
 import { useCursor } from '@/contexts/CursorContext';
+
+// Stella& brand palette, sampled from public/images/logo/Logo.png
+const BRAND_NAVY = '#374b73';
+const BRAND_PINK = '#FF8197';
+
+const easeOut = [0.16, 1, 0.3, 1] as const;
+const revealAt = (delay: number) => ({
+  initial: { opacity: 0, y: 24 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5, delay, ease: easeOut },
+});
 
 export default function Intro() {
   const container = useRef<HTMLDivElement | null>(null);
@@ -18,6 +27,7 @@ export default function Intro() {
 
   const { language } = useLanguage();
   const { setCursorVariant } = useCursor()
+
   useEffect(() => {
     const lenis = new Lenis()
 
@@ -31,79 +41,96 @@ export default function Intro() {
 
 
   const y = useTransform(scrollYProgress, [0, 1], ["0vh", "150vh"])
+  // As the hero scrolls away it fades, like the page is drawing focus
+  // toward whatever comes next. (It used to also scale down, but that
+  // shrank the gradient background away from its own edges — since the
+  // background lives inside this same scaled box, that left a visible gap
+  // around the hero showing whatever color sits behind it instead.)
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.55, 1], [1, 1, 0]);
 
   return (
-    <div className='h-screen overflow-hidden'>
+    <div
+      className='h-screen overflow-hidden p-3 md:p-5'
+      style={{
+        backgroundColor: '#FFF8F3',
+        backgroundImage: 'radial-gradient(rgba(55,75,115,0.10) 1px, transparent 1px)',
+        backgroundSize: '18px 18px',
+      }}
+    >
       <motion.div
-        style={{ y }}
-        // className='relative h-full flex flex-col items-center justify-center'
-        className='flex flex-col items-center justify-center 
-                   relative h-full py-12 md:py-24 lg:py-32 xl:py-48 
-                   bg-gradient-to-br from-blue-100 via-white to-purple-100'
+        style={{ y, opacity: heroOpacity }}
+        className='relative flex h-full flex-col items-center justify-center overflow-hidden rounded-[1.75rem] px-6 md:items-start md:justify-center md:rounded-[2.5rem] md:px-16 lg:px-24'
         >
-        {/* <Image src={Background} fill alt="image" style={{ objectFit: "cover" }} /> */}
+        {/* nicepay.webflow.io's hero background, in our own colors: a pale
+            dotted grid with a few soft, blurred color blobs glowing over it
+            — rebuilt with plain CSS gradients (not their actual image
+            assets) since it's their look we're borrowing, not their file. */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundColor: '#FFF8F3',
+            backgroundImage: `
+              radial-gradient(rgba(55,75,115,0.10) 1px, transparent 1px),
+              radial-gradient(ellipse 55% 45% at 78% 20%, rgba(255,129,151,0.4), transparent 70%),
+              radial-gradient(ellipse 50% 42% at 22% 82%, rgba(255,207,164,0.45), transparent 70%),
+              radial-gradient(ellipse 42% 36% at 62% 88%, rgba(255,129,151,0.25), transparent 70%)
+            `,
+            backgroundSize: '18px 18px, cover, cover, cover',
+            backgroundRepeat: 'repeat, no-repeat, no-repeat, no-repeat',
+          }}
+        />
 
-        {/* Brand star mark, abstracted large as the hero's ambient visual anchor */}
-        <motion.svg
-          viewBox="0 0 100 100"
-          className="pointer-events-none absolute -right-[8%] top-[8%] z-0 h-[55vw] w-[55vw] max-h-[620px] max-w-[620px] opacity-70 blur-[2px] md:opacity-90"
-          animate={{ rotate: 360 }}
-          transition={{ repeat: Infinity, duration: 90, ease: "linear" }}
-        >
-          <path
-            d="M50 0 C53 32 68 47 100 50 C68 53 53 68 50 100 C47 68 32 53 0 50 C32 47 47 32 50 0 Z"
-            fill="#FFCFA4"
-            transform="rotate(20 50 50)"
-          />
-          <path
-            d="M50 0 C53 32 68 47 100 50 C68 53 53 68 50 100 C47 68 32 53 0 50 C32 47 47 32 50 0 Z"
-            fill="#FF8197"
-          />
-        </motion.svg>
-        <motion.svg
-          viewBox="0 0 100 100"
-          className="pointer-events-none absolute left-[10%] bottom-[18%] z-0 h-16 w-16 opacity-60 md:h-24 md:w-24"
-          animate={{ rotate: -360 }}
-          transition={{ repeat: Infinity, duration: 50, ease: "linear" }}
-        >
-          <path
-            d="M50 0 C53 32 68 47 100 50 C68 53 53 68 50 100 C47 68 32 53 0 50 C32 47 47 32 50 0 Z"
-            fill="#FF8197"
-          />
-        </motion.svg>
-        <svg viewBox="0 0 100 100" className="pointer-events-none absolute right-[22%] bottom-[10%] z-0 h-9 w-9 opacity-50 md:h-12 md:w-12">
-          <path
-            d="M50 0 C53 32 68 47 100 50 C68 53 53 68 50 100 C47 68 32 53 0 50 C32 47 47 32 50 0 Z"
-            fill="#FFCFA4"
-          />
-        </svg>
+        <div className="relative z-10 flex max-w-3xl flex-col items-center text-center md:items-start md:text-left">
+          <motion.p
+            {...revealAt(0)}
+            className="w-full text-[clamp(2rem,7.5vw,4.75rem)] font-bold uppercase leading-[0.92] tracking-tight"
+            style={{ color: BRAND_NAVY }}
+          >
+            Stella& Inc.<br />Entertainment
+          </motion.p>
 
-        <p className='z-50 md:text-6xl font-medium text-4xl uppercase text-center '>
-          <span className=''>Stella& Inc.</span> Entertainment
-        </p>
-        <div className='z-50 md:text-xl text-xl mt-5 text-center'>
-          {
-            language == 'ko' ?
-              <p className='text-center md:text-2xl text-[18px]'>현실보다 더 특별한 순간을 선물합니다.<br />
-                스텔라앤은 여러분의 콘텐츠 글로벌 파트너입니다. </p>
-              : <p className='text-center md:text-2xl text-[18px]'> Beyond reality, into your story. <br />
-                Your world, more extraordinary than ever.</p>
-          }
+          <motion.div {...revealAt(0.12)} className="mt-6 max-w-xl md:mt-8">
+            {
+              language == 'ko' ?
+                <p className='text-lg md:text-xl' style={{ color: BRAND_NAVY, opacity: 0.75 }}>현실보다 더 특별한 순간을 선물합니다.<br />
+                  스텔라앤은 여러분의 콘텐츠 글로벌 파트너입니다.</p>
+                : <p className='text-lg md:text-xl' style={{ color: BRAND_NAVY, opacity: 0.75 }}>Beyond reality, into your story.<br />
+                  Your world, more extraordinary than ever.</p>
+            }
+          </motion.div>
+
+          <motion.button
+            {...revealAt(0.24)}
+            className='mt-8 rounded-full px-10 py-3 text-sm font-semibold uppercase tracking-wide transition-colors duration-300 md:mt-10'
+            style={{ backgroundColor: BRAND_NAVY, color: '#FDFCFB' }}
+            whileHover={{ backgroundColor: BRAND_PINK, scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <Link
+              href="/contact"
+              onMouseEnter={() => setCursorVariant("hover")}
+              onMouseLeave={() => setCursorVariant("default")}
+            >Contact Us</Link>
+          </motion.button>
         </div>
-        <button className='z-50 md:text-[14px] text-[14px] bg-black text-white px-10 py-2 rounded-full mt-5 hover:bg-white hover:text-black transition-all duration-300 uppercase'>
-          <Link
-            href="/contact"
-            onMouseEnter={() => setCursorVariant("hover")}
-            onMouseLeave={() => setCursorVariant("default")}
-          >Contact Us</Link>
-        </button>
+
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <motion.div
+          className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.9 }}
+        >
           <div className="flex flex-col items-center gap-2">
-            <span className="text-sm text-gray-600">Scroll</span>
-            <div className="w-[1px] h-8 bg-gradient-to-b from-black/50 to-transparent" />
+            <span className="text-xs uppercase tracking-widest" style={{ color: BRAND_NAVY, opacity: 0.5 }}>Scroll</span>
+            <motion.div
+              className="h-8 w-px"
+              style={{ background: `linear-gradient(to bottom, ${BRAND_NAVY}80, transparent)` }}
+              animate={{ scaleY: [1, 0.4, 1] }}
+              transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
+            />
           </div>
-        </div>
+        </motion.div>
       </motion.div>
     </div>
   )
