@@ -5,7 +5,7 @@ import styles from './page.module.scss'
 import Roadmap from '@/components/Card/History/Roadmap';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Slider from '@/components/Slider';
-import Footer from '@/components/Footer';
+import Footer from '@/components/Footer/Footer';
 // import SlidingText from '@/components/SlidingText/SlidingText';
 import Timeline from '@/components/Timeline';
 import dynamic from 'next/dynamic'
@@ -58,13 +58,22 @@ export default function About() {
 
   return <>
     <SlidingText />
-    <div className="max-w-screen-xl mx-auto pt-20 md:p-0 p-5 ">
+    <div
+      className="w-full"
+      style={{
+        backgroundColor: '#FFF8F3',
+        backgroundImage: 'radial-gradient(rgba(55,75,115,0.08) 1px, transparent 1px)',
+        backgroundSize: '18px 18px',
+      }}
+    >
+    <div className="max-w-screen-xl mx-auto pt-20 px-6 xl:px-0 ">
       <div className="flex md:flex-row flex-col justify-center md:items-start items-center md:gap-0 gap-5 md:pt-20 my-24">
         <div className="flex flex-col md:text-left text-center md:text-6xl text-2xl font-bold md:w-2/3 w-full">
-          <p className='text-red-200 text-lg'>
+          <p className='text-[#FF8197] text-lg tracking-[0.3em]'>
             01.
           </p>
           <h1> About Us</h1>
+          <div className='hidden md:block w-16 h-[3px] bg-[#FF8197] mt-4 rounded-full' />
         </div>
 
         <div className="flex flex-col gap-10 md:w-[90%] w-full">
@@ -74,23 +83,25 @@ export default function About() {
 
           </div>
 
-          <ul className='list-none flex md:flex-row flex-col md:gap-14 text-md'>
-            <li className='flex flex-col gap-4 md:w-[200px] w-full justify-center items-center md:mb-0 mb-10'>
+          <ul className='list-none grid md:grid-cols-3 grid-cols-1 gap-6 text-md'>
+            <li className='flex flex-col items-center gap-4 rounded-2xl bg-white/70 shadow-[0_8px_24px_rgba(55,75,115,0.08)] px-6 py-10'>
               <p className='font-bold'>Brand Logo</p>
-              <div className='flex flex-col gap-4 md:h-[300px] '>
-                <Image src='/images/logo/Logo.png' alt="logo" width={100} height={100} /> <br />
-                <Image src='/stelland_logo_black.svg' alt="logo" width={200} height={200} className='w-[180px] h-auto md:pb-0 pb-5' />
+              <div className='flex flex-1 flex-col items-center justify-center gap-4'>
+                <Image src='/images/logo/Logo.png' alt="Stella&Inc. emblem" width={100} height={100} />
+                <Image src='/stelland_logo_black.svg' alt="Stella&Inc. wordmark" width={200} height={200} className='w-[180px] h-auto' />
               </div>
             </li>
-            <li className='flex flex-col gap-4 mx-auto md:justify-start md:items-start justify-center items-center md:mb-0 mb-10 w-[200px]'>
-              <p className='font-bold  mx-auto'>Brand Character</p>
-              <Image src='/images/character/stelli_02.png' alt="logo" width={300} height={300} />
+            <li className='flex flex-col items-center gap-4 rounded-2xl bg-white/70 shadow-[0_8px_24px_rgba(55,75,115,0.08)] px-6 py-10'>
+              <p className='font-bold'>Brand Character</p>
+              <div className='flex flex-1 items-center justify-center'>
+                <Image src='/images/character/byeolsu.png' alt="Byeolsu, the Stella&Inc. brand mascot holding its signature star" width={220} height={220} />
+              </div>
             </li>
-            <li className='flex flex-col gap-4 md:w-[200px] w-full justify-center items-center '>
+            <li className='flex flex-col items-center gap-4 rounded-2xl bg-white/70 shadow-[0_8px_24px_rgba(55,75,115,0.08)] px-6 py-10'>
               <p className='font-bold'>Mission</p>
-              <div className='md:h-[300px] h-[100px] text-md self-center text-center'>
-                {language === 'ko' ? <p className='text-2xl'>현실보다 더 특별한 순간을 선물합니다. 평범한 일상을 넘어, 특별한 순간으로.</p>
-                  : <p className='text-2xl'>Beyond reality, into your story. Your world, more extraordinary than ever.</p>}
+              <div className='flex flex-1 items-center justify-center text-center'>
+                {language === 'ko' ? <p className='text-xl'>현실보다 더 특별한 순간을 선물합니다. 평범한 일상을 넘어, 특별한 순간으로.</p>
+                  : <p className='text-xl'>Beyond reality, into your story. Your world, more extraordinary than ever.</p>}
               </div>
             </li>
           </ul>
@@ -101,10 +112,11 @@ export default function About() {
 
       <div className="flex md:flex-row flex-col md:gap-0 gap-10 pt-20 pb-20 my-24">
         <div className="md:text-left text-center md:text-6xl text-2xl font-bold md:w-2/3 w-full">
-          <span className='text-red-200 text-lg'>
+          <span className='text-[#FF8197] text-lg tracking-[0.3em]'>
             02.
           </span>
-          <h1> Philosophy</h1>
+          <h2> Philosophy</h2>
+          <div className='hidden md:block w-16 h-[3px] bg-[#FF8197] mt-4 rounded-full' />
         </div>
         <div className="md:text-left text-center text-md self-end md:w-[90%] w-full">
           {language === 'ko' ? <p className='text-2xl'>우리는 여러분의 콘텐츠를 글로벌화하는 파트너로서 함께합니다. <br />
@@ -116,12 +128,14 @@ export default function About() {
 
       <div className="flex flex-col md:gap-0 gap-10 pt-20 pb-20">
         <div className="md:text-left text-center md:text-6xl text-2xl font-bold md:w-2/3 w-full">
-          <span className='text-red-200 text-lg'>
+          <span className='text-[#FF8197] text-lg tracking-[0.3em]'>
             03.
           </span>
-          <h1> History</h1>
+          <h2> History</h2>
+          <div className='hidden md:block w-16 h-[3px] bg-[#FF8197] mt-4 rounded-full' />
         </div>
       </div>
+    </div>
     </div>
     {/* <div className="md:text-left text-md md:w-[90%] w-full"> */}
     {/* <History className='md:ml-10' progress={0} range={[0, 10]} i={1}/> */}
@@ -129,14 +143,13 @@ export default function About() {
     <Timeline />
     {/* </div> */}
 
-    <div className="max-w-screen-xl mx-auto pt-20 md:p-0 p-5 ">
-      <div className='text-center md:text-4xl text-2xl font-bold w-34 pt-20'>
-        {language === 'en' ? <p> Trusted by</p>
-          : <p> 고객사</p>}
-      </div>
+    <div className="max-w-screen-xl mx-auto pt-20 px-6 xl:px-0 ">
+      <h2 className='text-center md:text-4xl text-2xl font-bold w-34 pt-20'>
+        {language === 'en' ? 'Trusted by' : '고객사'}
+      </h2>
       <Slider />
       <div className='h-[30vh]'></div>
-      <Footer />
     </div>
+    <Footer />
   </>
 }

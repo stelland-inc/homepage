@@ -9,7 +9,16 @@ export default function Content() {
     const { language } = useLanguage();
  
    return (
-    <div className='bg-red-200  py-8 px-12 h-full w-full flex flex-col justify-between '>
+    <div
+        className='bg-red-200  py-8 px-12 h-full w-full flex flex-col justify-between '
+        style={{
+            // Same grid as the closing section right above it, so the two
+            // pink sections read as one continuous surface on scroll.
+            backgroundImage:
+                'linear-gradient(rgba(55,75,115,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(55,75,115,0.12) 1px, transparent 1px)',
+            backgroundSize: '44px 44px, 44px 44px',
+        }}
+    >
         {/*  bg-red-200  bg-[#f9a8d4]  FFF0EC*/  }
             <Section1 language={language} />
         <div className=''>
@@ -29,29 +38,36 @@ const Section1 = ({ language }: {language: string}) => {
 
 const Section2 = ({ language }: {language: string}) => {
     return (
-        <div className='max-w-screen-xl mx-auto flex justify-between md:gap-0 gap-8 items-end text-black'>
-            <Image 
+        <div className='max-w-screen-xl mx-auto flex md:flex-row flex-col justify-between md:gap-0 gap-6 md:items-end items-start text-black'>
+            <Image
                 src="/stelland_logo_black.svg"
-                alt="logo" 
-                width={160} 
-                height={30} 
+                alt="logo"
+                width={160}
+                height={30}
                 quality={100}
-                className="w-28 md:w-40 h-auto self-center md:mt-0 mt-1" 
+                className="w-28 md:w-40 h-auto self-center md:mt-0 mt-1"
             />
-            
+
+            <ul className='list-none flex flex-row gap-4 flex-wrap text-[12px] self-center'>
+                <li><Link href='https://www.linkedin.com/company/stellandio' className='hover:underline'>LinkedIn</Link></li>
+                <li><Link href='https://stelland.medium.com' className='hover:underline'>Medium</Link></li>
+                <li><Link href='https://www.instagram.com/stelland_official' className='hover:underline'>Instagram</Link></li>
+                <li><Link href='https://blog.naver.com/stelland_official' className='hover:underline'>Naver Blog</Link></li>
+            </ul>
+
             {/* <h1 className='text-[10vw] leading-[0.8] mt-10 text-black '>Stelland</h1> */}
-            <div className='flex flex-row text-[12px] self-center'> 
+            <div className='flex flex-row text-[12px] self-center'>
                <p className='self-center'>  { language == 'en' ? 'ⓒStella&Inc. All Rights Reserved' : 'ⓒStella&Inc. All Rights Reserved' } </p>
-            
-{/* 
+
+{/*
             <button className='border border-black rounded-sm px-10 py-1 ml-1'>
-                <Link href='' onClick={(e) => {e.preventDefault()}} className='flex flex-row justify-between items-start gap-1'>   
+                <Link href='' onClick={(e) => {e.preventDefault()}} className='flex flex-row justify-between items-start gap-1'>
                     <p>{language == 'en' ? 'Site map' : '사이트맵'}</p> <ChevronDown size={12} className='self-center' />
                 </Link>
             </button> */}
 
             </div>
-            
+
         </div>
     )
 }
@@ -74,8 +90,8 @@ const Nav = ({ language }: {language: string}) => {
                 <p>1111B S Governors Ave</p>
                 <p>#23452 Dover, DE 19904</p>
                 </> : <>
-                <p>6 테헤란로 79길, 강남구</p>
-                <p>서울 대한민국</p>
+                <p>강남구 테헤란로 503</p>
+                <p>하이브로빌딩, 서울 대한민국</p>
                 </> }
                 { language == 'en' ? <>
                 <p>Business Registration</p>

@@ -66,20 +66,21 @@ export default function ServicesComponent() {
     return (
         <>
             <div ref={services} className="md:max-w-screen-lg w-full mx-auto md:p-0 p-5">
-                <h2 className="md:text-6xl text-4xl font-bold mb-4 uppercase md:mt-0 mt-40">
+                <h2 className="md:text-6xl text-4xl font-bold uppercase md:mt-0 mt-40">
                     {language === 'en' ? <>SERVICE</> : <>서비스</>}
                 </h2>
+                <div className='w-16 h-[3px] bg-[#FF8197] mt-4 mb-4 rounded-full' />
                 <section className="md:max-w-screen-lg w-full mx-auto space-y-16">
                     <div className="grid gap-8 md:grid-cols-4 mt-10">
                         {features.map((feature) => (
-                            <div key={feature.title} className="space-y-4 rounded-lg border p-6">
-                                <div className="inline-flex rounded-full bg-[#FEF0EC] bg-primary/10 p-2 text-primary">
+                            <div key={feature.title} className="space-y-4 rounded-lg p-6 transition-shadow hover:shadow-[0_12px_30px_rgba(55,75,115,0.12)]">
+                                <div className="inline-flex rounded-full bg-[#FEF0EC] p-2 text-[#FF8197]">
                                     <feature.icon size={20} className="" />
                                 </div>
-                                <h3 className="text-xl font-bold">
+                                <h3 className="text-xl font-bold text-[#374B73]">
                                     {language === 'en' ? feature.title : feature.title_ko}
                                 </h3>
-                                <p className="text-muted-foreground">{feature.description}</p>
+                                <p className="text-[#374B73]/60">{feature.description}</p>
                             </div>
                         ))}
                     </div>
@@ -91,7 +92,7 @@ export default function ServicesComponent() {
                 className='relative w-full flex items-center justify-center h-fit overflow-hidden'
                 style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
             >
-                <div className='relative z-10 md:p-20 p-10 text-white mix-blend-difference 
+                <div className='relative z-10 md:p-20 p-10 text-white
                                 w-full h-full flex flex-col justify-between'>
                     <div className="max-w-screen-lg mx-auto w-full text-start">
                         <BusinessAchievementComponent />
@@ -101,10 +102,7 @@ export default function ServicesComponent() {
                 <div className='fixed top-[-10vh] left-0 h-[120vh] w-full'>
                     <motion.div
                         style={{ y }}
-                        className='relative w-full h-full 
-                                bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50
-                                dark:from-gray-900 dark:via-indigo-900 dark:to-purple-900 
-                                '>
+                        className='relative w-full h-full bg-[#374B73]'>
                         {/* <Image src='/images/header/about_us.jpg' fill alt="image" style={{ objectFit: "cover" }} /> */}
                     </motion.div>
                 </div>

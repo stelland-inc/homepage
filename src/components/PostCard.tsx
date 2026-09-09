@@ -5,21 +5,34 @@ import Link from 'next/link';
 export default function PostCard() {
   const posts = getAllPosts();
 
-  return posts.length > 0 ? (
-    <div>
-      <h2 className="text-center md:text-4xl text-3xl font-bold uppercase">NEWS</h2>
-      <div className="flex flex-col gap-4 mt-10 md:p-0 p-5">
-        {posts.map((post) => (
-          <div key={post.slug} className="border-b border-gray-300 pb-4 flex flex-row justify-between">
-            <Link href={`/news/${post.slug}`} className="md:text-2xl text-md">{post.title || "Untitled"}</Link>
-            <span className="text-sm text-gray-300 self-center">{moment(post.date).format('YYYY.MM.DD')}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  ) : (
-    <div>
-      <span className='text-center text-gray-300 pt-10'>No posts found</span>
-    </div>
+  return (
+    <section>
+      <h2 className="md:text-5xl text-3xl font-bold uppercase text-[#374B73]">News</h2>
+      <div className='w-16 h-[3px] bg-[#FF8197] mt-4 rounded-full' />
+
+      {posts.length > 0 ? (
+        <ul className="mt-10 list-none">
+          {posts.map((post) => (
+            <li key={post.slug}>
+              {/* The whole row is the link, not just the title — a wider hit
+                  target reads better on an index list like this. */}
+              <Link
+                href={`/news/${post.slug}`}
+                className="group flex items-baseline justify-between gap-8 border-b border-[#374B73]/15 py-6 transition-colors hover:border-[#FF8197]"
+              >
+                <span className="min-w-0 break-keep md:text-2xl text-base font-semibold text-[#374B73] transition-all duration-300 group-hover:translate-x-1 group-hover:text-[#FF8197]">
+                  {post.title || 'Untitled'}
+                </span>
+                <span className="shrink-0 text-sm tabular-nums text-[#374B73]/45 transition-colors group-hover:text-[#FF8197]">
+                  {moment(post.date).format('YYYY.MM.DD')}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="mt-10 text-[#374B73]/50">No posts yet — check back soon.</p>
+      )}
+    </section>
   );
 }

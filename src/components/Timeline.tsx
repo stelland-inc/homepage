@@ -94,7 +94,7 @@ export default function Timeline() {
     })
 
     return (
-        <section ref={containerRef} className="py-20 bg-background overflow-hidden">
+        <section ref={containerRef} className="py-20 bg-[#FFF8F3] overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     className="text-center mb-12"
@@ -111,7 +111,7 @@ export default function Timeline() {
                 <div className="relative">
                     {/* Vertical line */}
                     <motion.div
-                        className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-black/20"
+                        className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-[#374B73]/20"
                         style={{ scaleY: scaleX }}
                     />
                     {/* Logo */}
@@ -158,39 +158,52 @@ function TimelineEvent({
     onToggle: () => void
 }) {
     const ref = useRef(null)
-    const isInView = useInView(ref, { once: true, amount: 0.5 })
+    const isInView = useInView(ref, { once: false, amount: 0.5 })
 
     return (
         <motion.div
             ref={ref}
             className={`mb-8 flex justify-between items-center w-full ${index % 2 === 0 ? "flex-row-reverse" : ""}`}
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-            transition={{ duration: 0.8, delay: index * 0.1 }}
+            initial={{ opacity: 0, y: 50, scale: 0.92 }}
+            animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.92 }}
+            transition={{ duration: 0.6, delay: index * 0.05 }}
         >
             <div className="w-5/12" />
             <div className="z-20">
-                <div className="flex items-center justify-center w-8 h-8 bg-pink-400  rounded-full">
+                <motion.div
+                    className="flex items-center justify-center w-8 h-8 bg-[#FF8197] rounded-full"
+                    animate={isInView ? { scale: 1.3, boxShadow: '0 0 0 8px rgba(255,129,151,0.25)' } : { scale: 1, boxShadow: '0 0 0 0px rgba(255,129,151,0)' }}
+                    transition={{ duration: 0.4 }}
+                >
                     <div className="w-3 h-3 bg-white rounded-full" />
-                </div>
+                </motion.div>
             </div>
             <motion.div
                 className="w-5/12 cursor-pointer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={onToggle}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        onToggle();
+                    }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-expanded={isExpanded}
             >
-                <div className="p-4 bg-background rounded-lg shadow-md border border-gray-500/10">
-                    <span className="font-bold text-primary">{event.year}</span>
-                    <h3 className="md:text-lg text-sm font-semibold mb-1">{event.title}</h3>
-                    <p className="md:text-sm text-xs text-muted-foreground">{event.description}</p>
+                <div className="p-4 bg-white rounded-lg shadow-[0_8px_24px_rgba(55,75,115,0.12)]">
+                    <span className="font-bold text-[#FF8197]">{event.year}</span>
+                    <h3 className="md:text-lg text-sm font-semibold mb-1 text-[#374B73]">{event.title}</h3>
+                    <p className="md:text-sm text-xs text-[#374B73]/60">{event.description}</p>
                     <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: isExpanded ? "auto" : 0, opacity: isExpanded ? 1 : 0 }}
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                     >
-                        <p className="mt-2 text-sm text-muted-foreground">{event.details}</p>
+                        <p className="mt-2 text-sm text-[#374B73]/60">{event.details}</p>
                     </motion.div>
                 </div>
             </motion.div>

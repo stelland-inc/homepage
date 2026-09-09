@@ -5,8 +5,12 @@ import styles from '@/components/Mission/style.module.scss';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Globe from '@/components/Mission/Globe';
 
-const BRAND_NAVY = '#374b73';
+const BRAND_NAVY_LIGHT = '#75819D';
 const BRAND_PINK = '#FF8197';
+// Hoisted to keep a stable object identity across renders — Globe's effect
+// depends on this object by reference, and a new literal every render would
+// re-trigger it (see the comment above Globe's own DEFAULT_DOTS).
+const GLOBE_DOTS = { color: BRAND_NAVY_LIGHT, size: 4, density: 7, allDots: false, gradientTo: BRAND_PINK };
 
 export default function Character() {
 
@@ -33,19 +37,19 @@ export default function Character() {
       {/* A rotating dotted globe on the right, in brand colors — replaces
           the flat halftone map. Pink ocean + navy continents, mixing the
           two brand colors rather than leaning on just one. */}
-      <div className="absolute -right-[4%] top-1/2 h-[108%] w-[86%] -translate-y-1/2 md:-right-[6%] md:h-[122%] md:w-[74%]">
+      <div className="absolute -right-[9%] top-1/2 h-[108%] w-[86%] -translate-y-1/2 md:-right-[11%] md:h-[122%] md:w-[74%]">
         <Globe
           speed={1.4}
           smoothing={8}
-          scale={10}
+          scale={7.3}
           direction="left"
           stopOnHover
-          dots={{ color: BRAND_NAVY, size: 4, density: 7, allDots: false, gradientTo: BRAND_PINK }}
+          dots={GLOBE_DOTS}
           fill="dots"
           oceanColor={`${BRAND_PINK}1a`}
           outlineColor={`${BRAND_PINK}dd`}
           showOutline
-          graticuleColor={`${BRAND_NAVY}22`}
+          graticuleColor={`${BRAND_NAVY_LIGHT}22`}
           graticuleColorTo={`${BRAND_PINK}22`}
           showGrid
           outlineWidth={1}

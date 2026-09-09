@@ -2,6 +2,7 @@ import { Roboto } from 'next/font/google'
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
+import IntroSplash from "@/components/IntroSplash";
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { headers } from 'next/headers'
 import { CursorProvider } from '@/contexts/CursorContext';
@@ -83,6 +84,7 @@ export default function RootLayout({
       <body
         className="antialiased"
       >
+        <IntroSplash />
         <LanguageProvider>
           <CursorProvider>
             <Header />

@@ -226,15 +226,23 @@ interface GlobeProps {
     style?: CSSProperties;
 }
 
+// Hoisted so the defaults keep a stable object identity across renders —
+// `dots`/`markerConfig` sit in the effect's dependency array below, and an
+// inline object literal here would be a new reference every render,
+// re-triggering the effect (which calls setIsLoading and re-renders,
+// creating a fresh object again) in an infinite tear-down/rebuild loop.
+const DEFAULT_DOTS: DotsConfig = { color: "#ffffff", size: 5, density: 8, allDots: false };
+const DEFAULT_MARKER_CONFIG: MarkerConfig = { markers: [], color: "#00f7ff", size: 40 };
+
 export default function Globe({
     speed = 2,
     smoothing = 8,
-    dots = { color: "#ffffff", size: 5, density: 8, allDots: false },
+    dots = DEFAULT_DOTS,
     fill = "dots",
     fillColor = "#ffffff",
     scale = 8,
     stopOnHover = false,
-    markerConfig = { markers: [], color: "#00f7ff", size: 40 },
+    markerConfig = DEFAULT_MARKER_CONFIG,
     direction = "left",
     initialLatitude = 23,
     initialLongitude = -23,

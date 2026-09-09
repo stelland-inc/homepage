@@ -1,6 +1,6 @@
 'use client'
 import CreatePostForm from '@/components/CreatePostForm';
-import Footer from '@/components/Footer';
+import Footer from '@/components/Footer/Footer';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, ArrowLeft, Plus } from 'lucide-react';
@@ -97,8 +97,8 @@ export default function CreatePostPage() {
         )}
 
         <div className="h-20"></div>
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
-} 
+}

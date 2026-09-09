@@ -1,41 +1,41 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Hero from "@/components/Hero";
-import Footer from "@/components/Footer";
+import Footer from "@/components/Footer/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Image from "next/image";
-import Link from 'next/link';
 import './page.module.scss';
 import { styled } from '@mui/material/styles';
 import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
 import MuiAccordionSummary, { AccordionSummaryProps } from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import { ChevronDown } from "lucide-react";
-import FlowDiagram from '@/components/FlowChart/FlowDiagram';
 import ServicesComponent from '@/components/UI/ServicesComponent';
-import AboutToonyzWrapper from '@/components/UI/AboutToonyzWrapper';
 import CustomCursor from '@/components/UI/CustomCursor';
 import { useCursor } from '@/contexts/CursorContext';
 
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme }) => ({
+))(() => ({
   border: 'none', // ✅ 아예 기본 border 제거
   padding: '10px',
   '&:not(:last-child)': {
-    borderBottom: `1px solid ${theme.palette.divider}`, // ✅ 한 줄만 유지
+    borderBottom: `1px solid rgba(55,75,115,0.15)`, // brand navy tint, not the generic MUI divider gray
   },
   '&::before': {
     display: 'none', // ✅ MUI가 자동으로 그리는 얇은 선 제거
+  },
+  '&:hover': {
+    backgroundColor: 'rgba(255,129,151,0.04)',
   },
 }));
 
 const AccordionSummary = styled((props: AccordionSummaryProps) => (
   <MuiAccordionSummary
-    expandIcon={<ChevronDown size={20} className="text-gray-300" />}
+    expandIcon={<ChevronDown size={20} className="text-[#FF8197]" />}
     {...props}
   />
-))(({ theme }) => ({
+))(() => ({
   padding: '10px',
 }));
 
@@ -78,9 +78,12 @@ export default function Business() {
                 </div>
 
                 <div className="flex flex-col gap-5">
-                    <h2 className="md:text-6xl text-4xl font-bold mb-4 uppercase pt-20">
-                        {language === 'en' ? <>What We Do</> : <>비즈니스</>}
-                    </h2>
+                    <div className="pt-20 mb-4">
+                        <h2 className="md:text-6xl text-4xl font-bold uppercase">
+                            {language === 'en' ? <>What We Do</> : <>비즈니스</>}
+                        </h2>
+                        <div className='w-16 h-[3px] bg-[#FF8197] mt-4 rounded-full' />
+                    </div>
 
                     <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
@@ -108,33 +111,6 @@ export default function Business() {
                         </AccordionDetails>
                     </Accordion>
 
-                    <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
-                        <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-                            {language === 'en'
-                                ? <span className="md:text-xl text-md font-semibold">Operation of Global Story Entertainment Platform "Toonyz"</span>
-                                : <span className="md:text-xl text-md font-semibold">글로벌 스토리 엔터테인먼트 플랫폼 "투니즈" 운영</span>}
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            {language === 'en' ? (
-                                <>
-                                    A{' '}
-                                    <Link href="https://toonyz.com" className="text-red-400 underline">
-                                        global story entertainment platform
-                                    </Link>{' '}
-                                    where users can watch short-form animations that fully capture the emotions of web novels.
-                                </>
-                            ) : (
-                                <>
-                                    웹소설의 감정을 그대로 담은 숏폼 애니메이션을 감상할 수 있는{' '}
-                                    <Link href="https://toonyz.com" className="text-red-400 underline">
-                                        글로벌 스토리 엔터테인먼트 플랫폼
-                                    </Link>
-                                    입니다.
-                                </>
-                            )}
-                        </AccordionDetails>
-                    </Accordion>
-
                     <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
                         <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
                             {language === 'en'
@@ -150,11 +126,9 @@ export default function Business() {
                 </div>
             </div>
 
-            <div className="md:h-[20vh] h-0"></div>
-            <AboutToonyzWrapper />
-            <div className='md:h-[20vh] h-0'></div>
+            <div className="md:h-[20vh] h-0 bg-[#374B73]"></div>
             <ServicesComponent />
-            <div className='md:h-[20vh] h-[15vh]'></div>
+            <div className='md:h-[20vh] h-[15vh] bg-[#374B73]'></div>
             <Footer />
         </div>
     );

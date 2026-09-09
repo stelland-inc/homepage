@@ -6,6 +6,7 @@ interface MarkerProps {
   lat: number;
   lng: number;
   status?: string;
+  title?: string;
   popupData?: { [key: string]: string }; // Changed any to string
 }
 
@@ -82,7 +83,7 @@ const Index: React.FC<MapProps> = ({
       markers.forEach((markerProps) => {
         const marker = L.marker([markerProps.lat, markerProps.lng], {
           icon: getIcon(markerProps.status || "default"),
-        }).bindPopup('JS Tower',{autoClose:false}).addTo(mapRef.current!).openPopup()
+        }).bindPopup(markerProps.title || "", { autoClose: false }).addTo(mapRef.current!).openPopup()
 
         if (markerProps.popupData) {
           const popupContent = Object.entries(markerProps.popupData)

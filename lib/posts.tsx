@@ -21,6 +21,7 @@ export function getAllPosts() {
           slug,
           title: matterResult.data.title || '',
           date: matterResult.data.date || '',
+          summary: matterResult.data.summary || '',
           content: matterResult.content
         };
       });

@@ -1,73 +1,110 @@
 .postContent {
-    /* Basic content styling */
-    // @apply prose prose-invert max-w-none;
+    color: #000;
+    font-weight: 300;
+    font-size: 1.0625rem;
+    line-height: 1.75;
+
     /* Headers */
-    h1 { 
-        font-size: 2rem;
-        font-weight: bold;
-        margin: 1rem 0;
+    h1, h3 {
+        color: #374B73;
+        font-weight: 700;
+        line-height: 1.3;
     }
-    h2 { 
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin: 0.5rem 0;
+    h1 {
+        font-size: 1.75rem;
+        margin: 2.5rem 0 1rem;
     }
-    h3 { 
-        font-size: 1.25rem;
-        font-weight: bold;
-        margin: 0.25rem 0;
+    h3 {
+        font-size: 1.15rem;
+        margin: 2rem 0 0.75rem;
     }
-    
+    /* Every post's markdown opens with a single "## " line used as the
+       lede sentence, not a real subheading — it should read as body
+       copy, not a bold navy header. */
+    h2 {
+        color: inherit;
+        font-weight: inherit;
+        font-size: 1em;
+        line-height: inherit;
+        margin: 1.25rem 0;
+    }
+
     /* Paragraphs and lists */
-    p { 
-        margin: 1rem 0;
-        line-height: 1.5;
+    p {
+        margin: 1.25rem 0;
     }
-    ul, ol { 
-        margin: 1rem 0;
+    ul, ol {
+        margin: 1.25rem 0;
         margin-left: 1.5rem;
     }
-    li { 
-        margin-bottom: 0.5rem;
+    ul {
+        list-style: disc;
     }
-    
+    ol {
+        list-style: decimal;
+    }
+    li {
+        margin-bottom: 0.5rem;
+        &::marker {
+            color: #FF8197;
+        }
+    }
+
     /* Links */
     a {
         cursor: pointer;
-        color: #4096ff;
-        &:hover {
-            color: #2670e8;
-        }
+        color: #FF8197;
         text-decoration: underline;
+        text-underline-offset: 2px;
+        text-decoration-color: rgba(255, 129, 151, 0.4);
+        transition: color 0.2s ease, text-decoration-color 0.2s ease;
+        &:hover {
+            color: #374B73;
+            text-decoration-color: currentColor;
+        }
     }
-    
+
     /* Code blocks */
-    pre { 
-        background-color: #f5f7fa;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        margin: 1rem 0;
+    pre {
+        background-color: rgba(55, 75, 115, 0.06);
+        padding: 1.25rem;
+        border-radius: 0.75rem;
+        margin: 1.5rem 0;
         overflow-x: auto;
     }
-    code { 
-        background-color: #f5f7fa;
-        padding: 0.25rem 0.5rem;
-        border-radius: 0.25rem;
+    code {
+        background-color: rgba(55, 75, 115, 0.08);
+        color: #374B73;
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.35rem;
+        font-size: 0.9em;
     }
-    
+    pre code {
+        background-color: transparent;
+        padding: 0;
+    }
+
     /* Images */
-    img { 
+    img {
         width: 100%;
         height: auto;
-        margin: 4rem 0;
-       
+        margin: 3rem 0;
+        border-radius: 1rem;
+        box-shadow: 0 12px 30px rgba(55, 75, 115, 0.15);
     }
-    
+
     /* Blockquotes */
     blockquote {
-        border-left: 4px solid #606266;
-        padding-left: 1rem;
-        margin: 1rem 0;
+        border-left: 3px solid #FF8197;
+        padding: 0.25rem 0 0.25rem 1.25rem;
+        margin: 1.75rem 0;
+        color: rgba(55, 75, 115, 0.65);
         font-style: italic;
     }
-  }
+
+    hr {
+        border: none;
+        border-top: 1px solid rgba(55, 75, 115, 0.15);
+        margin: 2.5rem 0;
+    }
+}

@@ -1,6 +1,7 @@
 'use client';
 import styles from '@/components/Header/style.module.scss';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { opacity, background } from './anim';
@@ -12,6 +13,8 @@ import { useLanguage } from '@/contexts/LanguageContext';
 export default function Header() {
     const [isActive, setIsActive] = useState(false);
     const { language, setLanguage } = useLanguage();
+    const pathname = usePathname();
+    const isCurrent = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
     const handleLanguageChange = (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault(); 
@@ -72,16 +75,16 @@ export default function Header() {
         <div className='max-w-screen-xl mx-auto md:block hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
             <ul className={`flex flex-row items-center gap-10 uppercase rounded-full bg-white/40 px-10 py-3 shadow-[0_8px_30px_rgba(55,75,115,0.18)] backdrop-blur-md`}>
                         <li>
-                            <Link href="/about" className='transition-colors hover:text-[#FF8197]'>About</Link>
+                            <Link href="/about" className={`transition-colors hover:text-[#FF8197] ${isCurrent('/about') ? 'text-[#FF8197] font-bold' : ''}`}>About</Link>
                         </li>
                         <li>
-                            <Link href="/business" className='transition-colors hover:text-[#FF8197]'>Business</Link>
+                            <Link href="/business" className={`transition-colors hover:text-[#FF8197] ${isCurrent('/business') ? 'text-[#FF8197] font-bold' : ''}`}>Business</Link>
                         </li>
                         <li>
-                            <Link href="/news" className='transition-colors hover:text-[#FF8197]'>News</Link>
+                            <Link href="/news" className={`transition-colors hover:text-[#FF8197] ${isCurrent('/news') ? 'text-[#FF8197] font-bold' : ''}`}>News</Link>
                         </li>
                         <li>
-                            <Link href="/contact" className='transition-colors hover:text-[#FF8197]'>Contact</Link>
+                            <Link href="/contact" className={`transition-colors hover:text-[#FF8197] ${isCurrent('/contact') ? 'text-[#FF8197] font-bold' : ''}`}>Contact</Link>
                         </li>
                 </ul>
             </div>

@@ -9,6 +9,16 @@
     flex-wrap: wrap;
     margin: 0;
 
+    // Opt-in lighter, white variant for callers on a dark background (the
+    // closing section) without affecting every other caller of this
+    // shared paragraph style (the homepage Mission section, on cream).
+    // Needs its own color here — the parent's text-white class can't win
+    // against this rule's own explicit color declaration above.
+    &.thin{
+      font-weight: 500;
+      color: #fff;
+    }
+
     .word{
       position: relative;
       margin-right: 12px;
@@ -26,9 +36,12 @@
       flex-wrap: wrap;
       background: rgba(255, 129, 151, 0.18);
       border-radius: 0;
-      height: 60px;
-      padding: 0px 8px 0px;
-      margin-top: 12px;
+      // A hardcoded height (was 60px) doesn't track the text's own line
+      // box. The words inside already carry their own margin-top (12px,
+      // same as every other word in the paragraph) — this container needs
+      // none of its own, or that spacing doubles up and the pink strip
+      // floats above the glyphs instead of hugging them.
+      padding: 0px 8px;
       margin-right: 12px;
     }
 

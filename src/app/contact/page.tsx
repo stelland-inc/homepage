@@ -7,14 +7,14 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import styles from './page.module.scss';
-import Footer from '@/components/Footer';
-import Link from 'next/link';
+import Footer from '@/components/Footer/Footer';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useMediaQuery } from '@mui/material';
 import dynamic from 'next/dynamic';
+import GlassButton from '@/components/UI/GlassButton';
 
 const LeafletMap = dynamic(() => import('@/components/Map'), { 
   ssr: false,
@@ -31,11 +31,12 @@ export default function Contact() {
     const { language } = useLanguage();
     const [isMobile, setIsMobile] = useState(false);
     const markers = [
-        { position: [37.507392579613935, 127.05576783152004], title: "JS Tower" }
+        { position: [37.507354705539, 127.05723030406], title: "하이브로빌딩" }
     ];
 
     const mainRef = useRef(null);
     const contactContainerRef = useRef(null);
+    const heroVideoRef = useRef<HTMLVideoElement>(null);
 
     const [isVisible, setIsVisible] = useState(false);
 
@@ -59,45 +60,54 @@ export default function Contact() {
  
     return (
         <main ref={mainRef} className={`${isVisible ? styles.fadeEffect : ''} `}>
-         <div className='h-screen w-full bg-[#FFF0EC]'>
+         <div className='h-screen w-full overflow-hidden bg-[#FFF8F3] p-16 md:p-32'>
+          {/* Same inset-card framing as the homepage Hero — the video sits
+              as a rounded card with the page's own cream showing at the
+              edges, instead of a full-bleed background. */}
+          <div className='relative h-full w-full overflow-hidden rounded-[1.75rem] md:rounded-[2.5rem]'>
+            {/* One of our own short-form animation productions, used as a
+                living showcase of the work behind "content globalization"
+                rather than a generic stock loop. */}
+            <video
+                ref={heroVideoRef}
+                className='absolute inset-0 h-full w-full object-cover'
+                src='/videos/contact-hero.mp4'
+                autoPlay
+                loop
+                muted
+                playsInline
+            />
+            <div
+                className='absolute inset-0'
+                style={{ background: 'linear-gradient(180deg, rgb(0 0 0 / 55%) 0%, rgba(55, 75, 115, 0.35) 45%, rgb(0 0 0 / 65%) 100%)' }}
+            />
+            {/* Centered with flex against the card's own height, not a
+                fixed `mt-[35vh]` — that was sized against the full
+                viewport, so once the card got smaller (more outer padding)
+                it no longer lined up with the card's actual center. */}
+            <div className='absolute inset-0 z-10 flex items-center justify-center px-6'>
             <div className='max-w-screen-xl mx-auto flex flex-col  gap-4'>
-           
-            <div className='text-black mt-[35vh] text-center'>
+
+            <div className='relative z-10 text-white text-center'>
                 <p className='z-50 md:text-6xl font-medium text-4xl uppercase text-center '>
-                    {/*   margin-top: 35vh; */}
                  <span className=''>Stella& Inc.</span> Entertainment
                 </p>
-                { language === 'en' ? 
+                { language === 'en' ?
                                 <p className='md:text-xl text-[14px] mt-5'> Looking to discuss a project? <br/>
                                     Please get in touch using the form on this page. <br/>
                                     Generally, We&apos;re able to reply to all inquiries within 48 hours.
-                                 </p> 
-                                : <p className='md:text-xl text-[14px] mt-5'> 
+                                 </p>
+                                : <p className='md:text-xl text-[14px] mt-5'>
                                     스텔라앤은 콜라보레이션에 항상 열려 있습니다. <br/>
                                     문의에 대해 48시간 내에 신속한 답변을 드립니다.
-                                </p> 
+                                </p>
                 }
-                <Button
-                sx={{
-                    color: 'white',
-                    backgroundColor: 'black',
-                    '&:hover': {
-                        backgroundColor: 'white',
-                        color: 'black',
-                    },
-                    '&:active': {
-                        backgroundColor: 'white',
-                        color: 'black',
-                    }, 
-                    fontSize: '14px',
-                    padding: '5px 40px',
-                    borderRadius: '100px',
-                    marginTop: '1.25rem',
-                }}
-                onClick={handleOpen} className='z-50 hover:bg-white hover:text-black transition-all duration-300 uppercase'>
-                <Link href="/contact">Contact Us</Link>
-                </Button> 
+                <div className='flex justify-center mt-8'>
+                    <GlassButton onClick={handleOpen} videoRef={heroVideoRef} videoSrc='/videos/contact-hero.mp4'>Contact Us</GlassButton>
+                </div>
             </div>
+            </div>
+          </div>
          </div>
         </div>
         {/* text-pink-500 */}
@@ -106,6 +116,7 @@ export default function Contact() {
             <h1 className="text-4xl font-bold text-center uppercase pt-40 " >
                 Contact
             </h1>
+            <div className='w-16 h-[3px] bg-[#FF8197] mt-4 mx-auto rounded-full' />
             <div className="flex md:flex-row flex-col items-center justify-center pt-20">
                 <LeafletMap
                 markers={markers.map(marker => ({
@@ -115,26 +126,26 @@ export default function Contact() {
                 }))}
                 width={isMobile ? "70%" : "50%"}
                 height="500px"
-                coordinates={[37.507392579613935, 127.05576783152004]}
+                coordinates={[37.507354705539, 127.05723030406]}
                >
                </LeafletMap>
              <div className="w-1/2 flex flex-col h-full justify-around md:gap-36 md:ml-20 ml-0 md:mt-0 mt-20 md:mb-0 mb-40"> 
                   <div className="flex flex-col gap-4">
                     <p className="font-bold uppercase">Address</p> 
                     <p>
-                       { language == 'en' ? 
-                        <> 6 Teheran-ro 79-gil, Gangnam-gu, <br/>
+                       { language == 'en' ?
+                        <> 503 Teheran-ro (Hibrow Building), Gangnam-gu, <br/>
                         Seoul, Republic of Korea </>
-                        : <> 6 테헤란로 79길 강남구, 서울특별시, 대한민국 </>
-                        }   
+                        : <> 강남구 테헤란로 503 하이브로빌딩, 서울특별시, 대한민국 </>
+                        }
                         {/* Business Registration No: 221-88-02281 */}
                     </p>
-                    <p className="font-bold uppercase">Phone</p> 
-                    <a href="mailto:info@example.com">+82 02-6952-7933</a>
-                    <p className="font-bold uppercase">Email</p> 
-                    <a href="mailto:info@example.com">hello@stelland.io</a>
+                    <p className="font-bold uppercase">Phone</p>
+                    <a href="tel:+8226952793">+82 02-6952-7933</a>
+                    <p className="font-bold uppercase">Email</p>
+                    <a href="mailto:hello@stelland.io">hello@stelland.io</a>
 
-                    <button onClick={handleOpen} className='md:w-[250px] w-[200px] rounded-full bg-black text-white px-10 py-2 mt-5 hover:bg-white hover:text-black transition-all duration-300'>
+                    <button onClick={handleOpen} className='md:w-[250px] w-[200px] rounded-full bg-[#374B73] text-white px-10 py-2 mt-5 hover:bg-[#FF8197] transition-colors duration-300'>
                        {language == 'en' ? 'Send Message' : '메시지 보내기'}
                     </button>
                   </div>
@@ -156,25 +167,24 @@ export default function Contact() {
                  transform: 'translate(-50%, -50%)',
                  width: 400,
                  bgcolor: 'background.paper',
-                 border: '2px solid gray',
-                 boxShadow: 24,
+                 boxShadow: '0 20px 60px rgba(55,75,115,0.25)',
                  p: 6,
-                 borderRadius: '10px',
+                 borderRadius: '16px',
                  }}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
                 {language === 'en' ? 'About General Inquiry,' : '일반 문의'}
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2, mb: 2 }}>
-                {language === 'en' ? <>You can email us at <span className='text-red-300'>hello@stelland.io</span></> 
-                                   : <><span className='text-red-300'>hello@stelland.io</span> 로 이메일을 보내세요.</>}
+                {language === 'en' ? <>You can email us at <span className='text-[#FF8197] font-semibold'>hello@stelland.io</span></> 
+                                   : <><span className='text-[#FF8197] font-semibold'>hello@stelland.io</span> 로 이메일을 보내세요.</>}
             </Typography>
             <Typography id="modal-modal-title" variant="h6" component="h2">
                 {language === 'en' ? 'IP and Copyright,' : 'IP 및 저작권 문의'}
             </Typography>
             <Typography id="modal-modal-description" sx={{ mt: 2, mb: 2 }}>
-                {language === 'en' ? <>Email to <span className='text-red-300'>lisa@stelland.io</span> <br/> for more information. <br/> <br />
+                {language === 'en' ? <>Email to <span className='text-[#FF8197] font-semibold'>lisa@stelland.io</span> <br/> for more information. <br/> <br />
                 We are looking for a collaboration with you, thank you.</> 
-                : <> <span className='text-red-300'>lisa@stelland.io</span> 로 이메일을 보내세요. <br/> 더 많은 정보를 알려드리겠습니다. <br/> <br />
+                : <> <span className='text-[#FF8197] font-semibold'>lisa@stelland.io</span> 로 이메일을 보내세요. <br/> 더 많은 정보를 알려드리겠습니다. <br/> <br />
                 우리는 당신과 협업을 찾고 있습니다. <br/>감사합니다.</>}
             </Typography>
             <Button 
@@ -189,7 +199,7 @@ export default function Contact() {
             //     } 
             // }} 
             onClick={handleClose} 
-            className='bg-black text-white hover:text-black hover:bg-white transition-all duration-300 rounded-full capitalize'>
+            className='bg-[#374B73] text-white hover:bg-[#FF8197] transition-colors duration-300 rounded-full capitalize'>
                 Close
             </Button>
             </Box>
