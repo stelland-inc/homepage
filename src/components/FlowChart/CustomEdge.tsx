@@ -32,13 +32,7 @@ const CustomEdge: FC<EdgeProps<Edge<{ label: string, color: string, style: { tra
       <EdgeLabelRenderer>
         <div
           style={{
-            transform: (() => {
-              console.log('Style translate:', data?.style?.translate);
-              console.log('Label coordinates:', `${labelX}px, ${labelY}px`);
-              const transformString = `translate(-50%, -50%) translate(${labelX}px, ${labelY}px) ${data?.style?.translate ? `translate(${data.style.translate})` : ''}`;
-              console.log('Final transform:', transformString);
-              return transformString;
-            })()
+            transform: `translate(-50%, -50%) translate(${labelX}px, ${labelY}px) ${data?.style?.translate ? `translate(${data.style.translate})` : ''}`
           }}
           className={`relative ${data.color ? `${data.color}` : 'bg-[#ffcc00]'} p-2 w-fit text-white text-sm font-bold rounded-md edge-label-renderer__custom-edge`}
         >

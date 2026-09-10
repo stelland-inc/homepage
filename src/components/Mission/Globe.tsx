@@ -616,9 +616,6 @@ export default function Globe({
                             });
                         }
                     });
-                    console.log(
-                        `[Globe] Processed ${processedCount} land features, skipped ${skippedCount} grid features`
-                    );
                 }
 
                 const bitmapWidth = 2048;

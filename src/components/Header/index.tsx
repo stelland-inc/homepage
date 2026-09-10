@@ -20,7 +20,6 @@ export default function Header() {
         event.preventDefault(); 
         const newLanguage = language === "en" ? "ko" : "en";
         setLanguage(newLanguage);
-        console.log("Language changed to", newLanguage);
     }
 
     return (
