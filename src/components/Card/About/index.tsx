@@ -19,9 +19,11 @@ export default function About() {
             : <>{' '}As your content globalization partner, we join realities beyond language barriers.</>}
             </p>
 
-                <button className='bg-black text-white px-10 py-2 rounded-full mt-5 hover:bg-white hover:text-black transition-all duration-300 md:hidden block'>
-                    <Link href='/about'> 
-                        {language === 'en' ? 'Learn more' : '더 알아 보기'}
+                {/* Was `md:hidden` — this section's only link to the About
+                    page was invisible on desktop. */}
+                <button className='bg-black text-white px-10 py-2 rounded-full mt-5 hover:bg-white hover:text-black transition-all duration-300'>
+                    <Link href='/about'>
+                        {language === 'en' ? 'Learn more about us' : '회사 소개 더 보기'}
                     </Link>
                 </button>
             </div>

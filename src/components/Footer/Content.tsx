@@ -81,6 +81,7 @@ const Nav = ({ language }: {language: string}) => {
                 <Link href='/'>Home</Link>
                 <Link href='/about'>About</Link>
                 <Link href='/business'>Business</Link>
+                <Link href='/news'>News</Link>
                 <Link href='/contact'>Contact Us</Link>
             </div>
             <div className='flex flex-col gap-2 text-black md:text-base text-[12px]'>
@@ -94,8 +95,8 @@ const Nav = ({ language }: {language: string}) => {
                 <p>하이브로빌딩, 서울 대한민국</p>
                 </> }
                 { language == 'en' ? <>
-                <p>Business Registration</p>
-                <p>No. 221-88-02281</p>
+                <p>Business Registration No. 221-88-02281</p>
+                <p>+82 02-6952-7933</p>
                 </> : <>
                 <p>No. 221-88-02281</p>
                 <p>+82 02-6952-7933</p>

@@ -2,8 +2,23 @@ import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
+// This route writes files directly to the repo's posts/blog directories
+// with zero auth previously — anyone who found the URL could publish
+// arbitrary content to the live site. Fails closed: if ADMIN_SECRET isn't
+// set at all, every request is rejected rather than silently allowed.
+function isAuthorized(req: NextRequest): boolean {
+  const configured = process.env.ADMIN_SECRET;
+  if (!configured) return false;
+  const provided = req.headers.get('x-admin-key');
+  return provided === configured;
+}
+
 export async function POST(req: NextRequest) {
   try {
+    if (!isAuthorized(req)) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     const body = await req.json();
     const { title, date, summary, content, type = 'posts' } = body;
 

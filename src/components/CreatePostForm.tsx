@@ -16,6 +16,10 @@ export default function CreatePostForm({ onSuccess, className = '' }: CreatePost
     content: '',
     type: 'posts'
   });
+  // Sent as the x-admin-key header — the API now rejects any request
+  // without the matching ADMIN_SECRET. Not persisted anywhere; you
+  // re-enter it each visit.
+  const [adminKey, setAdminKey] = useState('');
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
@@ -38,6 +42,7 @@ export default function CreatePostForm({ onSuccess, className = '' }: CreatePost
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'x-admin-key': adminKey,
         },
         body: JSON.stringify(formData),
       });
@@ -110,6 +115,24 @@ export default function CreatePostForm({ onSuccess, className = '' }: CreatePost
       )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Admin key — required by the API; nothing submits without it */}
+        <div className="space-y-2">
+          <label className="flex items-center gap-2 text-sm font-medium text-gray-700">
+            <FileText className="h-4 w-4" />
+            Admin Key *
+          </label>
+          <input
+            type="password"
+            name="adminKey"
+            value={adminKey}
+            onChange={(e) => setAdminKey(e.target.value)}
+            placeholder="Enter the admin key..."
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all duration-200"
+            required
+            autoComplete="off"
+          />
+        </div>
+
         {/* Type Selection */}
         <div className="space-y-2">
           <label className="flex items-center gap-2 text-sm font-medium text-gray-700">

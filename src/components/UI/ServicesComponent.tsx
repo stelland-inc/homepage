@@ -8,8 +8,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function ServicesComponent() {
-    const container = useRef();
-    const services = useRef();
+    const container = useRef<HTMLDivElement>(null);
+    const services = useRef<HTMLDivElement>(null);
     const { language } = useLanguage();
     const { scrollYProgress } = useScroll({
         target: container,

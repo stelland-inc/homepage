@@ -1,7 +1,24 @@
+import type { Metadata } from 'next';
 import PostCard from "@/components/PostCard";
 import BlogCard from "@/components/BlogCard";
 import Footer from "@/components/Footer/Footer";
+import { getRequestLanguage } from '../../../lib/getRequestLanguage';
 // import MediumPostList from "@/components/MediumPostList";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const lang = await getRequestLanguage();
+  const title = lang === 'en' ? 'Newsroom' : '뉴스룸';
+  const description = lang === 'en'
+    ? 'News, partnerships, and updates from Stella&Inc., a content globalization and webtoon localization company.'
+    : '스텔라앤의 새로운 소식과 파트너십, 콘텐츠 현지화·글로벌 유통 사업 관련 업데이트를 전합니다.';
+
+  return {
+    title,
+    description,
+    alternates: { canonical: 'https://stelland.io/news' },
+    openGraph: { title, description, url: 'https://stelland.io/news' },
+  };
+}
 
 export default function News() {
     return (

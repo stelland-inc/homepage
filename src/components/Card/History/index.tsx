@@ -41,7 +41,7 @@ const History = ({className}: ProjectProps) => {
     },
     {
       title: '글로벌 스토리 플랫폼 투니즈 런칭',
-      title_en: 'Global Story Platform Tonnyz Launch',
+      title_en: 'Global Story Platform Toonyz Launch',
       description: '웹툰 현지화 사업 확대',
       description_en: 'Webtoon Localization Business Expansion',
       date: '2025'
@@ -52,12 +52,16 @@ const History = ({className}: ProjectProps) => {
     return (
       <div className={`flex flex-col h-auto md:mb-0 ${className}`}>
         <div className='flex flex-col pb-10 '>
-        <h1 className={`md:text-4xl text-3xl font-bold uppercase `}>
-          {/* md:text-4xl text-3xl uppercase */}
-            History 
-        </h1>
+        {/* Sub-section of the scrolling homepage, not its own page — the
+            real <h1> lives in the hero above. */}
+        <h2 className={`md:text-4xl text-3xl font-bold uppercase `}>
+            History
+        </h2>
+        {/* Was `md:hidden` — the only link out of this section existed on
+            mobile only, leaving desktop visitors with no way to reach the
+            About page from here. */}
         <Link href='/about'>
-           <span className='md:hidden block text-[12px] text-gray-500'> Learn more &gt;</span>
+           <span className='block text-[12px] text-gray-500 hover:text-[#FF8197] transition-colors'>Our full story &gt;</span>
         </Link>
       </div>
         <Roadmap data={roadmapData} className={className} />

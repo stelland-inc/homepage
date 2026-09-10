@@ -81,13 +81,17 @@ export default function Intro() {
         />
 
         <div className="relative z-10 flex max-w-3xl flex-col items-center text-center md:items-start md:text-left">
-          <motion.p
+          {/* The page's one real <h1> — it was a <p>, while two unrelated
+              sub-widgets further down the page (Services, History) used
+              <h1> instead. That left the homepage with no true top-level
+              heading and two competing ones in the wrong place. */}
+          <motion.h1
             {...revealAt(0)}
             className="w-full text-[clamp(2rem,7.5vw,4.75rem)] font-bold uppercase leading-[0.92] tracking-tight"
             style={{ color: BRAND_NAVY }}
           >
             Stella& Inc.<br />Entertainment
-          </motion.p>
+          </motion.h1>
 
           <motion.div {...revealAt(0.12)} className="mt-6 max-w-xl md:mt-8">
             {

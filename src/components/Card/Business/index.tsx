@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Business() {
@@ -29,7 +30,9 @@ export default function Business() {
     </div>
     
     <div className="flex flex-col gap-4 w-full md:w-1/2 md:p-0 p-0">
-        <h1 className='md:text-4xl text-3xl uppercase font-bold mb-5 text-black'>Services</h1>
+        {/* This is a sub-section of the scrolling homepage, not a page of
+            its own — the real <h1> lives in the hero above. */}
+        <h2 className='md:text-4xl text-3xl uppercase font-bold mb-5 text-black'>Services</h2>
     <ul className='grid grid-cols-2 gap-2 '>
         <li className='flex flex-col gap-4 md:w-1/2 w-full'>
         <Image src='/icons/business_01.png' alt='main icon 01' width={100} height={100} className="p-1 rounded-full border-gray-200 bg-gray-200" />
@@ -52,6 +55,15 @@ export default function Business() {
             <p className='font-bold uppercase text-black md:text-sm text-sm'>{language === 'ko' ? <>콘텐츠 제작 및 <br/> 크리에이터 육성</> : 'Content Production and Creator Incubation'}</p>
         </li>
     </ul>
+    {/* This section previously had no link at all to the Business page —
+        a visitor reading the services summary had no way to reach the
+        full page from here. */}
+    <Link
+        href='/business'
+        className='inline-block mt-4 text-sm font-bold uppercase underline underline-offset-4 text-black hover:text-[#FF8197] transition-colors w-fit'
+    >
+        {language === 'ko' ? '비즈니스 자세히 보기' : 'See our business in detail'}
+    </Link>
  </div>
 </div>
     )

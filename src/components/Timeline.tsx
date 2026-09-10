@@ -41,7 +41,7 @@ const timelineEvents = [
     {
         year: 2025,
         title: "글로벌 스토리 플랫폼 투니즈 런칭",
-        title_en: 'Global Story Platform Tonnyz Launch',
+        title_en: 'Global Story Platform Toonyz Launch',
         description: "K-웹소설, K-웹툰 숏폼 컨텐츠 글로벌 사업 확대",
         details:
             "K-Web Novel, K-Webtoon Short Form Content Global Business Expansion",

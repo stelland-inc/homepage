@@ -1,6 +1,8 @@
 import MarkdownIt from 'markdown-it';
 import Link from 'next/link';
 import moment from 'moment';
+import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 import { getAllPosts } from 'lib/posts';
 import Footer from '@/components/Footer/Footer';
 import styles from './page.module.scss';
@@ -28,6 +30,50 @@ async function fetchPost(slug: string): Promise<Post | undefined> {
   return posts.find((post) => post.slug === slug);
 }
 
+// A handful of older posts were published with an empty `summary` in their
+// frontmatter — falling back to the post's own body (stripped of markdown/
+// HTML) beats every post sharing the site-wide description, which is what
+// happened before any per-post metadata existed here at all.
+function excerptFrom(content: string, maxLength = 155): string {
+  const plain = md
+    .render(content)
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (plain.length <= maxLength) return plain;
+  return plain.slice(0, maxLength).replace(/\s+\S*$/, '') + '…';
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await fetchPost(slug);
+  if (!post) return {};
+
+  const description = post.summary || excerptFrom(post.content);
+
+  return {
+    title: post.title,
+    description,
+    alternates: { canonical: `https://stelland.io/news/${post.slug}` },
+    openGraph: {
+      title: post.title,
+      description,
+      url: `https://stelland.io/news/${post.slug}`,
+      type: 'article',
+      publishedTime: post.date,
+    },
+    twitter: {
+      card: 'summary',
+      title: post.title,
+      description,
+    },
+  };
+}
+
 export default async function Post({
   params
 }: {
@@ -36,21 +82,32 @@ export default async function Post({
   const resolvedParams = await params;
   const post = await fetchPost(resolvedParams.slug);
 
+  // Was returning this same JSX with a 200 status — a soft 404. A slug
+  // that matches no real post is a genuine not-found, not a normal page.
   if (!post) {
-    return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center gap-6 text-center">
-        <p className="text-[#374B73]/60">Post not found</p>
-        <Link href="/news" className="text-[#FF8197] font-semibold hover:underline">
-          뉴스로 돌아가기
-        </Link>
-      </div>
-    );
+    notFound();
   }
 
   const htmlContent = md.render(post.content);
+  const description = post.summary || excerptFrom(post.content);
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    headline: post.title,
+    description,
+    datePublished: post.date,
+    url: `https://stelland.io/news/${post.slug}`,
+    mainEntityOfPage: `https://stelland.io/news/${post.slug}`,
+    publisher: { '@type': 'Organization', name: 'Stella&Inc.', url: 'https://stelland.io' },
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       {/* Same dotted-grid ground as the News index, so a post reads as
           part of the same section rather than a separate template. */}
       <article
