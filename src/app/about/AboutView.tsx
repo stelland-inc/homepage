@@ -46,14 +46,6 @@ export default function AboutView() {
       description_en: 'Designated Localization Company for Amazon Japan, Designated Localization Company for Kakao Thailand, MediBang, Rakuten Japan Business Settlement',
       date: '2024'
     },
-    {
-      title: '글로벌 스토리 플랫폼 투니즈 런칭',
-      title_en: 'Global Story Platform Toonyz Launch',
-      description: '웹툰 현지화 사업 확대',
-      description_en: 'Webtoon Localization Business Expansion',
-      date: '2025'
-    },
-
   ];
 
   return <>
@@ -67,8 +59,8 @@ export default function AboutView() {
       }}
     >
     <div className="max-w-screen-xl mx-auto pt-20 px-6 xl:px-0 ">
-      <div className="flex md:flex-row flex-col justify-center md:items-start items-center md:gap-0 gap-5 md:pt-20 my-24">
-        <div className="flex flex-col md:text-left text-center md:text-6xl text-2xl font-bold md:w-2/3 w-full">
+      <div className="flex flex-col justify-center items-center md:items-start gap-5 md:pt-20 my-24">
+        <div className="flex flex-col md:text-left text-center md:text-4xl text-xl font-bold w-full">
           <p className='text-[#FF8197] text-lg tracking-[0.3em]'>
             01.
           </p>
@@ -76,28 +68,28 @@ export default function AboutView() {
           <div className='hidden md:block w-16 h-[3px] bg-[#FF8197] mt-4 rounded-full' />
         </div>
 
-        <div className="flex flex-col gap-10 md:w-[90%] w-full">
+        <div className="flex flex-col gap-10 w-full">
           <div className='md:text-left text-center text-md pb-10'>
             {language === 'ko' ? <p className='text-2xl'> 스텔라앤은 콘텐츠 글로벌화를 위한 여러분의 콘텐츠 글로벌 파트너입니다.</p>
               : <p className='text-2xl'> Stella& is your content globalization partner.</p>}
 
           </div>
 
-          <ul className='list-none grid md:grid-cols-3 grid-cols-1 gap-6 text-md'>
-            <li className='flex flex-col items-center gap-4 rounded-2xl bg-white/70 shadow-[0_8px_24px_rgba(55,75,115,0.08)] px-6 py-10'>
+          <ul className='list-none grid md:grid-cols-3 grid-cols-1 gap-8 text-md'>
+            <li className='flex flex-col items-center gap-4 rounded-2xl bg-white/70 shadow-[0_8px_24px_rgba(55,75,115,0.08)] px-8 py-14 min-h-[340px]'>
               <p className='font-bold'>Brand Logo</p>
-              <div className='flex flex-1 flex-col items-center justify-center gap-4'>
-                <Image src='/images/logo/Logo.png' alt="Stella&Inc. emblem" width={100} height={100} />
-                <Image src='/stelland_logo_black.svg' alt="Stella&Inc. wordmark" width={200} height={200} className='w-[180px] h-auto' />
+              <div className='flex flex-1 flex-col items-center justify-center gap-6'>
+                <Image src='/images/logo/Logo.png' alt="Stella&Inc. emblem" width={130} height={130} />
+                <Image src='/stelland_logo_black.svg' alt="Stella&Inc. wordmark" width={240} height={240} className='w-[220px] h-auto' />
               </div>
             </li>
-            <li className='flex flex-col items-center gap-4 rounded-2xl bg-white/70 shadow-[0_8px_24px_rgba(55,75,115,0.08)] px-6 py-10'>
+            <li className='flex flex-col items-center gap-4 rounded-2xl bg-white/70 shadow-[0_8px_24px_rgba(55,75,115,0.08)] px-8 py-14 min-h-[340px]'>
               <p className='font-bold'>Brand Character</p>
               <div className='flex flex-1 items-center justify-center'>
-                <Image src='/images/character/byeolsu.png' alt="Byeolsu, the Stella&Inc. brand mascot holding its signature star" width={220} height={220} />
+                <Image src='/images/character/byeolsu.png' alt="Byeolsu, the Stella&Inc. brand mascot holding its signature star" width={280} height={314} />
               </div>
             </li>
-            <li className='flex flex-col items-center gap-4 rounded-2xl bg-white/70 shadow-[0_8px_24px_rgba(55,75,115,0.08)] px-6 py-10'>
+            <li className='flex flex-col items-center gap-4 rounded-2xl bg-white/70 shadow-[0_8px_24px_rgba(55,75,115,0.08)] px-8 py-14 min-h-[340px]'>
               <p className='font-bold'>Mission</p>
               <div className='flex flex-1 items-center justify-center text-center'>
                 {language === 'ko' ? <p className='text-xl'>현실보다 더 특별한 순간을 선물합니다. 평범한 일상을 넘어, 특별한 순간으로.</p>
@@ -111,7 +103,7 @@ export default function AboutView() {
       </div>
 
       <div className="flex md:flex-row flex-col md:gap-0 gap-10 pt-20 pb-20 my-24">
-        <div className="md:text-left text-center md:text-6xl text-2xl font-bold md:w-2/3 w-full">
+        <div className="md:text-left text-center md:text-4xl text-xl font-bold md:w-2/3 w-full">
           <span className='text-[#FF8197] text-lg tracking-[0.3em]'>
             02.
           </span>
@@ -127,7 +119,7 @@ export default function AboutView() {
       </div>
 
       <div className="flex flex-col md:gap-0 gap-10 pt-20 pb-20">
-        <div className="md:text-left text-center md:text-6xl text-2xl font-bold md:w-2/3 w-full">
+        <div className="md:text-left text-center md:text-4xl text-xl font-bold md:w-2/3 w-full">
           <span className='text-[#FF8197] text-lg tracking-[0.3em]'>
             03.
           </span>
@@ -144,9 +136,16 @@ export default function AboutView() {
     {/* </div> */}
 
     <div className="max-w-screen-xl mx-auto pt-20 px-6 xl:px-0 ">
-      <h2 className='text-center md:text-4xl text-2xl font-bold w-34 pt-20'>
-        {language === 'en' ? 'Trusted by' : '고객사'}
-      </h2>
+      {/* Was a plain centered heading with an invalid `w-34` class (not a
+          real Tailwind size — did nothing) — restyled to match the
+          numbered 01./02./03. pattern used by every section above it. */}
+      <div className="md:text-left text-center md:text-4xl text-xl font-bold w-full pt-20">
+        <span className='text-[#FF8197] text-lg tracking-[0.3em]'>
+          04.
+        </span>
+        <h2>{language === 'en' ? 'Trusted by' : '고객사'}</h2>
+        <div className='hidden md:block w-16 h-[3px] bg-[#FF8197] mt-4 rounded-full' />
+      </div>
       <Slider />
       <div className='h-[30vh]'></div>
     </div>

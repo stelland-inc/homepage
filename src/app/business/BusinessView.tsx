@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer/Footer";
-import Link from 'next/link';
 import { useLanguage } from "@/contexts/LanguageContext";
 import Image from "next/image";
 import './page.module.scss';
@@ -14,6 +13,7 @@ import { ChevronDown } from "lucide-react";
 import ServicesComponent from '@/components/UI/ServicesComponent';
 import CustomCursor from '@/components/UI/CustomCursor';
 import { useCursor } from '@/contexts/CursorContext';
+import { useRouter } from 'next/navigation';
 
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -49,6 +49,7 @@ export default function BusinessView() {
     const { language } = useLanguage();
     const [expanded, setExpanded] = useState<string | false>('panel1');
     const { cursorVariant } = useCursor();
+    const router = useRouter();
 
     const handleChange = (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
         setExpanded(newExpanded ? panel : false);
@@ -130,12 +131,12 @@ export default function BusinessView() {
                     pointed the reader toward Contact — the page's actual
                     conversion goal had no matching call to action. */}
                 <div className="flex justify-center md:justify-start pt-16">
-                    <Link
-                        href="/contact"
+                    <button
+                        onClick={() => router.push('/contact')}
                         className="rounded-full bg-[#374B73] text-white px-10 py-3 text-sm font-semibold uppercase tracking-wide hover:bg-[#FF8197] transition-colors duration-300"
                     >
                         {language === 'en' ? 'Talk to us about your project' : '프로젝트 문의하기'}
-                    </Link>
+                    </button>
                 </div>
             </div>
 

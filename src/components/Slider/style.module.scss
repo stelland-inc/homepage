@@ -6,9 +6,22 @@
   .main {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    margin: 0;
+    // 100% only ever filled its parent (the page's max-w-screen-xl
+    // container), which is narrower than the viewport — this breaks out
+    // to the real screen edges regardless of how narrow the parent is.
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
     padding: 2rem 2rem 4rem;
-    background: var(--body-bg);
+    // Was `var(--body-bg)` (an undefined variable) plus a left-to-right
+    // fade-to-transparent gradient — the undefined variable made this
+    // section's true background whatever sat behind it, showing through
+    // as semi-transparent on the right. A solid opaque white was wanted
+    // instead.
+    background: #fff;
     color: #212121;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
       "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji",
@@ -17,12 +30,10 @@
     line-height: 1.5;
     font-weight: normal;
 
-    @include white-gradient;
-
     p {
         margin: 0;
       }
-      
+
   }
 
   @media screen and (min-width: 768px) {

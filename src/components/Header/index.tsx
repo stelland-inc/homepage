@@ -2,7 +2,7 @@
 import styles from '@/components/Header/style.module.scss';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { opacity, background } from './anim';
 import Nav from '@/components/Header/Nav';
@@ -15,6 +15,25 @@ export default function Header() {
     const { language, setLanguage } = useLanguage();
     const pathname = usePathname();
     const isCurrent = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+    // The homepage hero is a dark video background — everything in the
+    // header needs to flip to white there, unlike every other page's
+    // light background. But that's only true for the hero itself: once
+    // you scroll past it into the (light-background) sections below, the
+    // header needs to go back to navy just like every other page.
+    const isHome = pathname === '/';
+    const [pastHero, setPastHero] = useState(false);
+
+    useEffect(() => {
+        if (!isHome) return;
+        const handleScroll = () => {
+            setPastHero(window.scrollY > window.innerHeight * 0.85);
+        };
+        handleScroll();
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [isHome]);
+
+    const showWhite = isHome && !pastHero;
 
     const handleLanguageChange = (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault(); 
@@ -27,8 +46,8 @@ export default function Header() {
             {/* [#FFF0EC] */}
             <div className={`${styles.bar} max-w-screen-xl mx-auto md:pb-5 `}>
                 <Link href="/">
-                    <Image 
-                        src="/stelland_logo_black.svg" 
+                    <Image
+                        src={showWhite ? "/stelland_logo_white_text.svg" : "/stelland_logo_black.svg"}
                         alt="logo" 
                         width={160} 
                         height={30} 
@@ -39,11 +58,11 @@ export default function Header() {
                         />
                 </Link>
                   
-                <div onClick={() => {setIsActive(!isActive)}} className={`md:hidden ${styles.el}`}>
-                    <div className={`md:hidden ${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
-                    <div className={`md:hidden ${styles.label}`}>
-                        <motion.p variants={opacity} animate={!isActive ? "open" : "closed"} className='md:hidden flex'>Menu</motion.p>
-                        <motion.p variants={opacity} animate={isActive ? "open" : "closed"} className='md:hidden flex'>Close</motion.p>
+                <div onClick={() => {setIsActive(!isActive)}} className={`lg:hidden ${styles.el}`}>
+                    <div className={`lg:hidden ${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
+                    <div className={`lg:hidden ${styles.label}`}>
+                        <motion.p variants={opacity} animate={!isActive ? "open" : "closed"} className='lg:hidden flex'>Menu</motion.p>
+                        <motion.p variants={opacity} animate={isActive ? "open" : "closed"} className='lg:hidden flex'>Close</motion.p>
                     </div>
                 </div>
 
@@ -52,15 +71,18 @@ export default function Header() {
                         <Link
                         href='/'
                         onClick={handleLanguageChange}
-                        className='flex flex-row items-center gap-2 rounded-full bg-white/40 px-8 py-3 shadow-[0_8px_30px_rgba(55,75,115,0.18)] backdrop-blur-md'>
+                        className='relative flex flex-row items-center justify-center rounded-full bg-white/40 px-8 py-3 shadow-[0_8px_30px_rgba(55,75,115,0.18)] backdrop-blur-md'>
                           <Image
                             src='/globe.svg'
                             height={20}
                             width={20}
                             alt='globe icon'
-                            className='w-4 h-4 md:w-5 md:h-5'
+                            // globe.svg is a fixed gray (#666) fill baked into the
+                            // file, so a CSS filter is what flips it to white on
+                            // the homepage instead of needing a second asset.
+                            className={`absolute left-3 w-4 h-4 md:w-5 md:h-5 ${showWhite ? 'brightness-0 invert' : ''}`}
                             />
-                           <p> {language === "en" ? "ENG" : "KR"} </p>
+                           <p style={{ marginLeft: '14px', color: showWhite ? '#FFFFFF' : '#374B73' }}> {language === "en" ? "ENG" : "KR"} </p>
                         </Link>
                     {/* </div> */}
                 </motion.div>
@@ -71,8 +93,8 @@ export default function Header() {
                 {isActive && <Nav closeMenu={() => setIsActive(false)}/>}
             </AnimatePresence>
 
-        <div className='max-w-screen-xl mx-auto md:block hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
-            <ul className={`flex flex-row items-center gap-10 uppercase rounded-full bg-white/40 px-10 py-3 shadow-[0_8px_30px_rgba(55,75,115,0.18)] backdrop-blur-md`}>
+        <div className='max-w-screen-xl mx-auto lg:block hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+            <ul className={`flex flex-row items-center gap-10 uppercase rounded-full bg-white/40 px-10 py-3 shadow-[0_8px_30px_rgba(55,75,115,0.18)] backdrop-blur-md ${showWhite ? 'text-white' : 'text-[#374B73]'}`}>
                         <li>
                             <Link href="/about" className={`transition-colors hover:text-[#FF8197] ${isCurrent('/about') ? 'text-[#FF8197] font-bold' : ''}`}>About</Link>
                         </li>

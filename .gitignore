@@ -5,3 +5,4 @@ node_modules
 .qodo
 archive/
 .originkit/
+*.tsbuildinfo

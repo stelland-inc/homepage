@@ -36,5 +36,10 @@ body {
      in the strip above the Hero's own background. */
   background: #FFF8F3;
   font-family: "Pretendard", "Roboto", "Inter", Arial, Helvetica, sans-serif;
-
+  /* Full-bleed sections (e.g. the Slider) break out of their container
+     with 100vw, which is measured including the scrollbar gutter — a few
+     pixels wider than the actual visible area once a vertical scrollbar
+     is present. Without this, that shows up as a site-wide horizontal
+     scrollbar. */
+  overflow-x: hidden;
 }

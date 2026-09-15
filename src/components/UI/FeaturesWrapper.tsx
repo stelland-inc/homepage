@@ -1,7 +1,7 @@
 'use client'
 import { motion } from "framer-motion"
 import { useLanguage } from "@/contexts/LanguageContext"
-import { Zap, Command, Scale, Bot, Shield, Sparkles } from "lucide-react"
+import { Zap, Command, Scale, Bot, Sparkles } from "lucide-react"
 
 const features = [
     {
@@ -31,13 +31,6 @@ const features = [
         description: "Leverage artificial intelligence to create a high-quality content.",
         description_ko: "스텔라앤의 웹소설 특화 번역 엔진 AI를 활용하여 더욱 고품질의 콘텐츠를 만듭니다. 웹소설 기반 영상 제작 기술을 활용합니다.",
         icon: Bot,
-    },
-    {
-        title: "Platform Business",
-        title_ko: "플랫폼 비즈니스",
-        description: "Global story platform, Toonyz is a platform that allows you to create and manage your own story.",
-        description_ko: "글로벌 스토리 플랫폼, 투니즈는 여러분이 자신의 스토리를 만들고 세계로 배포할 수 있는 플랫폼입니다.",
-        icon: Shield,
     },
     {
         title: "AI-Short form content",
@@ -78,10 +71,10 @@ const FeaturesWrapper = () => {
                     return (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, y: 32, scale: 0.94 }}
+                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                             whileHover={{
                                 y: -6,
                                 transition: { duration: 0.3 },
@@ -90,12 +83,17 @@ const FeaturesWrapper = () => {
                             style={{ borderColor: 'rgba(55,75,115,0.1)', backgroundColor: '#FDFCFB' }}
                         >
                             <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
-                                <span
+                                <motion.span
                                     className="flex h-14 w-14 items-center justify-center rounded-2xl"
                                     style={{ backgroundColor: isDarkBadge ? badgeColor : `${badgeColor}` }}
+                                    initial={{ scale: 0, rotate: -25 }}
+                                    whileInView={{ scale: 1, rotate: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.08 + 0.25, type: 'spring', stiffness: 220, damping: 14 }}
+                                    whileHover={{ rotate: 8, scale: 1.08 }}
                                 >
                                     <feature.icon className="h-7 w-7" style={{ color: isDarkBadge ? '#FDFCFB' : '#374b73' }} />
-                                </span>
+                                </motion.span>
                                 <div className="space-y-2 mt-2">
                                     <h3 className="font-bold" style={{ color: '#374b73' }}>{ language === 'ko' ? feature.title_ko : feature.title}</h3>
                                     <p className="text-sm" style={{ color: '#374b73', opacity: 0.6 }}>{language === 'ko' ? feature.description_ko : feature.description}</p>

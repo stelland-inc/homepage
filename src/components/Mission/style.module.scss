@@ -17,6 +17,11 @@
     &.thin{
       font-weight: 500;
       color: #fff;
+      // The base 720px max-width was winning over the Tailwind max-w-4xl
+      // on the wrapping div (same cascade weight, this rule comes later)
+      // — override it here only, so the homepage Mission paragraph above
+      // keeps its own 720px wrap.
+      max-width: none;
     }
 
     .word{

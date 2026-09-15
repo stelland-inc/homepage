@@ -84,7 +84,7 @@ export default function Section() {
                 </div>
             </div>
 
-            <div className='relative z-10 md:!text-2xl !text-lg max-w-md self-start text-left uppercase leading-relaxed text-white'>
+            <div className='relative z-10 md:!text-2xl !text-lg w-full max-w-6xl self-start text-left uppercase leading-relaxed text-white mt-16'>
                 <Word paragraph={paragraph} thin revealOnScroll={false} />
             </div>
             <p className='relative z-10 md:text-[3.6vw] text-[24px] md:leading-relaxed leading-none uppercase font-bold tracking-tight mb-0 text-[#374B73]'>

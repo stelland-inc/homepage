@@ -9,11 +9,10 @@ import { useGSAP } from '@gsap/react';
 import styles from './page.module.scss';
 import Footer from '@/components/Footer/Footer';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useMediaQuery } from '@mui/material';
 import dynamic from 'next/dynamic';
+import { X } from 'lucide-react';
 import GlassButton from '@/components/UI/GlassButton';
 
 const LeafletMap = dynamic(() => import('@/components/Map'), {
@@ -60,7 +59,7 @@ export default function ContactView() {
 
     return (
         <main ref={mainRef} className={`${isVisible ? styles.fadeEffect : ''} `}>
-         <div className='h-screen w-full overflow-hidden bg-[#FFF8F3] p-16 md:p-32'>
+         <div className='h-screen w-full overflow-hidden bg-[#FFF8F3] p-24 md:p-44'>
           {/* Same inset-card framing as the homepage Hero — the video sits
               as a rounded card with the page's own cream showing at the
               edges, instead of a full-bleed background. */}
@@ -165,43 +164,43 @@ export default function ContactView() {
                  top: '50%',
                  left: '50%',
                  transform: 'translate(-50%, -50%)',
-                 width: 400,
-                 bgcolor: 'background.paper',
-                 boxShadow: '0 20px 60px rgba(55,75,115,0.25)',
-                 p: 6,
-                 borderRadius: '16px',
+                 width: '90%',
+                 maxWidth: 440,
+                 maxHeight: '85vh',
+                 overflowY: 'auto',
+                 bgcolor: '#FFF8F3',
+                 boxShadow: '0 24px 70px rgba(55,75,115,0.3)',
+                 borderRadius: '24px',
+                 outline: 'none',
                  }}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-                {language === 'en' ? 'About General Inquiry,' : '일반 문의'}
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2, mb: 2 }}>
-                {language === 'en' ? <>You can email us at <span className='text-[#FF8197] font-semibold'>hello@stelland.io</span></>
-                                   : <><span className='text-[#FF8197] font-semibold'>hello@stelland.io</span> 로 이메일을 보내세요.</>}
-            </Typography>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-                {language === 'en' ? 'IP and Copyright,' : 'IP 및 저작권 문의'}
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2, mb: 2 }}>
-                {language === 'en' ? <>Email to <span className='text-[#FF8197] font-semibold'>lisa@stelland.io</span> <br/> for more information. <br/> <br />
-                We are looking for a collaboration with you, thank you.</>
-                : <> <span className='text-[#FF8197] font-semibold'>lisa@stelland.io</span> 로 이메일을 보내세요. <br/> 더 많은 정보를 알려드리겠습니다. <br/> <br />
-                우리는 당신과 협업을 찾고 있습니다. <br/>감사합니다.</>}
-            </Typography>
-            <Button
-            // sx={{
-            //     mt: 2,
-            //     mb: 2,
-            //     color: '#fff',
-            //     backGround: 'black',
-            //     "&:hover": {
-            //         background: 'white',
-            //         color: '#000'
-            //     }
-            // }}
-            onClick={handleClose}
-            className='bg-[#374B73] text-white hover:bg-[#FF8197] transition-colors duration-300 rounded-full capitalize'>
-                Close
-            </Button>
+              <div className="relative p-8 md:p-10">
+                <button
+                    onClick={handleClose}
+                    aria-label={language === 'en' ? 'Close' : '닫기'}
+                    className="absolute top-5 right-5 flex h-9 w-9 items-center justify-center rounded-full text-[#374B73]/50 transition-colors hover:bg-[#374B73]/10 hover:text-[#374B73]"
+                >
+                    <X size={18} />
+                </button>
+
+                <p className="text-[#FF8197] text-xs tracking-[0.3em] uppercase">Contact</p>
+                <h2 id="modal-modal-title" className="mt-2 text-2xl font-bold text-[#374B73]">
+                    {language === 'en' ? 'General Inquiry' : '일반 문의'}
+                </h2>
+                <p id="modal-modal-description" className="mt-3 text-sm leading-relaxed text-[#374B73]/70">
+                    {language === 'en' ? <>You can email us at <a href="mailto:hello@stelland.io" className="font-semibold text-[#FF8197] hover:underline">hello@stelland.io</a></>
+                                       : <><a href="mailto:hello@stelland.io" className="font-semibold text-[#FF8197] hover:underline">hello@stelland.io</a> 로 이메일을 보내세요.</>}
+                </p>
+
+                <div className="mt-6 border-t border-[#374B73]/10 pt-6">
+                    <h2 className="text-2xl font-bold text-[#374B73]">
+                        {language === 'en' ? 'IP & Copyright' : 'IP 및 저작권 문의'}
+                    </h2>
+                    <p className="mt-3 text-sm leading-relaxed text-[#374B73]/70">
+                        {language === 'en' ? <>Email <a href="mailto:lisa@stelland.io" className="font-semibold text-[#FF8197] hover:underline">lisa@stelland.io</a> for more information. We&apos;re always open to collaboration — thank you.</>
+                                           : <><a href="mailto:lisa@stelland.io" className="font-semibold text-[#FF8197] hover:underline">lisa@stelland.io</a> 로 이메일을 보내세요. 더 많은 정보를 알려드리겠습니다. 우리는 당신과 협업을 찾고 있습니다. 감사합니다.</>}
+                    </p>
+                </div>
+              </div>
             </Box>
         </Modal>
     </main>

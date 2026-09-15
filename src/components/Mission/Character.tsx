@@ -1,12 +1,22 @@
 'use client'
-import { useScroll, useTransform, motion, MotionValue } from 'framer-motion';
-import React, { useRef } from 'react';
+import { useScroll, useTransform, motion, AnimatePresence, MotionValue } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from '@/components/Mission/style.module.scss';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Globe from '@/components/Mission/Globe';
+import GlassCard from '@/components/UI/GlassCard';
+import { Globe2, Clapperboard, Languages } from 'lucide-react';
 
 const BRAND_NAVY_LIGHT = '#75819D';
 const BRAND_PINK = '#FF8197';
+const BRAND_NAVY = '#374b73';
+
+// Moved here from the hero — reads better floating over the globe (its
+// own rich, colorful visual) than over hero footage that already had
+// enough going on.
+const PHRASES_KO = ['웹툰을 21개 언어로', '웹소설을 숏폼 영상으로', '당신의 이야기를 세계로'];
+const PHRASES_EN = ['Webtoons, in 21 languages', 'Web novels, as short-form video', 'Your story, told worldwide'];
+const PHRASE_ICONS = [Languages, Clapperboard, Globe2];
 // Hoisted to keep a stable object identity across renders — Globe's effect
 // depends on this object by reference, and a new literal every render would
 // re-trigger it (see the comment above Globe's own DEFAULT_DOTS).
@@ -15,6 +25,33 @@ const GLOBE_DOTS = { color: BRAND_NAVY_LIGHT, size: 4, density: 7, allDots: fals
 export default function Character() {
 
   const { language } = useLanguage();
+
+  const phrases = language === 'ko' ? PHRASES_KO : PHRASES_EN;
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [typedLength, setTypedLength] = useState(0);
+
+  // Types the current phrase out one character at a time, holds it fully
+  // visible for a beat, then hands off to the phrase-advance effect below.
+  useEffect(() => {
+    setTypedLength(0);
+    const full = phrases[phraseIndex]?.length ?? 0;
+    let i = 0;
+    const typeId = setInterval(() => {
+      i += 1;
+      setTypedLength(i);
+      if (i >= full) clearInterval(typeId);
+    }, 65);
+    return () => clearInterval(typeId);
+  }, [phraseIndex, phrases]);
+
+  useEffect(() => {
+    const full = phrases[phraseIndex]?.length ?? 0;
+    const holdId = setTimeout(() => {
+      setPhraseIndex((i) => (i + 1) % phrases.length);
+    }, full * 65 + 1500);
+    return () => clearTimeout(holdId);
+  }, [phraseIndex, phrases]);
+
   const paragraph = language == 'en' ?
                   "Our mission is to realize your desires, to grow together, to make your dreams come true."
                   : "우리는 평범한 일상을 넘어, 더 특별하고 즐거운 순간을 선물합니다. 여러분의 꿈을 이루어 보세요."
@@ -57,6 +94,58 @@ export default function Character() {
           initialLongitude={40}
         />
       </div>
+
+      {/* The hero's glass card, relocated here — reads better floating
+          over the globe's own colorful motion than it did over the hero
+          video. Desktop only, matching the globe's own breakpoint. */}
+      <motion.div
+        className="pointer-events-none absolute right-[4%] top-[14%] z-[5] hidden w-[30vw] max-w-[400px] md:block"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <motion.div
+          animate={{ y: [0, -10, 0] }}
+          transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut' }}
+        >
+          <GlassCard className="px-10 py-11">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={phraseIndex}
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.4 }}
+                className="flex items-center gap-4"
+              >
+                <span
+                  className="flex h-11 w-11 flex-none items-center justify-center rounded-2xl"
+                  style={{ background: `linear-gradient(135deg, ${BRAND_PINK}, #FFD0A5)` }}
+                >
+                  {(() => {
+                    const Icon = PHRASE_ICONS[phraseIndex];
+                    return <Icon className="h-5 w-5" style={{ color: '#FDFCFB' }} />;
+                  })()}
+                </span>
+                <p
+                  className="bg-clip-text text-xl font-bold leading-snug text-transparent"
+                  style={{ backgroundImage: `linear-gradient(135deg, ${BRAND_NAVY}, ${BRAND_PINK})` }}
+                >
+                  {phrases[phraseIndex].slice(0, typedLength)}
+                  <motion.span
+                    className="ml-0.5 inline-block h-[1em] w-[2px] translate-y-[2px] align-middle"
+                    style={{ backgroundColor: BRAND_PINK }}
+                    animate={{ opacity: [1, 1, 0, 0] }}
+                    transition={{ repeat: Infinity, duration: 0.9, times: [0, 0.5, 0.5, 1] }}
+                  />
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </GlassCard>
+        </motion.div>
+      </motion.div>
+
       <div className="relative z-10 w-full px-6 md:px-16 lg:px-24">
         <p
           ref={container}

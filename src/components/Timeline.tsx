@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
-import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion"
+import { motion, useScroll, useTransform, useInView } from "framer-motion"
 import { useLanguage } from '@/contexts/LanguageContext';
 import Image from "next/image";
 
@@ -37,14 +37,6 @@ const timelineEvents = [
         description: "아마존 재팬 지정 현지화 업체, 카카오 태국법인 지정 현지화 업체, 메디방, 라쿠텐 일본 사업 채결",
         details:
             "Designated Localization Company for Amazon Japan, Designated Localization Company for Kakao Thailand, MediBang, Rakuten Japan Business Settlement",
-    },
-    {
-        year: 2025,
-        title: "글로벌 스토리 플랫폼 투니즈 런칭",
-        title_en: 'Global Story Platform Toonyz Launch',
-        description: "K-웹소설, K-웹툰 숏폼 컨텐츠 글로벌 사업 확대",
-        details:
-            "K-Web Novel, K-Webtoon Short Form Content Global Business Expansion",
     },
     {
         year: 2026,
@@ -87,12 +79,6 @@ export default function Timeline() {
         offset: ["start end", "end start"],
     })
 
-    const scaleX = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
-        restDelta: 0.001,
-    })
-
     return (
         <section ref={containerRef} className="py-20 bg-[#FFF8F3] overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -109,11 +95,10 @@ export default function Timeline() {
                 </motion.div>
 
                 <div className="relative">
-                    {/* Vertical line */}
-                    <motion.div
-                        className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-[#374B73]/20"
-                        style={{ scaleY: scaleX }}
-                    />
+                    {/* Vertical line — was tied to scroll progress (grew
+                        downward as you scrolled), now just always fully
+                        visible per request. */}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-[#374B73]/20" />
                     {/* Logo */}
                 
                     <motion.div

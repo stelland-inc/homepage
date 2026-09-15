@@ -30,7 +30,7 @@ export async function generateMetadata(): Promise<Metadata> {
       default: titles[lang],
       template: `%s | ${titles[lang]}`,
     },
-    description: "콘텐츠 테크 스타트업, 스텔라앤. 콘텐츠 현지화, 글로벌 유통, 콘텐츠 IP개발, 글로벌 스토리 플랫폼 투니즈 개발 및 운영",
+    description: "콘텐츠 테크 스타트업, 스텔라앤. 콘텐츠 현지화, 글로벌 유통, 콘텐츠 IP개발",
     icons: {
       icon: [
         {
@@ -51,11 +51,11 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     other: {
       title: "콘텐츠 테크 스타트업, 스텔라앤",
-      description: "콘텐츠 현지화, 글로벌 유통, 콘텐츠 IP개발, 글로벌 스토리 플랫폼 '투니즈' 개발 및 운영"
+      description: "콘텐츠 현지화, 글로벌 유통, 콘텐츠 IP개발"
     },
     openGraph: {
       title: titles[lang],
-      description: "콘텐츠 테크 스타트업, 스텔라앤. 콘텐츠 현지화, 글로벌 유통, 콘텐츠 IP개발, 글로벌 스토리 플랫폼 투니즈 개발 및 운영",
+      description: "콘텐츠 테크 스타트업, 스텔라앤. 콘텐츠 현지화, 글로벌 유통, 콘텐츠 IP개발",
       url: "https://stelland.io",
       siteName: titles[lang],
       images: [
@@ -123,6 +123,12 @@ export default async function RootLayout({
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap"
+        />
+        {/* Paperlogy — used only for the homepage hero's "Stella& Inc."
+            headline, not site-wide. */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy.css"
         />
       </head>
       <body
