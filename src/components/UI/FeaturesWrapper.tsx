@@ -47,24 +47,32 @@ const FeaturesWrapper = () => {
     const { dictionary, language } = useLanguage()
 
     return (
-        <section className="container space-y-12 py-12 md:px-0 px-2 md:py-24 lg:py-32">
+        <section className="container space-y-6 py-6 md:px-0 px-2 md:space-y-12 md:py-24 lg:py-32">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center"
+                className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-2 text-center md:gap-4"
             >
-                <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl" style={{ color: '#374b73' }}>
+                <h2 className="text-xl font-bold leading-[1.1] sm:text-3xl md:text-5xl" style={{ color: '#374b73' }}>
                     {language === 'ko' ? '함께하면 더 많은 것을 이룰 수 있습니다'
                                        : 'Together, We Achieve More'}
                 </h2>
-                <p className="max-w-[85%] leading-normal sm:text-lg sm:leading-7" style={{ color: '#374b73', opacity: 0.65 }}>
+                <p className="max-w-[85%] text-xs leading-normal sm:text-lg sm:leading-7" style={{ color: '#374b73', opacity: 0.65 }}>
                     {language === 'ko' ? '귀사의 글로벌 도약을 실현하는 콘텐츠 크리에이티브 파트너 스텔라앤과 함께라면, 여러분의 이야기가 전 세계로 더 많은 사람들에게 전달됩니다.'
                                        : 'With Stella&, experience translations that bring your content to 24 languages and localized designs, the ineffable feel of the original intact.'}
                 </p>
             </motion.div>
-            <div className="mx-auto grid gap-8 sm:max-w-3xl sm:grid-cols-2 lg:max-w-5xl lg:grid-cols-3">
+            {/* Mobile: a tight 2-column grid with trimmed cards (no
+                description, smaller icon) so all 5 fit on one screen
+                without scrolling — sm/md/lg keep the original spacious
+                card. The lone 5th card gets centered under the 2x2
+                above it instead of stretching full-width. */}
+            {/* Mobile: one row of 5 narrow, portrait cards (icon + short
+                title, no description) instead of a 2x3 grid — all 5 stay
+                visible without the last one sitting alone in its own row. */}
+            <div className="mx-auto grid grid-cols-5 gap-1.5 sm:max-w-3xl sm:grid-cols-2 sm:gap-8 lg:max-w-5xl lg:grid-cols-3">
                 {features.map((feature, index) => {
                     const badgeColor = BADGE_COLORS[index % BADGE_COLORS.length]
                     const isDarkBadge = badgeColor === '#374b73'
@@ -79,12 +87,12 @@ const FeaturesWrapper = () => {
                                 y: -6,
                                 transition: { duration: 0.3 },
                             }}
-                            className="relative overflow-hidden rounded-2xl border p-2 transition-shadow duration-300 hover:shadow-[0_12px_32px_-8px_rgba(255,129,151,0.35)]"
+                            className="relative overflow-hidden rounded-xl border p-1.5 transition-shadow duration-300 hover:shadow-[0_12px_32px_-8px_rgba(255,129,151,0.35)] sm:rounded-2xl sm:p-2"
                             style={{ borderColor: 'rgba(55,75,115,0.1)', backgroundColor: '#FDFCFB' }}
                         >
-                            <div className="flex h-[180px] flex-col justify-between rounded-md p-6">
+                            <div className="flex h-[150px] flex-col items-center justify-start gap-2 rounded-md p-1.5 text-center sm:h-[180px] sm:flex-col sm:items-stretch sm:justify-between sm:gap-0 sm:p-6 sm:text-left">
                                 <motion.span
-                                    className="flex h-14 w-14 items-center justify-center rounded-2xl"
+                                    className="flex h-7 w-7 flex-none items-center justify-center rounded-lg sm:h-14 sm:w-14 sm:rounded-2xl"
                                     style={{ backgroundColor: isDarkBadge ? badgeColor : `${badgeColor}` }}
                                     initial={{ scale: 0, rotate: -25 }}
                                     whileInView={{ scale: 1, rotate: 0 }}
@@ -92,11 +100,11 @@ const FeaturesWrapper = () => {
                                     transition={{ delay: index * 0.08 + 0.25, type: 'spring', stiffness: 220, damping: 14 }}
                                     whileHover={{ rotate: 8, scale: 1.08 }}
                                 >
-                                    <feature.icon className="h-7 w-7" style={{ color: isDarkBadge ? '#FDFCFB' : '#374b73' }} />
+                                    <feature.icon className="h-3.5 w-3.5 sm:h-7 sm:w-7" style={{ color: isDarkBadge ? '#FDFCFB' : '#374b73' }} />
                                 </motion.span>
-                                <div className="space-y-2 mt-2">
-                                    <h3 className="font-bold" style={{ color: '#374b73' }}>{ language === 'ko' ? feature.title_ko : feature.title}</h3>
-                                    <p className="text-sm" style={{ color: '#374b73', opacity: 0.6 }}>{language === 'ko' ? feature.description_ko : feature.description}</p>
+                                <div className="space-y-1 sm:mt-2 sm:space-y-2">
+                                    <h3 className="text-[10px] font-bold leading-tight sm:text-base" style={{ color: '#374b73' }}>{ language === 'ko' ? feature.title_ko : feature.title}</h3>
+                                    <p className="hidden text-sm sm:block" style={{ color: '#374b73', opacity: 0.6 }}>{language === 'ko' ? feature.description_ko : feature.description}</p>
                                 </div>
                             </div>
                         </motion.div>

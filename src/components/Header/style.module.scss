@@ -37,18 +37,28 @@
         }
 
         .languageContainer{
-            display: flex;
+            // Desktop only — mobile gets this same toggle inside the menu's
+            // Footer instead (see Header/Nav/Footer). A plain `display`
+            // media query here, not a Tailwind `hidden lg:flex` pair,
+            // since a CSS module rule and a Tailwind utility of equal
+            // specificity race on load order — this keeps the whole
+            // responsive toggle in one place instead of leaving it to chance.
+            display: none;
             flex-direction: row;
             justify-content: flex-end;
-            // align-items: center;
+            align-items: center;
             gap: 0px;
             position: absolute;
             right: 90px;
-            top: 50%;
-            // margin-top (not transform: translateY) — this is a motion.div,
-            // and framer-motion owns the `transform` property on it, so a
-            // CSS transform here gets silently overridden.
-            margin-top: -24px;
+            // Stretch to the bar's full height and center the pill inside
+            // with flexbox instead of `top: 50%` + a fixed `margin-top`
+            // (not `transform: translateY` — this is a motion.div, and
+            // framer-motion owns its `transform`, silently overriding a CSS
+            // one). The old fixed offset was tuned for the pill's desktop
+            // height and pushed it half off-screen at the mobile bar's
+            // shorter height; flexbox centering has no height to guess.
+            top: 0;
+            bottom: 0;
 
             .language{
                 // margin-left: 50px;
@@ -57,7 +67,16 @@
         }
 
         .el{
-            color: black;
+            // Set to white via inline style (--menu-color) on the homepage
+            // hero; every other context falls back to black here.
+            color: var(--menu-color, black);
+            // Was a plain flex child, so `.bar`'s `justify-content: center`
+            // centered it as a group with the logo instead of pinning it to
+            // the header's far edge, where a menu trigger normally lives.
+            position: absolute;
+            right: 0;
+            top: calc(50% + 5px);
+            transform: translateY(-50%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -65,7 +84,7 @@
             cursor: pointer;
 
             .label{ // Top menu label
-                color: black;
+                color: var(--menu-color, black);
                 position: relative;
                 display: flex;
                 align-items: center;
@@ -82,12 +101,12 @@
                 width: 22.5px;
                 position: relative;
                 pointer-events: none;
-    
+
                 &::after, &::before{
                     content: "";
                     height: 1px;
                     width: 100%;
-                    background-color: black;
+                    background-color: var(--menu-color, black);
                     position: relative;
                     display: block;
                     transition: all 1s cubic-bezier(0.76, 0, 0.24, 1);
@@ -138,5 +157,13 @@
             font-size: 16px;
         }
 
+    }
+}
+
+// Matches Tailwind's `lg:` breakpoint, which is what the burger-vs-desktop-nav
+// split in Header/index.tsx already uses.
+@media only screen and (min-width: 1024px) {
+    .header .bar .languageContainer {
+        display: flex;
     }
 }

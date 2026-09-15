@@ -140,9 +140,14 @@ export default function BusinessView() {
                 </div>
             </div>
 
-            <div className="md:h-[20vh] h-0 bg-[#374B73]"></div>
+            {/* A flat navy rectangle with nothing in it read as a leftover
+                placeholder rather than a deliberate transition — especially
+                stacked right against ServicesComponent's own navy section
+                below, which doubled the amount of plain navy in a row. A
+                gradient fade reads as an intentional bridge instead. */}
+            <div className="h-10 md:h-[20vh]" style={{ background: 'linear-gradient(180deg, #FDFCFB 0%, #374B73 100%)' }}></div>
             <ServicesComponent />
-            <div className='md:h-[20vh] h-[15vh] bg-[#374B73]'></div>
+            <div className='h-10 md:h-[20vh]' style={{ background: 'linear-gradient(180deg, #374B73 0%, #FDFCFB 100%)' }}></div>
             <Footer />
         </div>
     );

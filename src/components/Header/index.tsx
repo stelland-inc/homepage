@@ -2,7 +2,7 @@
 import styles from '@/components/Header/style.module.scss';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { opacity, background } from './anim';
 import Nav from '@/components/Header/Nav';
@@ -58,7 +58,11 @@ export default function Header() {
                         />
                 </Link>
                   
-                <div onClick={() => {setIsActive(!isActive)}} className={`lg:hidden ${styles.el}`}>
+                <div
+                    onClick={() => {setIsActive(!isActive)}}
+                    className={`lg:hidden ${styles.el}`}
+                    style={showWhite ? ({ '--menu-color': '#FFFFFF' } as CSSProperties) : undefined}
+                >
                     <div className={`lg:hidden ${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
                     <div className={`lg:hidden ${styles.label}`}>
                         <motion.p variants={opacity} animate={!isActive ? "open" : "closed"} className='lg:hidden flex'>Menu</motion.p>
@@ -66,6 +70,9 @@ export default function Header() {
                     </div>
                 </div>
 
+                {/* Desktop only now (see .languageContainer's own media
+                    query) — moved into the mobile menu's Footer, since this
+                    pill's height didn't fit the mobile bar. */}
                 <motion.div variants={opacity} animate={!isActive ? "open" : "closed"} className={styles.languageContainer}>
                     {/* <div className='flex flex-row items-center gap-2 uppercase text-red'> */}
                         <Link

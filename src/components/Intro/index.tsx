@@ -78,15 +78,24 @@ export default function Intro() {
               sub-widgets further down the page (Services, History) used
               <h1> instead. That left the homepage with no true top-level
               heading and two competing ones in the wrong place. */}
-          <motion.h1
+          <motion.div
+            className="w-full"
             initial={{ opacity: 0, y: 56, scale: 0.9, filter: 'blur(14px)' }}
             animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
             transition={{ duration: 1.1, ease: easeOut }}
-            className="w-full text-[clamp(2.5rem,9vw,6rem)] font-extrabold uppercase leading-[0.92] tracking-tight"
-            style={{ color: '#FFFFFF', fontFamily: "'Paperlogy', 'Pretendard', sans-serif" }}
           >
-            Stella& Inc.<br />Entertainment
-          </motion.h1>
+            {/* Once the entrance settles, a slow continuous drift keeps the
+                headline from going static — the one persistent motion in
+                the hero, not another one-shot effect. */}
+            <motion.h1
+              animate={{ y: [0, -8, 0] }}
+              transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut', delay: 1.2 }}
+              className="w-full text-[clamp(2.5rem,9vw,6rem)] font-extrabold uppercase leading-[0.92] tracking-tight"
+              style={{ color: '#FFFFFF', fontFamily: "'Paperlogy', 'Pretendard', sans-serif" }}
+            >
+              Stella& Inc.<br />Entertainment
+            </motion.h1>
+          </motion.div>
 
           <motion.div {...revealAt(0.12)} className="mt-6 max-w-xl md:mt-8">
             {

@@ -1,22 +1,39 @@
 .nav{
     overflow: hidden;
- 
+    // Framer Motion animates this element's `height` to "auto", which only
+    // matched the nav LINKS' own natural height — well short of a full
+    // screen. Below that, the actual page (hero video, etc.) was showing
+    // through a fully transparent background, since nothing here ever set
+    // one. `min-height` still applies as a floor under an animated
+    // `height: auto`, so this makes it a proper full-screen takeover on
+    // mobile without fighting the animation.
+    min-height: 100vh;
+    background-color: #FFF8F3;
+    padding: 0 20px 40px;
+    box-sizing: border-box;
+
     .wrapper{
          display: flex;
+         flex-direction: column;
          gap: 50px;
          margin-bottom: 80px;
      }
- 
+
      .container{
          display: flex;
          flex-direction: column;
          justify-content: space-between;
+         flex: 1;
      }
  }
- 
+
  @media only screen and (min-width: 1000px) {
      .nav{
+         min-height: 0;
+         padding: 0;
+
          .wrapper{
+             flex-direction: row;
              margin-bottom: 0px;
              justify-content: space-between;
          }

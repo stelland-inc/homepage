@@ -1,10 +1,13 @@
 .body{
+    // One link per line on mobile — the old `flex-wrap: wrap` let two
+    // short titles share a line and a long one sit alone, an arrangement
+    // that changed with viewport width for no reason a reader could see.
     display: flex;
-    flex-wrap: wrap;
-    margin-top: 40px;
+    flex-direction: column;
+    margin-top: 32px;
 
     a{
-        color: black;
+        color: #374B73;
         text-decoration: none;
         text-transform: uppercase;
     }
@@ -14,21 +17,29 @@
         display: flex;
         overflow: hidden;
         font-size: 32px;
-        padding-right: 30px;
+        font-weight: 700;
         padding-top: 10px;
-        font-weight: 300;
+        padding-bottom: 10px;
     }
 }
 
 @media only screen and (min-width: 1000px) {
-   
+
     .body{
+        flex-direction: row;
+        flex-wrap: wrap;
         max-width: 1200px;
         margin-top: 80px;
 
+        a{
+            color: black;
+        }
+
         p{
             font-size: 5vw;
+            font-weight: 300;
             padding-right: 2vw;
+            padding-bottom: 0;
         }
     }
 }
