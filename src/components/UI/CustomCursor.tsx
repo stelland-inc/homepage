@@ -1,14 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 import { useCursor } from "@/contexts/CursorContext"
 
 interface CustomCursorProps {
   variant: 'default' | 'hover';
 }
 
-const cursorVariants = {
+const cursorVariants: Variants = {
   default: {
     zIndex: 1000,
     width: 32,
