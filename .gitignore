@@ -6,3 +6,7 @@ node_modules
 archive/
 .originkit/
 *.tsbuildinfo
+
+
+# Contentlayer
+.contentlayer
