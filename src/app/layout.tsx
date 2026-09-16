@@ -60,7 +60,9 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: titles[lang],
       images: [
         {
-          url: 'https://stelland.io/images/logo/Logo_landscape.png',
+          url: 'https://stelland.io/images/og-image.png',
+          width: 1200,
+          height: 630,
           alt: titles[lang]
         }
       ]
@@ -69,7 +71,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: titles[lang],
       description: 'Stella&Inc.',
-      images: ['https://stelland.io/apple-touch-icon.png'],
+      images: ['https://stelland.io/images/og-image.png'],
     },
   }
 }
