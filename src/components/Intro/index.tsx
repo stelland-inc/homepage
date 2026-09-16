@@ -49,7 +49,7 @@ export default function Intro() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.55, 1], [1, 1, 0]);
 
   return (
-    <div className='relative -mt-[48px] h-[calc(100vh+48px)] overflow-hidden md:-mt-[60px] md:h-[calc(100vh+60px)]'>
+    <div ref={container} className='relative -mt-[48px] h-[calc(100vh+48px)] overflow-hidden md:-mt-[60px] md:h-[calc(100vh+60px)]'>
       <motion.div
         style={{ y, opacity: heroOpacity }}
         className='relative flex h-full flex-col items-center justify-center overflow-hidden px-6 md:items-start md:justify-center md:px-16 lg:px-24'
