@@ -19,9 +19,9 @@ const LOGO_VIEWBOX_H = 504;
 // on mount, so a refresh mid-animation still shows it again.
 const SESSION_KEY = 'stelland_intro_shown';
 
-const DRAW_DURATION = 1300;
-const STAGGER = 55;
-const HOLD = 350;
+const DRAW_DURATION = 780;
+const STAGGER = 33;
+const HOLD = 210;
 // Star cutout + zoom exit: the star's interior turns transparent — a
 // window onto the real page — and that window grows until it swallows
 // the screen. The growth is animated on the cutout shape itself (inside
@@ -29,7 +29,7 @@ const HOLD = 350;
 // on the masked element does NOT scale an already-applied mask's
 // geometry, it only moves/scales the already-composited (torn) result,
 // which left the hole stuck at its original size no matter the scale.
-const EXIT = 950;
+const EXIT = 570;
 const STAR_GROW_SCALE = 40;
 
 // A plain <style> tag (not styled-jsx) — styled-jsx's scoped :global()
