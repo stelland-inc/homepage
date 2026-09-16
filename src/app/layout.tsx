@@ -47,7 +47,10 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: "https://stelland.io",
     },
     verification: {
-      google: "XWvBW1Kv6FQDKvYSOe-SDmQOtGcCI5PRST0XF1JFpB8"
+      google: "XWvBW1Kv6FQDKvYSOe-SDmQOtGcCI5PRST0XF1JFpB8",
+      other: {
+        'naver-site-verification': '3d8004cf47229afaa2658eba40f05bd1b7d40874'
+      }
     },
     other: {
       title: "콘텐츠 테크 스타트업, 스텔라앤",
