@@ -2,6 +2,7 @@
 import React from 'react'
 import { useEffect, useRef } from 'react';
 import Lenis from 'lenis';
+import localFont from 'next/font/local';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Link from 'next/link';
@@ -10,6 +11,17 @@ import { useCursor } from '@/contexts/CursorContext';
 // Stella& brand palette, sampled from public/images/logo/Logo.png
 const BRAND_NAVY = '#374b73';
 const BRAND_PINK = '#FF8197';
+
+// Trial swap for the hero headline only — was Paperlogy (loaded site-wide
+// via a CDN <link> in layout.tsx just for this one heading). Self-hosted
+// via next/font/local instead of another CDN link: no extra network
+// origin, automatic preload, and no font-display flash to configure by hand.
+const cabinetGrotesk = localFont({
+  src: '../../fonts/CabinetGrotesk-Extrabold.woff2',
+  weight: '800',
+  display: 'swap',
+  fallback: ['Pretendard', 'sans-serif'],
+});
 
 const easeOut = [0.16, 1, 0.3, 1] as const;
 const revealAt = (delay: number) => ({
@@ -67,7 +79,7 @@ export default function Intro() {
           playsInline
           preload="auto"
           // @ts-expect-error -- valid HTML attribute, just missing from React's video typings
-          fetchpriority="high"
+          fetchPriority="high"
           poster="/videos/hero-poster.jpg"
           src="/videos/hero.mp4"
           className="absolute inset-0 z-0 h-full w-full object-cover"
@@ -94,8 +106,8 @@ export default function Intro() {
             <motion.h1
               animate={{ y: [0, -8, 0] }}
               transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut', delay: 1.2 }}
-              className="w-full text-[clamp(2.5rem,9vw,6rem)] font-extrabold uppercase leading-[0.92] tracking-tight"
-              style={{ color: '#FFFFFF', fontFamily: "'Paperlogy', 'Pretendard', sans-serif" }}
+              className={`${cabinetGrotesk.className} w-full text-[clamp(2.5rem,9vw,6rem)] font-extrabold uppercase leading-[0.92] tracking-tight`}
+              style={{ color: '#FFFFFF' }}
             >
               Stella& Inc.<br />Entertainment
             </motion.h1>

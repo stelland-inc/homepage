@@ -69,10 +69,11 @@ const FeaturesWrapper = () => {
                 without scrolling — sm/md/lg keep the original spacious
                 card. The lone 5th card gets centered under the 2x2
                 above it instead of stretching full-width. */}
-            {/* Mobile: one row of 5 narrow, portrait cards (icon + short
-                title, no description) instead of a 2x3 grid — all 5 stay
-                visible without the last one sitting alone in its own row. */}
-            <div className="mx-auto grid grid-cols-5 gap-1.5 sm:max-w-3xl sm:grid-cols-2 sm:gap-8 lg:max-w-5xl lg:grid-cols-3">
+            {/* One row of 5 narrow, portrait cards (icon + short title, no
+                description) at every breakpoint — was a 2x3 grid on
+                desktop, but the user asked for the same 5-across layout
+                used on mobile to carry up to web too. */}
+            <div className="mx-auto grid grid-cols-5 gap-1.5 sm:max-w-3xl sm:gap-4 lg:max-w-5xl lg:gap-8">
                 {features.map((feature, index) => {
                     const badgeColor = BADGE_COLORS[index % BADGE_COLORS.length]
                     const isDarkBadge = badgeColor === '#374b73'
@@ -90,7 +91,7 @@ const FeaturesWrapper = () => {
                             className="relative overflow-hidden rounded-xl border p-1.5 transition-shadow duration-300 hover:shadow-[0_12px_32px_-8px_rgba(255,129,151,0.35)] sm:rounded-2xl sm:p-2"
                             style={{ borderColor: 'rgba(55,75,115,0.1)', backgroundColor: '#FDFCFB' }}
                         >
-                            <div className="flex h-[150px] flex-col items-center justify-start gap-2 rounded-md p-1.5 text-center sm:h-[180px] sm:flex-col sm:items-stretch sm:justify-between sm:gap-0 sm:p-6 sm:text-left">
+                            <div className="flex h-[150px] flex-col items-center justify-start gap-2 rounded-md p-1.5 text-center sm:h-[300px] sm:flex-col sm:items-stretch sm:justify-between sm:gap-0 sm:p-6 sm:text-left">
                                 <motion.span
                                     className="flex h-7 w-7 flex-none items-center justify-center rounded-lg sm:h-14 sm:w-14 sm:rounded-2xl"
                                     style={{ backgroundColor: isDarkBadge ? badgeColor : `${badgeColor}` }}
