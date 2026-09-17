@@ -125,7 +125,7 @@ export default function Intro() {
 
           <motion.button
             {...revealAt(0.24)}
-            className='mt-8 rounded-full px-10 py-3 text-sm font-semibold uppercase tracking-wide transition-colors duration-300 md:mt-10'
+            className='mt-8 rounded-full px-12 py-4 text-lg font-semibold uppercase tracking-wide transition-colors duration-300 md:mt-10'
             style={{ backgroundColor: BRAND_PINK, color: '#FDFCFB' }}
             whileHover={{ backgroundColor: BRAND_NAVY, scale: 1.04 }}
             whileTap={{ scale: 0.97 }}

@@ -87,7 +87,8 @@ export default function Header() {
                             // globe.svg is a fixed gray (#666) fill baked into the
                             // file, so a CSS filter is what flips it to white on
                             // the homepage instead of needing a second asset.
-                            className={`absolute left-3 w-4 h-4 md:w-5 md:h-5 ${showWhite ? 'brightness-0 invert' : ''}`}
+                            className={`absolute w-4 h-4 md:w-5 md:h-5 ${showWhite ? 'brightness-0 invert' : ''}`}
+                            style={{ left: '22px' }}
                             />
                            <p style={{ marginLeft: '14px', color: showWhite ? '#FFFFFF' : '#374B73' }}> {language === "en" ? "ENG" : "KR"} </p>
                         </Link>

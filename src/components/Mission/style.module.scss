@@ -48,6 +48,15 @@
       // floats above the glyphs instead of hugging them.
       padding: 0px 8px;
       margin-right: 12px;
+
+      // The words inside inherit the shared 12px margin-top every other
+      // word in the paragraph carries, which stretches this box's own
+      // cross-axis size past the actual text line — pulling it back to 0
+      // just here trims the pink strip down to hug the glyphs, without
+      // touching the vertical rhythm of the surrounding plain words.
+      .word {
+        margin-top: 0;
+      }
     }
 
     .lineBreak{

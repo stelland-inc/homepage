@@ -49,9 +49,12 @@ export default function Section() {
         offset: ["start end", 'end start']
     })
     const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-    const paragraph = language == 'en' ? 
-                    "We present a moment of joy, beyond the mundane, for a more special moment. Let's find euphoria together."
-                  : "우리는 평범한 일상을 넘어, 즐거운 순간으로 더 특별한 순간을 선물합니다. 기쁨을 찾아가는 여정을 함께해요."
+    const koreanLines = [
+        "우리는 평범한 일상을 넘어,",
+        "더 특별한 순간을 선물합니다.",
+        "기쁨을 찾아가는 여정을 함께해요",
+    ]
+    const paragraph = "We present a moment of joy, beyond the mundane, for a more special moment. Let's find euphoria together."
 
     return (
         <div
@@ -84,8 +87,12 @@ export default function Section() {
                 </div>
             </div>
 
-            <div className='relative z-10 md:!text-2xl !text-lg w-full max-w-6xl self-start text-left uppercase leading-relaxed text-white mt-16'>
-                <Word paragraph={paragraph} thin revealOnScroll={false} />
+            <div className='relative z-10 md:!text-2xl !text-lg w-full max-w-6xl self-start text-left uppercase leading-relaxed text-white mt-24'>
+                {language === 'ko'
+                    ? koreanLines.map((line, i) => (
+                        <Word key={i} paragraph={line} thin revealOnScroll={false} />
+                    ))
+                    : <Word paragraph={paragraph} thin revealOnScroll={false} />}
             </div>
             <p className='relative z-10 md:text-[3.6vw] text-[24px] md:leading-relaxed leading-none uppercase font-bold tracking-tight mb-0 text-[#374B73]'>
                 {language === 'en' ? 'Beyond reality, into your story' : '평범한 일상을 넘어, 특별한 순간으로'}
