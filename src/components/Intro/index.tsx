@@ -23,14 +23,6 @@ const outfit = localFont({
   fallback: ['Pretendard', 'sans-serif'],
 });
 
-// Contact Us button label only.
-const quilon = localFont({
-  src: '../../fonts/Quilon-Bold.woff2',
-  weight: '700',
-  display: 'swap',
-  fallback: ['Pretendard', 'sans-serif'],
-});
-
 const easeOut = [0.16, 1, 0.3, 1] as const;
 const revealAt = (delay: number) => ({
   initial: { opacity: 0, y: 24 },
@@ -133,7 +125,7 @@ export default function Intro() {
 
           <motion.button
             {...revealAt(0.24)}
-            className={`${quilon.className} mt-8 rounded-full px-12 py-4 text-lg font-bold uppercase tracking-wide transition-colors duration-300 md:mt-10`}
+            className='mt-8 rounded-full px-10 py-3 text-sm font-semibold uppercase tracking-wide transition-colors duration-300 md:mt-10'
             style={{ backgroundColor: BRAND_PINK, color: '#FDFCFB' }}
             whileHover={{ backgroundColor: BRAND_NAVY, scale: 1.04 }}
             whileTap={{ scale: 0.97 }}

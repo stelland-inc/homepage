@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
 import React, { useRef } from 'react';
 import styles from '@/components/Mission/style.module.scss';
 
-export default function Paragraph({paragraph, thin, revealOnScroll = true}: {paragraph: string; thin?: boolean; revealOnScroll?: boolean}) {
+export default function Paragraph({paragraph, thin, revealOnScroll = true, style}: {paragraph: string; thin?: boolean; revealOnScroll?: boolean; style?: React.CSSProperties}) {
 
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -16,6 +16,7 @@ export default function Paragraph({paragraph, thin, revealOnScroll = true}: {par
     <p
       ref={container}
       className={`md:text-xl !text-md ${styles.paragraph} ${thin ? styles.thin : ''}`}
+      style={style}
     >
     {
       words.map( (word, i) => {

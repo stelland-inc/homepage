@@ -90,7 +90,7 @@ export default function Section() {
             <div className='relative z-10 md:!text-2xl !text-lg w-full max-w-6xl self-start text-left uppercase leading-relaxed text-white mt-24'>
                 {language === 'ko'
                     ? koreanLines.map((line, i) => (
-                        <Word key={i} paragraph={line} thin revealOnScroll={false} />
+                        <Word key={i} paragraph={line} thin revealOnScroll={false} style={{ padding: '4px 0' }} />
                     ))
                     : <Word paragraph={paragraph} thin revealOnScroll={false} />}
             </div>

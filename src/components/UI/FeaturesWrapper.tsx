@@ -98,7 +98,7 @@ const FeaturesWrapper = () => {
                 in from the other, rather than everything just crossfading
                 in place. */}
             <div
-                className="relative mx-auto h-[220px] w-full max-w-5xl sm:h-[280px] md:h-[320px]"
+                className="relative mx-auto h-[180px] w-full max-w-5xl sm:h-[220px] md:h-[260px]"
                 style={{ perspective: '1400px' }}
                 onMouseEnter={() => setPaused(true)}
                 onMouseLeave={() => setPaused(false)}
@@ -118,7 +118,7 @@ const FeaturesWrapper = () => {
                     return (
                         <motion.div
                             key={index}
-                            className="absolute left-1/2 top-1/2 w-[78%] max-w-[560px] cursor-pointer overflow-hidden rounded-2xl border sm:w-[62%]"
+                            className="absolute left-1/2 top-1/2 w-[88%] max-w-[680px] cursor-pointer overflow-hidden rounded-2xl border sm:w-[75%]"
                             style={{
                                 borderColor: 'rgba(55,75,115,0.1)',
                                 backgroundColor: '#FDFCFB',
@@ -137,7 +137,7 @@ const FeaturesWrapper = () => {
                             onClick={() => setActive(index)}
                             whileHover={isActive ? { y: '-52%' } : undefined}
                         >
-                            <div className="flex h-[220px] flex-row items-center gap-4 p-5 text-left sm:h-[280px] sm:gap-6 sm:p-8 md:h-[320px]">
+                            <div className="flex h-[180px] flex-row items-center gap-4 p-5 text-left sm:h-[220px] sm:gap-6 sm:p-8 md:h-[260px]">
                                 <motion.span
                                     className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl sm:h-16 sm:w-16"
                                     style={{ backgroundColor: badgeColor }}
