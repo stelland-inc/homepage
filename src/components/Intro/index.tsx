@@ -65,6 +65,10 @@ export default function Intro() {
           muted
           loop
           playsInline
+          preload="auto"
+          // @ts-expect-error -- valid HTML attribute, just missing from React's video typings
+          fetchpriority="high"
+          poster="/videos/hero-poster.jpg"
           src="/videos/hero.mp4"
           className="absolute inset-0 z-0 h-full w-full object-cover"
         />
