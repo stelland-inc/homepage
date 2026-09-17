@@ -99,7 +99,7 @@ export default function Character() {
           over the globe's own colorful motion than it did over the hero
           video. Desktop only, matching the globe's own breakpoint. */}
       <motion.div
-        className="pointer-events-none absolute right-[4%] top-[28%] z-[5] hidden w-[30vw] max-w-[400px] md:block"
+        className="pointer-events-none absolute right-[4%] top-[calc(28%+50px)] z-[5] hidden w-[30vw] max-w-[400px] md:block"
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}

@@ -17,8 +17,8 @@ const BRAND_PINK = '#FF8197';
 // via next/font/local instead of another CDN link: no extra network
 // origin, automatic preload, and no font-display flash to configure by hand.
 const outfit = localFont({
-  src: '../../fonts/Outfit-Black.woff2',
-  weight: '900',
+  src: '../../fonts/Outfit-SemiBold.woff2',
+  weight: '600',
   display: 'swap',
   fallback: ['Pretendard', 'sans-serif'],
 });
@@ -106,7 +106,7 @@ export default function Intro() {
             <motion.h1
               animate={{ y: [0, -8, 0] }}
               transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut', delay: 1.2 }}
-              className={`${outfit.className} w-full text-[clamp(2.5rem,9vw,6rem)] font-extrabold uppercase leading-[0.92] tracking-tight`}
+              className={`${outfit.className} w-full text-[clamp(2.5rem,9vw,7.5rem)] font-semibold uppercase leading-[0.92] tracking-tight`}
               style={{ color: '#FFFFFF' }}
             >
               Stella& Inc.<br />Entertainment
