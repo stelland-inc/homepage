@@ -16,9 +16,9 @@ const BRAND_PINK = '#FF8197';
 // via a CDN <link> in layout.tsx just for this one heading). Self-hosted
 // via next/font/local instead of another CDN link: no extra network
 // origin, automatic preload, and no font-display flash to configure by hand.
-const cabinetGrotesk = localFont({
-  src: '../../fonts/CabinetGrotesk-Extrabold.woff2',
-  weight: '800',
+const boska = localFont({
+  src: '../../fonts/Boska-Black.woff2',
+  weight: '900',
   display: 'swap',
   fallback: ['Pretendard', 'sans-serif'],
 });
@@ -106,7 +106,7 @@ export default function Intro() {
             <motion.h1
               animate={{ y: [0, -8, 0] }}
               transition={{ repeat: Infinity, duration: 4.5, ease: 'easeInOut', delay: 1.2 }}
-              className={`${cabinetGrotesk.className} w-full text-[clamp(2.5rem,9vw,6rem)] font-extrabold uppercase leading-[0.92] tracking-tight`}
+              className={`${boska.className} w-full text-[clamp(2.5rem,9vw,6rem)] font-extrabold uppercase leading-[0.92] tracking-tight`}
               style={{ color: '#FFFFFF' }}
             >
               Stella& Inc.<br />Entertainment
